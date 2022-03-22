@@ -1,0 +1,27 @@
+@use '../config/colors' as c;
+@use '../local/fonts' as f;
+
+
+@mixin fa-btn {
+    color: c.$white-f;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@mixin button ($color: c.$black, $background: c.$grey2) {
+    color: $color;
+    background: $background;
+    font-size: f.$v-small;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+@mixin button-hover {
+    background: c.$black;
+    color: c.$white-f;
+}
+
+@mixin desk-mid-button {
+    width: 70%;
+    padding: 5px;
+}

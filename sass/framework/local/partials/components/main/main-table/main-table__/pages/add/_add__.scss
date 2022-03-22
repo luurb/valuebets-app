@@ -1,0 +1,68 @@
+@use '../../../../../../../../config/breakpoints';
+@use '../../../../../../../../local/fonts';
+
+.main-table__add-table {
+    table-layout: fixed;
+
+    th:nth-child(-n+4) {
+        width: 10%;
+    }
+    
+    th:nth-child(5) {
+        width: 25%;
+    }
+
+    th:nth-child(6) {
+        width: 10%;
+    }
+}
+
+@media (max-width: breakpoints.$desktop) {
+    .main-table__add-table {
+        display: flex;
+
+        th:nth-child(-n+12),
+        td:nth-child(-n+12) {
+            display: block;
+            width: 100%;
+            height: 50px;
+        }
+
+        th:nth-child(-n+11) {
+            padding: 15px;
+        }
+        tbody, thead {
+            width: 100%;
+            display: flex;    
+        }
+
+        tr {
+            width: 100%;
+        }
+
+        select, input[type="submit"] {
+            width: 30%;
+        }
+
+        input {
+            width: 80%;
+        };
+
+        select option {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: breakpoints.$tablets) {
+    .main-table__add-table {
+        select, input[type="submit"] {
+            width: 70%;
+        }
+
+        input {
+            width: 100%;
+            font-size: fonts.$v-small;
+        };
+    }
+}

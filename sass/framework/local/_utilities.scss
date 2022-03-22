@@ -1,0 +1,41 @@
+@use '../config/colors';
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.block {
+    display: block;
+}
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+.none {
+    display: none;
+}
+
+.tr-delete-blink {
+    animation: 2s blinker 0s linear 1;
+}
+
+.tr-add-blink {
+    animation: 2s blinker 2s linear 1;
+}
+
+.tbody-blink {
+    animation: 2s tbody-blinker 0s ease-out 1;
+}
+
+.sorted {
+    color: colors.$black1 !important;
+}
+
+.error-input {
+    border: 2px solid colors.$red;
+}

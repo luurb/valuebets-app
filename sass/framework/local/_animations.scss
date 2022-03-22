@@ -1,0 +1,14 @@
+@keyframes blinker {
+    50% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes tbody-blinker {
+   from {
+       opacity: 0;
+   }
+   to {
+       opacity: 1;
+   }
+}

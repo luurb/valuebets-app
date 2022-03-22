@@ -1,0 +1,30 @@
+@use '../../../../../../mixins';
+@use '../../../../../../../config/colors';
+
+.filters__box {
+    padding: 0 10px 10px 10px;
+}
+
+.filters__input {
+    width: 100%;
+    @include mixins.button(colors.$black, colors.$white-f);
+}
+
+.filters__submit {
+    margin-top: 10px;
+}
+
+.filters__submit:hover {
+    @include mixins.button-hover;
+}
+
+.filters__value {
+    width: 70%;
+    display: block;
+    padding: 5px;
+    margin: auto;
+    background: colors.$black;
+    color: colors.$white-f;
+    border-radius: 10px;
+}
+

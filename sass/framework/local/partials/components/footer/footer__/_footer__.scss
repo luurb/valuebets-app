@@ -1,0 +1,33 @@
+@use '../../../../../config/breakpoints';
+@use '../../../../fonts';
+@use '../../../../../config/colors';
+
+.footer__top {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+        flex-wrap: wrap;
+         
+        li {
+            border-left: 1px solid colors.$grey-f;
+        }
+        
+        li:nth-child(4) {
+            border-right: 1px solid colors.$grey-f;
+        }
+    }
+}
+
+.footer__bottom {
+    text-align: center;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: breakpoints.$tablets) {
+    .footer__bottom {
+        font-size: fonts.$v-small;
+    }
+}

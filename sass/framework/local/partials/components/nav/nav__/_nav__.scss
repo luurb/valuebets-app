@@ -1,0 +1,108 @@
+@use '../../../../../config/breakpoints';
+@use '../../../../../config/colors';
+@use '../../../../../local/fonts';
+
+.nav__label {
+    color: colors.$white-f;
+    cursor: pointer;
+    
+    i {
+        font-size: fonts.$big;
+    }
+}
+
+.nav__left-nav {
+    padding-left: 100px;
+}
+
+.nav__logo {
+    font-size: fonts.$v-large;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    a {
+        color: colors.$light-green;
+    }
+}
+
+.nav__seclogo {
+    color: colors.$white-f;
+    font-size: fonts.$large;
+}
+
+.nav__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: breakpoints.$tablets) {
+    .nav__left-nav {
+      padding-left: 0;
+    }
+
+    .nav__label--nav {
+        display: block;
+        position: fixed;
+        right: 50px;
+    }
+
+    .nav__wrapper {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 80px;
+        width: 100%;
+        height: 100vh;
+        background: colors.$black1;
+        text-align: center;
+        left: -100%;
+        transition: all 0.3s ease;
+
+        ul {
+            display: block;
+            padding: 20px 0;
+        }
+
+        li {
+            padding: 10px 0;
+        }
+    }
+
+    #nav-check:checked ~ .nav__wrapper {
+        left: 0;
+    }
+
+    #nav-check:checked ~ .nav__label i:before {
+        content: "\f00d";
+    }
+}
+
+@media (max-width: breakpoints.$desktop-small) and (min-width: breakpoints.$tablets) {
+    .nav__label--user {
+        display: block;
+    }
+
+    .nav__right-nav {
+        position: fixed;
+        left: 0;
+        top: 80px;
+        width: 100%;
+        background: colors.$black1;
+        text-align: right;
+        display: none;
+
+        ul, li {
+            display: block;
+            padding: 5px;
+        }
+    }
+
+    #user-check:checked ~ .nav__right-nav {
+        display: block;
+    }
+
+    #user-check:checked ~ .nav__label i:before {
+        content: "\f00d";
+    }
+}

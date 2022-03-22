@@ -1,0 +1,21 @@
+//nav
+@forward 'nav/nav';
+@forward 'nav/elements';
+@forward 'nav/nav-btn';
+@forward 'nav/user-btn';
+
+//main
+@forward 'main/main';
+@forward 'main/elements';
+
+//footer
+@forward 'footer/footer';
+@forward 'footer/elements';
+
+//filters
+@forward 'filters/filters';
+@forward 'filters/elements';
+
+//home
+@forward 'home/home';
+@forward 'home/elements';

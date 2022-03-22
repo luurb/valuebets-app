@@ -1,0 +1,5 @@
+@use '../../../mixins';
+
+.nav-btn {
+    @include mixins.fa-btn;
+}

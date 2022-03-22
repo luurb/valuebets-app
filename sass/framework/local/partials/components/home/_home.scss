@@ -1,0 +1,9 @@
+@use '../../../../config/colors';
+
+.home {
+    background: colors.$grey-gradient;
+    display: flex;
+    height: calc(100vh - 80px);
+    align-items: center;
+    justify-content: center;
+}

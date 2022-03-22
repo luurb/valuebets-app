@@ -1,0 +1,13 @@
+@use '../../../../../config/colors';
+@use '../../../../../local/fonts';
+
+.auth {
+    width: 80%;
+    max-width: 600px;
+    font-size: fonts.$medium;
+    font-family: fonts.$poppins;
+    padding: 30px; 
+    background: colors.$grey2;
+    box-shadow: 0px 5px 10px colors.$grey-f;
+    border-radius: 10px;
+}
