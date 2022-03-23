@@ -1,5 +1,9 @@
 @use '../config/colors';
 
+.width-50 {
+    width: 50% !important;
+}
+
 .flex {
     display: flex;
 }
@@ -33,9 +37,22 @@
 }
 
 .sorted {
-    color: colors.$black1 !important;
+    color: colors.$purple !important;
 }
 
 .error-input {
     border: 2px solid colors.$red;
+}
+
+.error-text {
+    color: colors.$red;
+}
+
+.purple-input{
+    background: colors.$purple-hover-gradient;
+    color: colors.$white-f;
+}
+
+.purple-input:hover {
+    background: colors.$purple-hover-gradient;
 }

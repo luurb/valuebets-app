@@ -1,0 +1,177 @@
+@use '../../../../fonts';
+@use '../../../../../config/colors';
+@use '../../../../../config/breakpoints';
+@use '../../../../mixins';
+
+.filters__header {
+    display: block;
+    padding-top: 5px;
+    font-size: fonts.$medium;
+    font-weight: 600;
+}
+
+.filters__header--stat {
+    padding-bottom: 5px;;
+    font-size: fonts.$small;
+}
+
+.filters__options {
+    text-align: center;
+    border-top: 2px solid colors.$grey2;
+    max-height: calc(100vh - 110px);
+    overflow: auto;
+
+}
+
+.filters__stats {
+    padding: 10px 30px;
+    border-bottom: 2px solid colors.$grey2;
+}
+
+.filters__wrapper {
+    width: 220px;
+    height: 40px;
+    font-size: fonts.$large;
+    text-align: center;
+    padding: 5px;
+}
+
+.filters__box {
+    padding: 0 10px 10px 10px;
+}
+
+.filters__input {
+    width: 100%;
+    @include mixins.button(colors.$black, colors.$white-f);
+}
+
+.filters__submit {
+    margin-top: 10px;
+}
+
+.filters__submit:hover {
+    background: colors.$purple-hover-gradient;
+}
+
+.filters__value {
+    width: 70%;
+    display: block;
+    padding: 5px;
+    margin: auto;
+    background: colors.$black;
+    color: colors.$white-f;
+    border-radius: 10px;
+}
+
+.filters__button {
+    width: 70%;
+    text-transform: unset;
+    @include mixins.button(colors.$white-f, colors.$purple-gradient);
+}
+
+.filters__button--filter {
+    background: colors.$light-green;
+    color: colors.$white-f;
+}
+
+.filters__button--unfilter {
+    background: colors.$white-f;
+    color: colors.$black;
+}
+
+.filters__refresh-num {
+    font-weight: 600;
+    border-left: 2px solid colors.$grey1;
+    border-right: 2px solid colors.$grey1;
+}
+
+.filters__refresh-wrapper {
+    padding: 8px;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background: colors.$white-f;
+    color: colors.$black1;
+
+    span {
+        text-align: center;
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+.filters__caret-down {
+    margin-bottom: 10px;
+}
+
+.filters__caret {
+    height: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    color: colors.$white-f;
+}
+
+.filters__caret:hover {
+    color: colors.$purple;
+}
+
+.filters__select {
+    @include mixins.button(colors.$white-f, colors.$purple-gradient);
+    text-align: left;
+
+    option {
+        color: black;
+        background: colors.$purple;
+        color: colors.$white-f;
+    }
+}
+
+.filters__select:hover,
+.filters__select:focus {
+    background: colors.$purple-hover-gradient;
+}
+
+.filters__sorting {
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+@media (max-width: breakpoints.$desktop-mid) {
+    .filters__options {
+        position: fixed;
+        right: -100%;
+        top: 120px;
+        width: 220px;
+        background: colors.$grey1;
+        transition: all 0.3s ease;
+    }
+
+    .filters__wrapper {
+        display: block;
+        position: fixed;
+        top: 80px;
+        right: 50px;
+                
+        i {
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
+    #stat-check:checked ~ .filters__wrapper i  {
+        transform: rotate(180deg) translateZ(0);
+        transition: all 0.8s ease;
+    }
+
+    #stat-check:not(:checked) ~ .filters__wrapper i  {
+        transform: rotate(0deg) translateZ(0);
+        transition: all 0.8s ease;
+    }
+    #stat-check:checked ~ .filters__options {
+        right: 0;
+    }
+}

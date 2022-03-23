@@ -1,0 +1,10 @@
+@use '../../../../mixins';
+@use '../../../../../config/colors';
+@use '../../../../fonts';
+
+.add-bet {
+    width: 90%;
+    max-width: 950px;
+    max-height: 100%;
+    @include mixins.post-form;
+}

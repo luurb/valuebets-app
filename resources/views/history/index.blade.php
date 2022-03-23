@@ -75,7 +75,8 @@
                     <input type="date" name="first_date" class="filters__input">
                     <span class="ftilers__header filters__header--stat">/</span>
                     <input type="date" name="second_date" class="filters__input">
-                    <input type="submit" name="submit" class="filters__button filters__submit">
+                    <input type="submit" name="submit" 
+                    class="filters__button filters__submit purple-input">
                 </form>
             </div>
         </div>

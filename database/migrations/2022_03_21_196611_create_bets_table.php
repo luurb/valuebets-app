@@ -27,7 +27,7 @@ return new class extends Migration
             $table->tinyInteger('result')->nullable();
             $table->float('return')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('bookie_id')->references('id')->on('bookies');
             $table->foreign('sport_id')->references('id')->on('sports');
         });

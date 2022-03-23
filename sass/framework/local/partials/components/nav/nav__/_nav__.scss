@@ -5,7 +5,7 @@
 .nav__label {
     color: colors.$white-f;
     cursor: pointer;
-    
+
     i {
         font-size: fonts.$big;
     }
@@ -34,11 +34,28 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+.nav__logout-button {
+    display: inline-block;
+    color: colors.$white-f;
+    padding: 6px 8px;
+    background: colors.$black;
+    font-weight: 500;
+    font-size: fonts.$small;
+    font-family: fonts.$poppins;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+.nav__logout-button:hover {
+    color: colors.$black;
+    background: colors.$white-f;
 }
 
 @media (max-width: breakpoints.$tablets) {
     .nav__left-nav {
-      padding-left: 0;
+        padding-left: 0;
     }
 
     .nav__label--nav {
@@ -78,6 +95,12 @@
     }
 }
 
+@media (max-width: breakpoints.$desktop-small) {
+    .nav__logout-button {
+        background: colors.$black1;
+    }
+}
+
 @media (max-width: breakpoints.$desktop-small) and (min-width: breakpoints.$tablets) {
     .nav__label--user {
         display: block;
@@ -92,7 +115,8 @@
         text-align: right;
         display: none;
 
-        ul, li {
+        ul,
+        li {
             display: block;
             padding: 5px;
         }

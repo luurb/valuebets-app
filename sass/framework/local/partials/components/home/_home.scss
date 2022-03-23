@@ -3,7 +3,9 @@
 .home {
     background: colors.$grey-gradient;
     display: flex;
-    height: calc(100vh - 80px);
+    width: 100%;
+    min-height: calc(100vh - 120px);
     align-items: center;
     justify-content: center;
+    padding: 20px 0;
 }

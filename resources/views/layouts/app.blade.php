@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
+    @yield('js-links')
     <nav class="nav flex">
-        <div class="nav__logo"><a href="/valuebets">Value<span class="nav__seclogo">scrap</span></a></div>
+        <div class="nav__logo"><a href="/home">Value<span class="nav__seclogo">scrap</span></a></div>
         <input type="checkbox" id="nav-check" class="none">
         <label for="nav-check" class="nav__label nav__label--nav none">
             <i class="fas fa-bars"></i>
@@ -18,10 +19,11 @@
         <div class="nav__wrapper">
             <div class="nav__left-nav">
                 <ul>
+                    <li><a href="/home">Home</a></li>
                     <li><a class="active" href="/valuebets">Valuebets</a></li>
                     <li><a href="/history">Bet history</a></li>
                     <li><a href="/add">Add bet</a></li>
-                    <li><a href="/"> Tutorials</a></li>    
+                    <li><a href="/home"> Tutorials</a></li>    
                 </ul>
             </div>
             <input type="checkbox" id="user-check" class="none">
@@ -30,8 +32,19 @@
             </label>
             <div class="nav__right-nav">
                 <ul>
-                    <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-                    <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i>Sing up</a></li>
+                    @auth
+                        <li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-user"></i>{{ auth()->user()->name }}</a></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                               <button type="submit" class="nav__logout-button"><i class="fa-solid fa-right-to-bracket"></i>Log out</button>
+                            </form>
+                        </li>
+                    @endauth
+                    @guest
+                        <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                        <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i>Sing up</a></li>
+                    @endguest
                 </ul>
             </div>
         </div>

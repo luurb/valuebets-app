@@ -4,8 +4,37 @@
    Valuebets
 @endsection
 
+@section('js-links')
+    <script type="module" src="{{ asset('js/fetch.js') }}" async></script>
+    <script src="{{ asset('js/refresh-option.js') }}" defer></script>
+    <script type="module" src="{{ asset('js/game-filter.js') }}" defer></script>
+    <script type="module" src="{{ asset('js/sorting.js') }}" defer></script>
+@endsection
+
 @section('nav-box-content')
     <div class="nav-box__timer"></div>
+@endsection
+
+@section('main-content')
+    <table class="main-table__table main-table__valuebets-table">
+        <thead>
+            <tr>
+                <th scope="colgroup">Delay</th>
+                <th scope="colgroup">Bookmaker</th>
+                <th scope="colgroup">Sport</th>
+                <th scope="colgroup">Date and time</th>
+                <th scope="colgroup">Teams</th>
+                <th scope="colgroup">Bet</th>
+                <th scope="colgroup">Odd</th>
+                <th scope="colgroup">Value</th>
+                <th scope="colgroup">
+                    <input type="submit" value="Add/Delete" class="main-table__button">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>  
+    </table>
 @endsection
 
 @section('filters-content')
