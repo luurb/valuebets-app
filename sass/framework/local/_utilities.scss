@@ -1,4 +1,5 @@
 @use '../config/colors';
+@use './fonts';
 
 .width-50 {
     width: 50% !important;
@@ -22,6 +23,21 @@
 
 .none {
     display: none;
+}
+
+.win {
+    color: colors.$green;
+    font-weight: 600;
+}
+
+.lost {
+    color: colors.$red;
+    font-weight: 600;
+}
+
+.stake {
+    color: colors.$gold;
+    font-weight: 600;
 }
 
 .tr-delete-blink {
@@ -48,7 +64,7 @@
     color: colors.$red;
 }
 
-.purple-input{
+.purple-input {
     background: colors.$purple-hover-gradient;
     color: colors.$white-f;
 }

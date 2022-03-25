@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -23,9 +24,9 @@ return new class extends Migration
             $table->string('bet')->nullable();
             $table->float('odd');
             $table->float('value');
-            $table->mediumInteger('stake');
-            $table->tinyInteger('result')->nullable();
-            $table->float('return')->nullable();
+            $table->float('stake');
+            $table->string('result')->nullable();
+            $table->float('return', 15)->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('bookie_id')->references('id')->on('bookies');
@@ -40,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bet_history');
+        Schema::dropIfExists('bets');
     }
 };

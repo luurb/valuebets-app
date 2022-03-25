@@ -10,13 +10,14 @@ class LoginController extends Controller
 {
     public function __construct()
     {
+        Redirect::setIntendedUrl(url()->previous());
         $this->middleware('guest');
     }
     
     public function index()
     {
         return view('auth.login.index');
-    }    //
+    }    
 
     public function store(Request $request) 
     {
@@ -28,7 +29,7 @@ class LoginController extends Controller
         if(! auth()->attempt($request->only('name', 'password'))) {
             return back()->with('status', 'Invalid login credentials');
         }
-        
-        return redirect()->intended();
+
+        return redirect()->intended('valuebets');
     }
 }

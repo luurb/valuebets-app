@@ -4,6 +4,10 @@
     Bet history
 @endsection
 
+@section('js-links')
+    <script type="module" src="{{ asset('js/modules/fetch/add-icons.mjs') }}" async></script>
+@endsection
+
 @section('main-content')
     <table class="main-table__table main-table__history-table">
         <thead>
@@ -26,8 +30,45 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="">
-            </tr>
+            @if ($bets->count())
+                @php
+                    $iter = 0;
+                @endphp
+                @foreach ($bets as $bet)
+                    @php
+                       $iter++; 
+                    @endphp
+                    <tr>
+                        <td><span class="main-table__iter-span">{{ $iter }}</span></td> 
+                        <td>{{ $bet->bookie->bookie_name }}</td> 
+                        <td>{{ $bet->sport->sport_name }}</td> 
+                        <td>{{ $bet->date_time }}</td> 
+                        <td class="{{ strtolower($bet->result) }}">
+                            {{ $bet->teams }}
+                        </td> 
+                        <td>{{ $bet->bet }}</td> 
+                        <td>{{ $bet->odd }}</td> 
+                        <td>{{ $bet->value . ' %'}}</td> 
+                        <td class="stake">{{ $bet->stake . ' $'}}</td> 
+                        <td>{{ $bet->result }}</td> 
+                        <td class="{{ strtolower($bet->result) }}">{{ $bet->return . ' $' }}</td> 
+                        <td>
+                            <label>
+                                <input type="checkbox" value="" name="del[]" 
+                                class="main-table__checkbox--del none">
+                                <span class="main-table__span main-table__history-span">Del</span>
+                            </label>
+                        </td>
+                        </form>
+                        <td>
+                            <form method="get" action="/modify">
+                                <button type="submit" value="" name="submit" 
+                                class="main-table__button main-table__history-button">Mod</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
         </tbody>         
     </table>
 @endsection

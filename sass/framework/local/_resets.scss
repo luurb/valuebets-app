@@ -1,7 +1,18 @@
 @use 'fonts';
+@use '../config/breakpoints';
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font: fonts.$lato;
+}
+
+html {
+    font-size: 10px;
+}
+
+@media (max-width: breakpoints.$phones) {
+    html {
+        font-size: 9px;
+    }
 }

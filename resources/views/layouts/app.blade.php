@@ -43,7 +43,7 @@
                     @endauth
                     @guest
                         <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-                        <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i>Sing up</a></li>
+                        <li><a href="{{ route('register') }}" id="nav__singup-button"><i class="fas fa-user-plus"></i>Register</a></li>
                     @endguest
                 </ul>
             </div>

@@ -92,6 +92,10 @@
     transition: all 0.3s ease;
 }
 
+.main-table__span:hover {
+    box-shadow: 0px 2px 5px colors.$black;
+}
+
 .main-table__add-table {
     table-layout: fixed;
 
@@ -154,25 +158,21 @@
     }
 }
 
-.main-table__tr--win {
-    td:nth-child(5),
-    td:nth-child(11) {
-        color: colors.$green;
-        font-weight: 600;
-    }
-}
-
-.main-table__tr--lose {
-    td:nth-child(5),
-    td:nth-child(11) {
-        color: colors.$red;
-        font-weight: 600;
-    }
-}
-
 .main-table__valuebets-clock {
     padding: 5px 10px;
     display: block;
+}
+
+.main-table__win-bet {
+}
+
+.main-table__lost-bet {
+}
+
+.main-table__iter-span {
+    border-radius: 5px;
+    padding: 5px 15px;
+    box-shadow: 0px 2px 3px colors.$black;
 }
 
 @media (max-width: breakpoints.$desktop-mid) {
@@ -319,7 +319,7 @@
                 grid-row: 2/3;
             }
 
-            td:nth-child(8) {
+            td:nth-child(11) {
                 grid-column: 3/4;
                 grid-row: 3/4;
             }
@@ -329,7 +329,7 @@
                 grid-row: 1/2;
             }
 
-            td:nth-child(11) {
+            td:nth-child(8) {
                 grid-column: 3/4;
                 grid-row: 1/2;
                 border-right: 1px solid colors.$grey2;
@@ -368,13 +368,6 @@
 
         input {
             width: 100%;
-            font-size: fonts.$v-small;
         };
-    }
-}
-
-@media (max-width: breakpoints.$phones) {
-    .main-table__table {
-        font-size: fonts.$v-small;
     }
 }

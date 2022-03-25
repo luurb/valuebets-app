@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bookies', function (Blueprint $table) {
-            $table->smallInteger('id')->primary();
+            $table->smallInteger('id')->autoIncrement();
             $table->string('bookie_name');
             $table->timestamps();
         });

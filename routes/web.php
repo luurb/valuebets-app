@@ -27,7 +27,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::post('/logout', [LogoutController::class, 'store']);
 
-Route::get('/history', [BetHistoryController::class, 'index']);
+Route::get('/history', [BetHistoryController::class, 'index'])->name('history');
 
 Route::get('/add', [AddBetController::class, 'index'])->name('add');
 Route::post('/add', [AddBetController::class, 'store']);
@@ -42,7 +42,7 @@ Route::get('/', function () {
 
 Route::get('/valuebets', function () {
     return view('valuebets.index');
-});
+})->name('valuebets');
 
 Route::get('/home', function () {
     return view('home.index');

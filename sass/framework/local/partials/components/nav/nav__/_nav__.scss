@@ -36,6 +36,17 @@
     justify-content: space-between;
     align-items: center;
 }
+
+#nav__singup-button {
+    //background: colors.$purple-gradient;
+    background: colors.$green-gradient;
+}
+
+#nav__singup-button:hover {
+    //background: colors.$purple-hover-gradient;
+    color: colors.$white-f;
+}
+
 .nav__logout-button {
     display: inline-block;
     color: colors.$white-f;

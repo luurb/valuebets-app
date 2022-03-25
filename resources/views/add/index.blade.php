@@ -13,23 +13,30 @@
                     Add bet
                 </div>
                 <div class="add-bet__box">
-                    <div class="add-bet__label-box">
-                        Bookmaker
+                    <div class="add-bet__label-box @error('bookie') error-text @enderror">
+                        @if ($errors->has('bookie'))
+                            {{ $errors->first('bookie') }}
+                        @else
+                            Bookmaker 
+                        @endif
                     </div>
                     <div class="add-bet__input-box">
-                        <select name="bookie" class="add-bet__select">
-                            <option>22bet</option>
-                            <option>Pinnacle</option>
-                        </select>
+                        <input name="bookie" class="add-bet__input @error('bookie') error-input @enderror"
+                        placeholder="Pinnacle" value="{{ old('bookie') }}">
                     </div>
                 </div>
                 <div class="add-bet__box">
-                    <div class="add-bet__label-box">
-                        Sport
+                    <div class="add-bet__label-box @error('sport') error-text @enderror">
+                        @if ($errors->has('sport'))
+                            {{ $errors->first('sport') }}
+                        @else
+                            Sport 
+                        @endif
+
                     </div>
                     <div class="add-bet__input-box">
-                        <select name="sport" class="add-bet__select">
-                        </select>
+                        <input name="sport" class="add-bet__input @error('sport') error-input @enderror"
+                        placeholder="Basketball" value="{{ old('sport') }}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -37,7 +44,8 @@
                         Date
                     </div>
                     <div class="add-bet__input-box">
-                        <input type="date" name="date" class="add-bet__input">
+                        <input type="date" name="date" class="add-bet__input"
+                        value="{{ old('date') ?? date('Y-m-d')}}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -45,7 +53,8 @@
                         Time
                     </div>
                     <div class="add-bet__input-box">
-                        <input type="time" name="time" class="add-bet__input">
+                        <input type="time" name="time" class="add-bet__input"
+                        value="{{ old('time') ?? date('H:i')}}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -59,7 +68,7 @@
                     <div class="add-bet__input-box">
                         <input type="text" name="teams" 
                         class="add-bet__input @error('teams') error-input @enderror" 
-                        placeholder="Denver Nuggets - Orlando Magic">
+                        placeholder="Denver Nuggets - Orlando Magic" value="{{ old('teams')}}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -73,7 +82,7 @@
                     <div class="add-bet__input-box">
                         <input type="text" name="bet"
                         class="add-bet__input @error('bet') error-input @enderror"
-                        placeholder="Over 225.5">
+                        placeholder="Over 225.5" value="{{ old('bet')}}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -87,7 +96,7 @@
                     <div class="add-bet__input-box">
                         <input type="text" name="odd"
                         class="add-bet__input width-50 @error('odd') error-input @enderror"
-                        placeholder="2.45">
+                        placeholder="2.45" value="{{ old('odd')}}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -101,7 +110,7 @@
                     <div class="add-bet__input-box">
                         <input type="text" name="value"
                         class="add-bet__input width-50 @error('value') error-input @enderror" 
-                        placeholder="6.45">
+                        placeholder="6.45" value="{{ old('value')}}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -115,7 +124,7 @@
                     <div class="add-bet__input-box">
                         <input type="text" name="stake"
                         class="add-bet__input width-50 @error('stake') error-input @enderror" 
-                        placeholder="100">
+                        placeholder="100" value="{{ old('stake')}}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -123,7 +132,10 @@
                         Result
                     </div>
                     <div class="add-bet__input-box">
-                        <select name="result" class="add-bet__select">
+                        <select name="result" class="add-bet__select width-50">
+                            <option>Pending</option>
+                            <option>Lost</option>
+                            <option>Win</option>
                         </select>
                     </div>
                 </div>

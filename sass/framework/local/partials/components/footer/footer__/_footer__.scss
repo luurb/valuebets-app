@@ -25,9 +25,3 @@
     padding: 10px;
     letter-spacing: 1px;
 }
-
-@media (max-width: breakpoints.$tablets) {
-    .footer__bottom {
-        font-size: fonts.$v-small;
-    }
-}

@@ -10,6 +10,15 @@
   font: "Lato", sans-serif;
 }
 
+html {
+  font-size: 10px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 9px;
+  }
+}
 .main {
   display: grid;
   height: 100vh;
@@ -63,6 +72,21 @@
 
 .none {
   display: none;
+}
+
+.win {
+  color: #2d9129;
+  font-weight: 600;
+}
+
+.lost {
+  color: #ae1b16;
+  font-weight: 600;
+}
+
+.stake {
+  color: #a38b00;
+  font-weight: 600;
 }
 
 .tr-delete-blink {
@@ -141,7 +165,7 @@ button, select, input {
 .nav ul a {
   color: #fff;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.8rem;
   letter-spacing: 1px;
   padding: 6px 8px;
   border-radius: 5px;
@@ -162,7 +186,7 @@ button, select, input {
   cursor: pointer;
 }
 .nav__label i {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .nav__left-nav {
@@ -170,7 +194,7 @@ button, select, input {
 }
 
 .nav__logo {
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-decoration: underline;
@@ -181,7 +205,7 @@ button, select, input {
 
 .nav__seclogo {
   color: #fff;
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .nav__wrapper {
@@ -191,13 +215,21 @@ button, select, input {
   align-items: center;
 }
 
+#nav__singup-button {
+  background: linear-gradient(to left, #5eb987, #396e50);
+}
+
+#nav__singup-button:hover {
+  color: #fff;
+}
+
 .nav__logout-button {
   display: inline-block;
   color: #fff;
   padding: 6px 8px;
   background: #1b1b1b;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   letter-spacing: 1px;
@@ -208,7 +240,7 @@ button, select, input {
   background: #fff;
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1020px) {
   .nav__left-nav {
     padding-left: 0;
   }
@@ -247,12 +279,12 @@ button, select, input {
     content: "\f00d";
   }
 }
-@media (max-width: 1210px) {
+@media (max-width: 1250px) {
   .nav__logout-button {
     background: #111;
   }
 }
-@media (max-width: 1210px) and (min-width: 970px) {
+@media (max-width: 1250px) and (min-width: 1020px) {
   .nav__label--user {
     display: block;
   }
@@ -312,7 +344,7 @@ button, select, input {
 }
 .nav-box__timer {
   padding: 5px 50px;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .main-table__table {
@@ -321,13 +353,13 @@ button, select, input {
   overflow: auto;
   text-align: center;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 .main-table__table th, .main-table__table td {
   padding: 5px;
 }
 .main-table__table th {
-  font-size: 16px;
+  font-size: 1.6rem;
   text-transform: uppercase;
   border-bottom: 1px solid #cdcdcd;
   background: #ededed;
@@ -355,7 +387,7 @@ button, select, input {
   width: 100%;
   color: #1b1b1b;
   background: #cdcdcd;
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
 }
@@ -378,7 +410,7 @@ button, select, input {
   text-align: center;
   color: #1b1b1b;
   background: #fff;
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
 }
@@ -393,7 +425,7 @@ button, select, input {
   text-align: center;
   color: #1b1b1b;
   background: #cdcdcd;
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
 }
@@ -406,7 +438,7 @@ button, select, input {
 .main-table__span {
   color: #1b1b1b;
   background: #fff;
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
   width: 100%;
@@ -414,6 +446,10 @@ button, select, input {
   display: inline-block;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.main-table__span:hover {
+  box-shadow: 0px 2px 5px #1b1b1b;
 }
 
 .main-table__add-table {
@@ -468,21 +504,15 @@ button, select, input {
     text-align: center;
   }
 }
-.main-table__tr--win td:nth-child(5),
-.main-table__tr--win td:nth-child(11) {
-  color: #2d9129;
-  font-weight: 600;
-}
-
-.main-table__tr--lose td:nth-child(5),
-.main-table__tr--lose td:nth-child(11) {
-  color: #ae1b16;
-  font-weight: 600;
-}
-
 .main-table__valuebets-clock {
   padding: 5px 10px;
   display: block;
+}
+
+.main-table__iter-span {
+  border-radius: 5px;
+  padding: 5px 15px;
+  box-shadow: 0px 2px 3px #1b1b1b;
 }
 
 @media (max-width: 1430px) {
@@ -561,7 +591,7 @@ button, select, input {
     padding: 5px;
   }
 }
-@media (max-width: 1210px) {
+@media (max-width: 1250px) {
   .main-table__history-table th {
     display: none;
   }
@@ -608,7 +638,7 @@ button, select, input {
     grid-column: 3/4;
     grid-row: 2/3;
   }
-  .main-table__history-table tbody td:nth-child(8) {
+  .main-table__history-table tbody td:nth-child(11) {
     grid-column: 3/4;
     grid-row: 3/4;
   }
@@ -616,7 +646,7 @@ button, select, input {
     grid-column: 2/3;
     grid-row: 1/2;
   }
-  .main-table__history-table tbody td:nth-child(11) {
+  .main-table__history-table tbody td:nth-child(8) {
     grid-column: 3/4;
     grid-row: 1/2;
     border-right: 1px solid #cdcdcd;
@@ -644,18 +674,12 @@ button, select, input {
     padding: 5px;
   }
 }
-@media (max-width: 970px) {
+@media (max-width: 1020px) {
   .main-table__add-table select, .main-table__add-table input[type=submit] {
     width: 70%;
   }
   .main-table__add-table input {
     width: 100%;
-    font-size: 14px;
-  }
-}
-@media (max-width: 600px) {
-  .main-table__table {
-    font-size: 14px;
   }
 }
 .main-table {
@@ -666,7 +690,7 @@ button, select, input {
 .footer {
   padding: 30px 0;
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   background: #1b1b1b;
   color: #6c6c6c;
   align-items: center;
@@ -702,11 +726,6 @@ button, select, input {
   letter-spacing: 1px;
 }
 
-@media (max-width: 970px) {
-  .footer__bottom {
-    font-size: 14px;
-  }
-}
 .filters {
   height: calc(100% - 40px);
   background: #ededed;
@@ -716,13 +735,13 @@ button, select, input {
 .filters__header {
   display: block;
   padding-top: 5px;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 .filters__header--stat {
   padding-bottom: 5px;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .filters__options {
@@ -740,7 +759,7 @@ button, select, input {
 .filters__wrapper {
   width: 220px;
   height: 40px;
-  font-size: 24px;
+  font-size: 2.4rem;
   text-align: center;
   padding: 5px;
 }
@@ -753,7 +772,7 @@ button, select, input {
   width: 100%;
   color: #1b1b1b;
   background: #fff;
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
 }
@@ -781,7 +800,7 @@ button, select, input {
   text-transform: unset;
   color: #fff;
   background: linear-gradient(to right, #646485, #1c1caa);
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
 }
@@ -837,7 +856,7 @@ button, select, input {
 .filters__select {
   color: #fff;
   background: linear-gradient(to right, #646485, #1c1caa);
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
   text-align: left;
@@ -898,7 +917,7 @@ button, select, input {
   background: linear-gradient(#6c6c6c, #cdcdcd);
   display: flex;
   width: 100%;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 80px);
   align-items: center;
   justify-content: center;
   padding: 20px 0;
@@ -910,7 +929,7 @@ button, select, input {
 .auth__input-box input {
   padding: 10px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .auth__input {
@@ -925,7 +944,7 @@ button, select, input {
 }
 
 .auth__header {
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 600;
   padding: 0 20px;
 }
@@ -954,7 +973,7 @@ button, select, input {
 }
 
 .auth__text {
-  font-size: 16px;
+  font-size: 1.6rem;
   margin-top: 15px;
   padding: 0px 20px;
 }
@@ -967,7 +986,7 @@ button, select, input {
 .auth {
   width: 80%;
   max-width: 600px;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
   padding: 30px;
   background: #cdcdcd;
@@ -979,7 +998,7 @@ button, select, input {
   width: 90%;
   max-width: 950px;
   max-height: 100%;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
   padding: 30px;
   background: #cdcdcd;
@@ -988,7 +1007,7 @@ button, select, input {
 }
 
 .add-bet__header {
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 600;
   color: #1c1caa;
   letter-spacing: 1px;
@@ -1024,14 +1043,10 @@ button, select, input {
   text-align: center;
   color: #1b1b1b;
   background: #fff;
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
   transition: all 0.5s ease;
-}
-
-.add-bet__select {
-  width: 50%;
 }
 
 .add-bet__input:hover,
@@ -1044,7 +1059,7 @@ button, select, input {
   min-width: 100px;
   color: #fff;
   background: linear-gradient(to right, #646485, #1c1caa);
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
   padding: 15px;
