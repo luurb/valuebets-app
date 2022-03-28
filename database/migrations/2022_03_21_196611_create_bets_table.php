@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('bet')->nullable();
             $table->float('odd');
             $table->float('value');
-            $table->float('stake');
+            $table->float('stake', 12, 2);
             $table->string('result')->nullable();
-            $table->float('return', 15)->nullable();
+            $table->float('return', 21, 2)->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('bookie_id')->references('id')->on('bookies');

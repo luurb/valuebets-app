@@ -1,5 +1,3 @@
-//Event delegation for training :)
-
 let number = document.querySelector('.filters__refresh-num');
 let wrapper = document.querySelector('.filters__refresh-wrapper');
 

@@ -16,6 +16,7 @@
 }
 
 .filters__options {
+    background: colors.$grey-gradient;
     text-align: center;
     border-top: 2px solid colors.$grey2;
     max-height: calc(100vh - 110px);
@@ -25,7 +26,7 @@
 
 .filters__stats {
     padding: 10px 30px;
-    border-bottom: 2px solid colors.$grey2;
+    border-bottom: 1px solid colors.$purple;
 }
 
 .filters__wrapper {
@@ -94,6 +95,7 @@
     border-radius: 10px;
     background: colors.$white-f;
     color: colors.$black1;
+    font-size: fonts.$small;
 
     span {
         text-align: center;
@@ -104,14 +106,6 @@
 
 .filters__caret-down {
     margin-bottom: 10px;
-}
-
-.filters__caret {
-    height: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    display: block;
-    color: colors.$white-f;
 }
 
 .filters__caret:hover {
@@ -138,6 +132,51 @@
     display: flex;
     margin: auto;
     justify-content: space-evenly;
+    align-items: center;
+}
+
+.filters__sorting-box {
+    border-right: 1px solid colors.$grey2;
+}
+
+.filters__sorting-wrapper {
+    font-size: fonts.$v-small;
+    font-family: fonts.$lato;
+    padding: 0 20px 15px 0;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.filters__sorting-wrapper:hover {
+    cursor: pointer;
+}
+
+.filters__sorting-span {
+    display: inline-block;
+    width: 100%;
+    padding: 7px;
+    text-align: center;
+    background: colors.$white-f;
+    border-radius: 10px;
+    box-shadow: 0px 6px 2px colors.$purple;
+    transition: all 0.2s ease;
+}
+
+.filters__sorting-span:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 2px colors.$purple;
+}
+
+.filters__sorting-caret-wrapper {
+    font-size: fonts.$caret;
+    color: colors.$white-f;
+}
+
+.filters__sorting-caret:hover {
+    i {
+        cursor: pointer;
+        color: colors.$purple;
+    }
 }
 
 @media (max-width: breakpoints.$desktop-mid) {
@@ -146,15 +185,15 @@
         right: -100%;
         top: 120px;
         width: 220px;
-        background: colors.$grey1;
         transition: all 0.3s ease;
     }
 
     .filters__wrapper {
         display: block;
         position: fixed;
+        width: 50px;
         top: 80px;
-        right: 50px;
+        right: 120px;
                 
         i {
             display: inline-block;

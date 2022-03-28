@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
 @section('title')
    Valuebets
 @endsection
@@ -12,7 +16,9 @@
 @endsection
 
 @section('nav-box-content')
-    <div class="nav-box__timer"></div>
+    <div class="nav-box__wrapper">
+        <div class="nav-box__timer"></div>
+    </div>
 @endsection
 
 @section('main-content')
@@ -48,6 +54,7 @@
         <span class="filters__header">Filters</span>
         <div class="filters__stats">
             <div class="filters__box">
+                <button class="filters__button">Filter</button>
             </div>
         </div>
         <span class="filters__header">Options</span>
@@ -67,17 +74,28 @@
             <div class="filters__box">
                 <span class="filters__header filters__header--stat">Sorting options</span>
                 <div class="filters__sorting">
-                    <select class="filters__select">
-                        <option disabled selected hidden>Choose</option>
-                        <option>Delay</option>
-                        <option>Date</option>
-                        <option>Odd</option>
-                        <option>Value</option>
-                    </select>
-                    <span>
-                        <i title="asceding" class="fa-solid fa-caret-up filters__caret"></i>
-                        <i title="descending" class="fa-solid fa-caret-down filters__caret filters__caret-down"></i>
-                    </span>
+                    <div class="filters__sorting-box">
+                        <div class="filters__sorting-wrapper">
+                            <span class="filters__sorting-span">Delay</span>
+                        </div>
+                        <div class="filters__sorting-wrapper">
+                            <span class="filters__sorting-span">Date</span>
+                        </div>
+                        <div class="filters__sorting-wrapper">
+                            <span class="filters__sorting-span">Odd</span>
+                        </div>
+                        <div class="filters__sorting-wrapper">
+                            <span class="filters__sorting-span">Value</span>
+                        </div>
+                    </div>
+                    <div class="filters__sorting-caret-wrapper">
+                        <div class="filters__sorting-caret">
+                            <i title="asceding" class="fa-solid fa-caret-up filters__caret"></i>
+                        </div>
+                        <div class="filters__sorting-caret">
+                            <i title="descending" class="fa-solid fa-caret-down filters__caret"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

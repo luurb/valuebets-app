@@ -191,7 +191,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'BetAddHelper' => App\Helpers\BetAddHelper::class
     ])->toArray(),
 
 ];

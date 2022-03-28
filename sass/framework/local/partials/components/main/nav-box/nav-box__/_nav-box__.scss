@@ -1,6 +1,43 @@
 @use '../../../../../fonts';
+@use '../../../../../../config/breakpoints';
+@use '../../../../../../config/colors';
+
+.nav-box__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: fonts.$medium;
+}
 
 .nav-box__timer {
     padding: 5px 50px;
-    font-size: fonts.$medium; 
+}
+
+.nav-box__message {
+    font-size: fonts.$small;
+
+    i {
+        font-size: fonts.$v-large;
+    }
+
+    .fa-check {
+        color: colors.$green;
+    }
+
+    .fa-xmark {
+        color: colors.$red;
+    }
+}
+
+.nav-box__message:hover {
+    cursor: pointer;
+}
+
+.nav-box__message-text {
+    position: absolute;
+    padding: 5px;
+    left: 70px;
+    background: colors.$purple-gradient;
+    color: colors.$white-f;
+    border-radius: 5px;
 }

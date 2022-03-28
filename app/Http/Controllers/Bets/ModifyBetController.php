@@ -6,21 +6,32 @@ use App\Helpers\BetAddHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AddBetController extends Controller
+class ModifyBetController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
-    }
-    
-    public function index()
-    {
-        return view('add.index');
     } 
+
+    public function handle(Request $request)
+    {
+        if (! $request->input('id')) {
+            return redirect()->route('history');
+        }
+
+        $id = $request->input('id');
+        if ($bet = auth()->user()->bet($id)->first()) {
+            return view('modify.index', [
+                'bet' => $bet,
+            ]);
+        }
+
+        return redirect()->route('history');
+    }
 
     public function store(Request $request)
     {
-        BetAddHelper::betValidate('add', $request);
+        BetAddHelper::betValidate('modify', $request);
 
         $bookieId = BetAddHelper::getBookieId($request->bookie);
         $sportId = BetAddHelper::getSportId($request->sport);
@@ -30,7 +41,8 @@ class AddBetController extends Controller
             $request->stake
         );
 
-        auth()->user()->bets()->create([
+        $bet = auth()->user()->bets->where('id', $request->id)->first();
+        $bet->update([
             'bookie_id' => $bookieId,
             'sport_id' => $sportId,
             'date_time' => $request->date . ' ' . $request->time,
@@ -43,6 +55,6 @@ class AddBetController extends Controller
             'return' => $return
         ]);
 
-        return redirect()->route('add')->with('status', 'Your bet was added to bets history');
+        return redirect()->route('history');
     }
 }

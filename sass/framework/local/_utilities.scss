@@ -56,12 +56,22 @@
     color: colors.$purple !important;
 }
 
+.sort-span {
+    background: colors.$purple-gradient !important;
+    color: colors.$white-f !important;
+    box-shadow: 0px 1px 2px colors.$purple !important;
+}
+
 .error-input {
     border: 2px solid colors.$red;
 }
 
 .error-text {
     color: colors.$red;
+}
+
+.no-error-text {
+    color: colors.$purple;
 }
 
 .purple-input {

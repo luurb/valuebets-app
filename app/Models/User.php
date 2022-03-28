@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Bet::class);
     }
+
+    public function bet(int $id)
+    {
+        return $this->hasOne(Bet::class)->where('id', $id);
+    }
 }

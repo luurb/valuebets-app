@@ -1,15 +1,16 @@
-function addToDb(newObject, db, dbName) {
+function addGamesToIndexedDb(games, db, dbName) {
     let transaction = db.transaction([dbName +'_os'], 'readwrite');
     let objectStore = transaction.objectStore(dbName + '_os');
-    objectStore.add(newObject);
-    transaction.oncomplete = () => {
-        console.log('Added object to db');
-        //displayData(db);
-    };
 
-    transaction.onerror = () => {
-        console.log('Transaction not opened due to error');
-    };
+    for (let game in games) {
+        objectStore.add({game: game});
+        transaction.oncomplete = () => {
+            //displayData(db);
+        };
+
+        transaction.onerror = () => {
+        };
+    }
 }
 
 function displayData(db, dbName) {
@@ -19,7 +20,6 @@ function displayData(db, dbName) {
         let cursor = e.target.result;
         if (cursor) {
             let game = cursor.value.game;
-            console.log(game);
             cursor.continue();
         }
     };
@@ -125,4 +125,4 @@ function getUpdatedArr(db, gamesArr, dbName) {
 }
 
 
-export{addToDb, displayData, hideGamesDbFilter, getUpdatedArr, getGamesArr};
+export{addGamesToIndexedDb, displayData, hideGamesDbFilter, getUpdatedArr, getGamesArr};

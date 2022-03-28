@@ -10,6 +10,9 @@
 
 @section('main-content')
     <table class="main-table__table main-table__history-table">
+        <form id="delete-form" method="post" action="/history">
+            @csrf
+        </form>
         <thead>
             <tr>
                 <th scope="colgroup">ID</th>
@@ -24,7 +27,8 @@
                 <th scope="colgroup">Result</th>
                 <th scope="colgroup">Return</th>
                 <th scope="colgroup">
-                    <input type="submit" value="Delete" class="main-table__button">
+                    <input type="submit" value="Delete" class="main-table__button"
+                    form="delete-form">
                 </th>
                 <th scope="colgroup"></th>
             </tr>
@@ -54,15 +58,16 @@
                         <td class="{{ strtolower($bet->result) }}">{{ $bet->return . ' $' }}</td> 
                         <td>
                             <label>
-                                <input type="checkbox" value="" name="del[]" 
-                                class="main-table__checkbox--del none">
+                                <input type="checkbox" value="{{ $bet->id }}" name="delete[]" 
+                                class="main-table__checkbox--del none" form="delete-form">
                                 <span class="main-table__span main-table__history-span">Del</span>
                             </label>
                         </td>
                         </form>
                         <td>
                             <form method="get" action="/modify">
-                                <button type="submit" value="" name="submit" 
+                                <input type="hidden" name="id" value="{{ $bet->id }}">
+                                <button type="submit" value="" 
                                 class="main-table__button main-table__history-button">Mod</button>
                             </form>
                         </td>
@@ -77,21 +82,7 @@
     <input type="checkbox" id="stat-check" class="none">
     <div class="filters__wrapper none">
         <label for="stat-check" class="filters__filters-icon" title="Show stats">
-            <i class="fas fa-cog none"></i>
-        </label>
-    </div>
-    <div class="filters__options">
-        <span class="filters__header">All time stats</span>
-        <div class="filters__stats">
-            <div class="filters__box">
-                <span class="filters__header filters__header--stat">Return</span>
-                <span class="filters__value"></span>
-            </div>
-            <div class="filters__box">
-                <span class="filters__header filters__header--stat">Yield</span>
-                <span class="filters__value"></span>
-            </div>
-            <div class="filters__box">
+            <i class="fas fa-cog none"></i> </label> </div> <div class="filters__options"> <span class="filters__header">All time stats</span> <div class="filters__stats"> <div class="filters__box"> <span class="filters__header filters__header--stat">Return</span> <span class="filters__value"></span> </div> <div class="filters__box"> <span class="filters__header filters__header--stat">Yield</span> <span class="filters__value"></span> </div> <div class="filters__box">
                 <span class="filters__header filters__header--stat">Avg value</span>
                 <span class="filters__value"></span>
             </div>
