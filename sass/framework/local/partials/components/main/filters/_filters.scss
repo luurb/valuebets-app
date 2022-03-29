@@ -1,0 +1,12 @@
+@use '../../../../../config/colors';
+@use '../../../../../config/layers';
+@use '../../../../../config/breakpoints';
+
+
+.filters {
+    height: 100%;
+    min-width: 15%;
+    max-width: 200px;
+    background: colors.$grey-gradient;
+    z-index: layers.$filters-index;
+}

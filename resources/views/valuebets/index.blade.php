@@ -11,14 +11,13 @@
 @section('js-links')
     <script type="module" src="{{ asset('js/fetch.js') }}" async></script>
     <script src="{{ asset('js/refresh-option.js') }}" defer></script>
+    <script src="{{ asset('js/show-filters.js') }}" defer></script>
     <script type="module" src="{{ asset('js/game-filter.js') }}" defer></script>
     <script type="module" src="{{ asset('js/sorting.js') }}" defer></script>
 @endsection
 
 @section('nav-box-content')
-    <div class="nav-box__wrapper">
-        <div class="nav-box__timer"></div>
-    </div>
+    <div class="nav-box__timer"></div>
 @endsection
 
 @section('main-content')
@@ -34,7 +33,8 @@
                 <th scope="colgroup">Odd</th>
                 <th scope="colgroup">Value</th>
                 <th scope="colgroup">
-                    <input type="submit" value="Add/Delete" class="main-table__button">
+                    <input type="submit" value="Add/Delete" 
+                    class="main-table__button main-table__delete-button">
                 </th>
             </tr>
         </thead>
@@ -44,12 +44,6 @@
 @endsection
 
 @section('filters-content')
-    <input type="checkbox" id="stat-check" class="none">    
-    <div class="filters__wrapper none">
-        <label for="stat-check" class="filters__filters-icon" title="Show stats">
-            <i class="fas fa-cog none"></i>
-        </label>
-    </div>
     <div class="filters__options">
         <span class="filters__header">Filters</span>
         <div class="filters__stats">

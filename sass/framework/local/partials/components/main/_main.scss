@@ -2,7 +2,7 @@
 @use '../../../../config/colors';
 
 .main {
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
     font-family: fonts.$lato;
     background: colors.$white1;
 }

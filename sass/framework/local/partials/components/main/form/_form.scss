@@ -1,6 +1,6 @@
-@use '../../../../config/colors';
+@use '../../../../../config/colors';
 
-.home {
+.form {
     background: colors.$grey-gradient;
     display: flex;
     width: 100%;

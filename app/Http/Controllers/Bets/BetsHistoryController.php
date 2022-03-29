@@ -14,15 +14,20 @@ class BetsHistoryController extends Controller
 
     public function index()
     {
-        $bets = auth()->user()->bets()->with('sport', 'bookie')->get();
+        $bets = auth()->user()->bets()->with('sport', 'bookie')->paginate(10);
+        $betsCount= auth()->user()->bets()->count();
 
         return view('history.index', [
-            'bets' => $bets
+            'bets' => $bets,
+            'betsCount' => $betsCount
         ]);
     }
 
     public function betDelete(Request $request)
     {
+        if (! $request->input('delete')) {
+            return redirect()->route('history');
+        }
         foreach ($request->input('delete') as $id) {
             $bets = auth()->user()->bets;
 

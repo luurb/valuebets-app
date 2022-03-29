@@ -1,6 +1,6 @@
-@use '../../../../../../config/colors';
-@use '../../../../../fonts';
-@use '../../../../../mixins';
+@use '../../../../../../../config/colors';
+@use '../../../../../../fonts';
+@use '../../../../../../mixins';
 
 .add-bet__header {
     font-size: fonts.$large;
@@ -61,4 +61,13 @@
     width: 100%;
     color: colors.$red;
     text-align: center;
+}
+
+
+.add-bet__no-error-box {
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 500;
+    width: 45%;
+    color: colors.$purple;
 }

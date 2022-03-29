@@ -1,11 +1,11 @@
-@extends('layouts.home')
+@extends('layouts.app')
 
 @section('title')
    Modify bet 
 @endsection
 
-@section('home-content')
-    <main class="home">
+@section('content')
+    <section class="form">
         <div class="add-bet">
             <form action="/modify" method="post">
                 @csrf
@@ -149,5 +149,5 @@
                 <input type="hidden" name="id" value="{{ $bet->id }}">
             </form>
         </div>
-    </main>
+    </section>
 @endsection

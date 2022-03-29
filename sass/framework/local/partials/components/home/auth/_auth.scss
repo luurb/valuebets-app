@@ -1,9 +1,0 @@
-@use '../../../../../config/colors';
-@use '../../../../../local/fonts';
-@use '../../../../mixins';
-
-.auth {
-    width: 80%;
-    max-width: 600px;
-    @include mixins.post-form;
-}

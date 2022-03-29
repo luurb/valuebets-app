@@ -6,6 +6,15 @@
 
 @section('js-links')
     <script type="module" src="{{ asset('js/modules/fetch/add-icons.mjs') }}" async></script>
+    <script src="{{ asset('js/show-filters.js') }}" defer></script>
+@endsection
+
+@section('nav-box-content')
+    <div class="nav-box__info-box">
+        <div class="nav-box__bets-counter">
+            Found {{ $betsCount }} bets
+        </div>
+    </div>
 @endsection
 
 @section('main-content')
@@ -27,7 +36,8 @@
                 <th scope="colgroup">Result</th>
                 <th scope="colgroup">Return</th>
                 <th scope="colgroup">
-                    <input type="submit" value="Delete" class="main-table__button"
+                    <input type="submit" value="Delete" 
+                    class="main-table__button main-table__delete-button"
                     form="delete-form">
                 </th>
                 <th scope="colgroup"></th>
@@ -79,10 +89,18 @@
 @endsection
 
 @section('filters-content')
-    <input type="checkbox" id="stat-check" class="none">
-    <div class="filters__wrapper none">
-        <label for="stat-check" class="filters__filters-icon" title="Show stats">
-            <i class="fas fa-cog none"></i> </label> </div> <div class="filters__options"> <span class="filters__header">All time stats</span> <div class="filters__stats"> <div class="filters__box"> <span class="filters__header filters__header--stat">Return</span> <span class="filters__value"></span> </div> <div class="filters__box"> <span class="filters__header filters__header--stat">Yield</span> <span class="filters__value"></span> </div> <div class="filters__box">
+    <div class="filters__options">
+        <span class="filters__header">All time stats</span> 
+        <div class="filters__stats"> 
+            <div class="filters__box"> 
+                <span class="filters__header filters__header--stat">Return</span> 
+                <span class="filters__value"></span> 
+            </div> 
+            <div class="filters__box"> 
+                <span class="filters__header filters__header--stat">Yield</span> 
+                <span class="filters__value"></span> 
+            </div> 
+            <div class="filters__box">
                 <span class="filters__header filters__header--stat">Avg value</span>
                 <span class="filters__value"></span>
             </div>

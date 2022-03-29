@@ -1,7 +1,7 @@
-@use '../../../../fonts';
-@use '../../../../../config/colors';
-@use '../../../../../config/breakpoints';
-@use '../../../../mixins';
+@use '../../../../../fonts';
+@use '../../../../../../config/colors';
+@use '../../../../../../config/breakpoints';
+@use '../../../../../mixins';
 
 .filters__header {
     display: block;
@@ -25,16 +25,8 @@
 }
 
 .filters__stats {
-    padding: 10px 30px;
+    padding: 10px 25px;
     border-bottom: 1px solid colors.$purple;
-}
-
-.filters__wrapper {
-    width: 220px;
-    height: 40px;
-    font-size: fonts.$large;
-    text-align: center;
-    padding: 5px;
 }
 
 .filters__box {
@@ -180,37 +172,10 @@
 }
 
 @media (max-width: breakpoints.$desktop-mid) {
-    .filters__options {
+    .filters {
         position: fixed;
         right: -100%;
-        top: 120px;
-        width: 220px;
+        height: 0;
         transition: all 0.3s ease;
-    }
-
-    .filters__wrapper {
-        display: block;
-        position: fixed;
-        width: 50px;
-        top: 80px;
-        right: 120px;
-                
-        i {
-            display: inline-block;
-            cursor: pointer;
-        }
-    }
-
-    #stat-check:checked ~ .filters__wrapper i  {
-        transform: rotate(180deg) translateZ(0);
-        transition: all 0.8s ease;
-    }
-
-    #stat-check:not(:checked) ~ .filters__wrapper i  {
-        transform: rotate(0deg) translateZ(0);
-        transition: all 0.8s ease;
-    }
-    #stat-check:checked ~ .filters__options {
-        right: 0;
     }
 }

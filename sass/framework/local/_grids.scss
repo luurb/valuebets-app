@@ -1,9 +1,8 @@
 @use '../config/breakpoints';
 
-.main {
+/*.main {
     display: grid;
     height: 100vh;
-    grid-template-rows: 40px 1fr;
     grid-template-columns: 1fr 240px;
     min-height: 0;
     min-width: 0;
@@ -17,4 +16,4 @@
     .main-table {
         grid-column: 1/3;
     }   
-}
+}*/

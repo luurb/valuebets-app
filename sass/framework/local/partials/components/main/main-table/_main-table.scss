@@ -1,6 +1,7 @@
 @use '../../../../../config/colors';
 
 .main-table {
-    height: inherit;
+    min-width: 85%;
+    height: 100%;
     padding: 30px 20px;
 }

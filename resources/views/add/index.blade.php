@@ -1,11 +1,11 @@
-@extends('layouts.home')
+@extends('layouts.app')
 
 @section('title')
     Add bet
 @endsection
 
-@section('home-content')
-    <main class="home">
+@section('content')
+    <section class="form">
         <div class="add-bet">
             <form action="/add" method="post">
                 @csrf
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <div class="add-bet__box">
-                    <div class="add-bet__label-box no-error-text">
+                    <div class="add-bet__no-error-box">
                         @if (session('status'))
                             {{ session('status') }}
                         @endif
@@ -152,5 +152,5 @@
                 </div>
             </form>
         </div>
-    </main>
+    </section>
 @endsection

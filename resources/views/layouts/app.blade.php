@@ -51,8 +51,9 @@
         </div>
     </nav>
 
-    @yield('content')
-
+    <main class="main">
+        @yield('content')
+    </main>
 
     <footer class="footer">
         <div class="footer__top flex">
@@ -67,6 +68,5 @@
             &copy 2021-2022 Valuescrap
         </div>
     </footer>  
-
 </body>
 </html>

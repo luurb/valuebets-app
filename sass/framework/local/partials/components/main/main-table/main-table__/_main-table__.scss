@@ -40,7 +40,7 @@
 }
 
 .main-table__wrapper {
-    height: calc(100% - 40px);
+    height: 100%;
     overflow: auto;
     box-shadow: -5px 10px 10px colors.$grey2;
 }
@@ -121,52 +121,9 @@
     background: colors.$purple-hover-gradient;
 }
 
-@media (max-width: breakpoints.$desktop) {
-    .main-table__add-table {
-        display: flex;
-
-        th:nth-child(-n+12),
-        td:nth-child(-n+12) {
-            display: block;
-            width: 100%;
-            height: 50px;
-        }
-
-        th:nth-child(-n+11) {
-            padding: 15px;
-        }
-        tbody, thead {
-            width: 100%;
-            display: flex;    
-        }
-
-        tr {
-            width: 100%;
-        }
-
-        select, input[type="submit"] {
-            width: 30%;
-        }
-
-        input {
-            width: 80%;
-        };
-
-        select option {
-            text-align: center;
-        }
-    }
-}
-
 .main-table__valuebets-clock {
     padding: 5px 10px;
     display: block;
-}
-
-.main-table__win-bet {
-}
-
-.main-table__lost-bet {
 }
 
 .main-table__iter-span {
@@ -176,6 +133,10 @@
 }
 
 @media (max-width: breakpoints.$desktop-mid) {
+    .main-table {
+        width: 100%;
+    }
+
     .main-table__img {
         display: inline-block;
         width: 20px;
@@ -192,6 +153,16 @@
         }
     }
 
+    .main-table__delete-button {
+        width: 25%;
+        max-width: 150px;
+        display: block;
+        position: fixed;
+        top: 88px;
+        right: 20px;
+        z-index: layers.$button-index;      
+    }
+
     .main-table__valuebets-table {
         th {
             display: none;
@@ -199,10 +170,6 @@
 
         th:nth-child(9) {
             display: block;
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: layers.$button-index;      
         }
         
         tbody {
@@ -264,14 +231,11 @@
     .main-table__history-table {
         th {
             display: none;
+            border-bottom: none;
         }
 
         th:nth-child(12) {
             display: block;
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: layers.$button-index;      
         }
 
         tbody {

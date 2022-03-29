@@ -1,5 +1,5 @@
 function printMessage(data) {
-    let navBox = document.querySelector('.nav-box__wrapper');
+    let navBox = document.querySelector('.nav-box__left');
     let navBoxMessage = document.querySelector('.nav-box__message');
     let response = data['response'];
     let counter = data['counter'];
