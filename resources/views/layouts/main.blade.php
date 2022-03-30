@@ -3,11 +3,12 @@
 @section('content')
     <div class="nav-box">
         <div class="nav-box__left">
-            @yield('nav-box-content')
+            @yield('nav-box__left')
             <div class="nav-box__filters-icon hide-filters">
                 <i class="fas fa-cog"></i>
             </div>
         </div>
+        @yield('nav-box-content')
     </div>
     <section class="main-section">
         <section class="main-table">

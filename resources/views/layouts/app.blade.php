@@ -7,7 +7,7 @@
     @yield('meta')
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
     @yield('js-links')

@@ -11,7 +11,23 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
+mix.js([
+        'resources/js/src/fetch.js',
+        'resources/js/src/refresh-option.js',
+        'resources/js/src/show-filters.js',
+        'resources/js/src/game-filter.js',
+        'resources/js/src/modules/sorting.js',
+    ], 
+    'public/js/valuebets.js').sourceMaps()
+    .js([
+        'resources/js/src/modules/add-icons.js',
+        'resources/js/src/show-filters.js',
+        'resources/js/src/delete-bet.js',
+    ], 
+    'public/js/history.js').sourceMaps()
+    .sass('resources/scss/main.scss', 'public/css', [
         //
+    ])
+    .postCss("resources/css/app.css", "public/css", [
+        require("tailwindcss"),
     ]);

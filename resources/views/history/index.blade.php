@@ -1,15 +1,18 @@
 @extends('layouts.main')
 
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
 @section('title')
     Bet history
 @endsection
 
 @section('js-links')
-    <script type="module" src="{{ asset('js/modules/fetch/add-icons.mjs') }}" async></script>
-    <script src="{{ asset('js/show-filters.js') }}" defer></script>
+    <script src="{{ asset('js/history.js') }}" defer></script>
 @endsection
 
-@section('nav-box-content')
+@section('nav-box__left')
     <div class="nav-box__info-box">
         <div class="nav-box__bets-counter">
             Found {{ $betsCount }} bets
@@ -17,10 +20,13 @@
     </div>
 @endsection
 
+@section('nav-box-content')
+    {{ $bets->links() }}
+@endsection
+
 @section('main-content')
     <table class="main-table__table main-table__history-table">
-        <form id="delete-form" method="post" action="/history">
-            @csrf
+        <form id="delete-form">
         </form>
         <thead>
             <tr>
@@ -36,7 +42,7 @@
                 <th scope="colgroup">Result</th>
                 <th scope="colgroup">Return</th>
                 <th scope="colgroup">
-                    <input type="submit" value="Delete" 
+                    <input type="button" value="Delete" 
                     class="main-table__button main-table__delete-button"
                     form="delete-form">
                 </th>

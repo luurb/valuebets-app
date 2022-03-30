@@ -25,17 +25,28 @@ class BetsHistoryController extends Controller
 
     public function betDelete(Request $request)
     {
-        if (! $request->input('delete')) {
-            return redirect()->route('history');
-        }
-        foreach ($request->input('delete') as $id) {
+        $data = $request->json()->all();
+        $games = $data['games'];
+        $counter= 0;
+
+        foreach ($games as $key => $id) {
             $bets = auth()->user()->bets;
 
             if ($bets->where('id', $id)->first()) {
                 $bets->where('id', $id)->first()->delete();
+            } else {
+                return response()->json([
+                    'response' => 0,
+                    'counter' => 0
+                ]);
             }
+
+            $counter++;
         }
 
-        return redirect()->route('history');
+        return response()->json([
+            'response' => 2,
+            'counter' => $counter
+        ]);
     }
 }

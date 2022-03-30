@@ -1,0 +1,75 @@
+@use '../../../../../fonts';
+@use '../../../../../../config/breakpoints';
+@use '../../../../../../config/colors';
+
+.nav-box__timer {
+    font-size: fonts.$big;
+    padding-right: 20px;
+}
+
+.nav-box__info-box {
+    padding-right: 20px;
+}
+
+.nav-box__message {
+    font-size: fonts.$small;
+    padding: 0 20px;
+
+    i {
+        font-size: fonts.$v-large;
+    }
+
+    .fa-check {
+        color: colors.$green;
+    }
+
+    .fa-xmark {
+        color: colors.$red;
+    }
+}
+
+.nav-box__message:hover {
+    cursor: pointer;
+}
+
+.nav-box__message-text {
+    position: absolute;
+    padding: 5px;
+    margin-top: 5px;
+    background: colors.$purple-gradient;
+    color: colors.$white-f;
+    border-radius: 5px;
+}
+
+.nav-box__bets-counter {
+    font-size: fonts.$big;
+    font-family: fonts.$lato;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-box__left {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-box__filters-icon {
+    font-size: fonts.$large;
+    display: none;
+}
+
+.nav-box__button {
+}
+
+@media (max-width: breakpoints.$desktop-mid) {
+    .nav-box__right {
+        padding-right: 0 25px;
+    }
+
+    .nav-box__filters-icon {
+        display: block;
+    }
+
+}

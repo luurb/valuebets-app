@@ -9,19 +9,16 @@
 @endsection
 
 @section('js-links')
-    <script type="module" src="{{ asset('js/fetch.js') }}" async></script>
-    <script src="{{ asset('js/refresh-option.js') }}" defer></script>
-    <script src="{{ asset('js/show-filters.js') }}" defer></script>
-    <script type="module" src="{{ asset('js/game-filter.js') }}" defer></script>
-    <script type="module" src="{{ asset('js/sorting.js') }}" defer></script>
+    <script type="module" src="{{ asset('js/valuebets.js') }}" async></script>
 @endsection
 
-@section('nav-box-content')
+@section('nav-box__left')
     <div class="nav-box__timer"></div>
 @endsection
 
 @section('main-content')
     <table class="main-table__table main-table__valuebets-table">
+        <form id="filter-form"></form>
         <thead>
             <tr>
                 <th scope="colgroup">Delay</th>
@@ -33,7 +30,7 @@
                 <th scope="colgroup">Odd</th>
                 <th scope="colgroup">Value</th>
                 <th scope="colgroup">
-                    <input type="submit" value="Add/Delete" 
+                    <input type="button" value="Add/Delete" 
                     class="main-table__button main-table__delete-button">
                 </th>
             </tr>

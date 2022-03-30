@@ -17,11 +17,13 @@ class ValuebetsController extends Controller
     {
         if (! auth()->user()) {
             return response()->json([
-                'response' => 'false',
+                'response' => 0,
+                'counter' => 0
             ]);
         }
         
-        $games = $request->json()->all();
+        $data = $request->json()->all();
+        $games = $data['games'];
         $counter= 0;
 
         foreach ($games as $game) {
@@ -45,8 +47,11 @@ class ValuebetsController extends Controller
         }
         
         return response()->json([
-            'response' => 'true',
-            'counter' => $counter
+            'response' => 1,
+            'counter' => [
+                'saved' => $counter,
+                'deleted' => $data['counter'] - $counter
+            ]
         ]);
     }
 }
