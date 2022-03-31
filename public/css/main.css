@@ -66,12 +66,24 @@ html {
   width: 50% !important;
 }
 
+.max-width-30 {
+  max-width: 30%;
+}
+
 .right-0 {
   right: 0 !important;
 }
 
 .flex {
   display: flex;
+}
+
+.relative {
+  position: relative;
+}
+
+.justify-left {
+  justify-content: left;
 }
 
 .grid {
@@ -92,12 +104,10 @@ html {
 
 .win {
   color: #2d9129;
-  font-weight: 600;
 }
 
 .lost {
-  color: #ae1b16;
-  font-weight: 600;
+  color: #cb1010;
 }
 
 .stake {
@@ -131,11 +141,11 @@ html {
 }
 
 .error-input {
-  border: 2px solid #ae1b16;
+  border: 2px solid #cb1010;
 }
 
 .error-text {
-  color: #ae1b16;
+  color: #cb1010;
 }
 
 .purple-input {
@@ -370,7 +380,8 @@ button, select, input {
   font-size: 1.8rem;
   background: #ededed;
   box-shadow: 0 5px 10px #cdcdcd;
-  padding: 10px 0px;
+  padding: 10px 30px;
+  z-index: 2;
 }
 
 @media (max-width: 1430px) {
@@ -392,6 +403,7 @@ button, select, input {
 .nav-box__message {
   font-size: 1.6rem;
   padding: 0 20px;
+  position: relative;
 }
 .nav-box__message i {
   font-size: 2.8rem;
@@ -400,7 +412,7 @@ button, select, input {
   color: #2d9129;
 }
 .nav-box__message .fa-xmark {
-  color: #ae1b16;
+  color: #cb1010;
 }
 
 .nav-box__message:hover {
@@ -408,9 +420,11 @@ button, select, input {
 }
 
 .nav-box__message-text {
+  width: 250%;
   position: absolute;
-  padding: 5px;
-  margin-top: 5px;
+  padding: 8px;
+  left: 5px;
+  text-align: center;
   background: linear-gradient(to right, #646485, #1c1caa);
   color: #fff;
   border-radius: 5px;
@@ -424,7 +438,6 @@ button, select, input {
 }
 
 .nav-box__left {
-  padding-left: 30px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -452,24 +465,8 @@ button, select, input {
   border-radius: 10px;
   font-size: 1.6rem;
 }
-.main-table__table th, .main-table__table td {
-  padding: 5px;
-}
-.main-table__table th {
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  border-bottom: 1px solid #cdcdcd;
-  background: #ededed;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
 .main-table__table a {
   color: #1c1caa;
-}
-.main-table__table tr:nth-child(even) {
-  background: #f7f7f7;
 }
 .main-table__table a:hover {
   text-decoration: underline;
@@ -477,26 +474,81 @@ button, select, input {
 
 .main-table__wrapper {
   height: 100%;
+  background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
+  padding: 10px;
   overflow: auto;
-  box-shadow: -5px 10px 10px #cdcdcd;
+  box-shadow: -5px 10px 10px #6c6c6c;
 }
 
-.main-table__button {
+.main-table__row {
+  display: flex;
+}
+
+.main-table__data {
   width: 100%;
-  color: #1b1b1b;
-  background: #cdcdcd;
+  background: #fff;
+  font-size: 1.6rem;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  word-break: break-word;
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px #6c6c6c;
+}
+
+.main-table__data-span {
+  padding: 5px;
+  padding-top: 15px;
+}
+
+.main-table__bet-info {
+  padding: 5px 0;
+  min-width: 20%;
+}
+
+.main-table__bet-info-data {
+  padding-top: 5px;
+  font-size: 1.2rem;
+}
+
+.main-table__id {
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.main-table__img {
+  display: inline-block;
+  width: 2rem;
+}
+
+.main-table__title {
   font-size: 1.4rem;
-  padding: 8px;
-  border-radius: 10px;
+  text-transform: capitalize;
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
 
-.main-table__button:hover {
-  background: #1b1b1b;
+.main-table__inputs {
+  margin: 5px;
+  min-width: 22%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-table__trash {
   color: #fff;
+  font-size: 2.4rem;
 }
 
-.main-table__checkbox--del:checked ~ span {
-  background: #dd968e;
+.main-table__checkbox--del:checked ~ i {
+  color: #cb1010;
 }
 
 .main-table__checkbox--add:checked ~ span {
@@ -577,20 +629,9 @@ button, select, input {
   display: block;
 }
 
-.main-table__iter-span {
-  border-radius: 5px;
-  padding: 5px 15px;
-  box-shadow: 0px 2px 3px #1b1b1b;
-}
-
 @media (max-width: 1430px) {
   .main-table {
     width: 100%;
-  }
-
-  .main-table__img {
-    display: inline-block;
-    width: 20px;
   }
 
   .main-table__sport-span {
@@ -614,6 +655,8 @@ button, select, input {
 
   .main-table__valuebets-table th {
     display: none;
+    padding: 0;
+    border-bottom: none;
   }
   .main-table__valuebets-table th:nth-child(9) {
     display: block;
@@ -750,7 +793,8 @@ button, select, input {
   }
 }
 @media (max-width: 1020px) {
-  .main-table__add-table select, .main-table__add-table input[type=submit] {
+  .main-table__add-table select,
+.main-table__add-table input[type=submit] {
     width: 70%;
   }
   .main-table__add-table input {
@@ -1011,7 +1055,7 @@ button, select, input {
 
 .auth__error-box {
   padding-top: 10px;
-  color: #ae1b16;
+  color: #cb1010;
 }
 
 .auth {
@@ -1102,7 +1146,7 @@ button, select, input {
 
 .add-bet__error-box {
   width: 100%;
-  color: #ae1b16;
+  color: #cb1010;
   text-align: center;
 }
 
@@ -1129,6 +1173,72 @@ button, select, input {
   height: calc(100vh - 100px);
 }
 
+.history-table__nav {
+  padding: 5px 0px 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1b1b1b;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.history-table__nav-right {
+  font-size: 1.8rem;
+  width: 22%;
+  margin: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+.history-table__nav-right span {
+  padding: 10px 0;
+  font-size: 1.4rem;
+}
+
+.history-table__nav-trash {
+  font-size: 2.8rem;
+  color: #fff;
+}
+
+.history-table__nav-trash:hover {
+  color: #cb1010;
+}
+
+.history-table__bet-wrapper {
+  padding: 15px 0;
+  box-shadow: 0 4px 3px -3px #1b1b1b;
+}
+
+.history-table__input {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.history-table__wrench {
+  color: #1c1caa;
+  font-size: 2.4rem;
+}
+
+.history-table__teams {
+  font-weight: 600;
+}
+
+.history-table {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 1430px) {
+  .history-table {
+    font-size: 1.4rem;
+  }
+}
 .footer {
   padding: 30px 0;
   font-family: "Poppins", sans-serif;
@@ -1166,4 +1276,9 @@ button, select, input {
   text-align: center;
   padding: 10px;
   letter-spacing: 1px;
+}
+
+.pagination {
+  display: flex;
+  padding-top: 5px;
 }

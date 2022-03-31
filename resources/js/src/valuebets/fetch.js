@@ -1,5 +1,5 @@
-import {initPrint} from './modules/fetch/print-init.js';
-import {initTimer, clearCountDown} from './modules/timer/count-down.js';
+import {initPrint} from '../modules/fetch/print-init.js';
+import {initTimer, clearCountDown} from '../modules/timer/count-down.js';
 
 let time = document.querySelector('.filters__refresh-num');
 let refreshButton = document.querySelector('.filters__refresh');

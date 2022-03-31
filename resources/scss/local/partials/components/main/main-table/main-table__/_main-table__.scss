@@ -11,27 +11,8 @@
     text-align: center;
     border-radius: 10px;
     font-size: fonts.$small;
-
-    th, td {
-        padding: 5px;
-    }
-
-    th {
-        font-size: fonts.$small;
-        text-transform: uppercase;
-        border-bottom: 1px solid colors.$grey2;
-        background: colors.$grey1;
-        position: sticky;
-        top: 0;
-        z-index: layers.$th-index;
-    }
-
     a {
         color: colors.$purple;
-    }
-
-    tr:nth-child(even) {
-        background: colors.$white1;
     }
 
     a:hover {
@@ -41,21 +22,81 @@
 
 .main-table__wrapper {
     height: 100%;
+    background: colors.$grey-gradient;
+    padding: 10px;
     overflow: auto;
-    box-shadow: -5px 10px 10px colors.$grey2;
+    box-shadow: -5px 10px 10px colors.$grey-f;
 }
 
-.main-table__button {
+.main-table__row {
+    display: flex;
+}
+
+.main-table__data {
     width: 100%;
-    @include mixins.button;
+    background: colors.$white-f;
+    font-size: fonts.$small;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    word-break: break-word;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px colors.$grey-f;
 }
 
-.main-table__button:hover {
-    @include mixins.button-hover;
+.main-table__data-span {
+    padding: 5px;
+    padding-top: 15px;
 }
 
-.main-table__checkbox--del:checked ~ span {
-    background: colors.$pink;
+.main-table__bet-info {
+    padding: 5px 0;
+    min-width: 20%;
+}
+
+.main-table__bet-info-data{
+    padding-top: 5px;
+    font-size: fonts.$tiny;
+}
+
+.main-table__id {
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.main-table__img {
+    display: inline-block;
+    width: fonts.$big;
+}
+
+.main-table__title {
+    font-size: fonts.$v-small;
+    text-transform: capitalize;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.main-table__inputs {
+    margin: 5px;
+    min-width: 22%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-table__trash {
+    color: colors.$white-f;
+    font-size: fonts.$large;
+}
+
+.main-table__checkbox--del:checked ~ i {
+    color: colors.$red;
 }
 
 .main-table__checkbox--add:checked ~ span {
@@ -99,10 +140,10 @@
 .main-table__add-table {
     table-layout: fixed;
 
-    th:nth-child(-n+4) {
+    th:nth-child(-n + 4) {
         width: 10%;
     }
-    
+
     th:nth-child(5) {
         width: 25%;
     }
@@ -126,20 +167,9 @@
     display: block;
 }
 
-.main-table__iter-span {
-    border-radius: 5px;
-    padding: 5px 15px;
-    box-shadow: 0px 2px 3px colors.$black;
-}
-
 @media (max-width: breakpoints.$desktop-mid) {
     .main-table {
         width: 100%;
-    }
-
-    .main-table__img {
-        display: inline-block;
-        width: 20px;
     }
 
     .main-table__sport-span {
@@ -160,18 +190,20 @@
         position: fixed;
         top: 88px;
         right: 20px;
-        z-index: layers.$button-index;      
+        z-index: layers.$button-index;
     }
 
     .main-table__valuebets-table {
         th {
             display: none;
+            padding: 0;
+            border-bottom: none;
         }
 
         th:nth-child(9) {
             display: block;
         }
-        
+
         tbody {
             tr {
                 padding: 10px 0;
@@ -240,7 +272,7 @@
 
         tbody {
             tr {
-                padding-top: 10px; 
+                padding-top: 10px;
                 align-items: center;
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
@@ -326,12 +358,13 @@
 
 @media (max-width: breakpoints.$tablets) {
     .main-table__add-table {
-        select, input[type="submit"] {
+        select,
+        input[type='submit'] {
             width: 70%;
         }
 
         input {
             width: 100%;
-        };
+        }
     }
 }

@@ -1,8 +1,13 @@
 @use '../config/colors';
 @use './fonts';
+@use './../config/layers';
 
 .width-50 {
     width: 50% !important;
+}
+
+.max-width-30 {
+    max-width: 30%;
 }
 
 .right-0 {
@@ -11,6 +16,14 @@
 
 .flex {
     display: flex;
+}
+
+.relative {
+    position: relative;
+}
+
+.justify-left {
+    justify-content: left;
 }
 
 .grid {
@@ -31,12 +44,10 @@
 
 .win {
     color: colors.$green;
-    font-weight: 600;
 }
 
 .lost {
     color: colors.$red;
-    font-weight: 600;
 }
 
 .stake {

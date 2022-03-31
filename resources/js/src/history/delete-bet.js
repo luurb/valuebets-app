@@ -1,17 +1,40 @@
-import {addMessage} from './print-message.js';
+import { addMessage } from '../modules/print-message.js';
 
-function addGamesToHistory(gamesArr) {
+let deleteButton = document.querySelector('.main-table__delete-button');
+
+deleteButton.addEventListener('click', () => {
+    let dataForm = new FormData(document.querySelector('#delete-form'));
+    let games = dataForm.getAll('delete[]');
+    let checkedBoxes = document.querySelectorAll('.main-table__checkbox--del:checked');
+
+    if (games.length !== 0) {
+        deleteGameFromHistory({ games: games });
+    }
+
+    for (let checkedBox of checkedBoxes) {
+        hideGame(checkedBox.closest('tr'));
+    }
+});
+
+function hideGame(tr) {
+    tr.className = 'tr-delete-blink';
+    setTimeout(() => {
+        tr.remove();
+    }, 1000);
+}
+
+function deleteGameFromHistory(gamesArr) {
     let token = document
         .querySelector('meta[name=csrf-token]')
         .getAttribute('content');
 
-    fetch('/valuebets', {
+    fetch('/history', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': token,
         },
-        body: JSON.stringify(gamesArr)
+        body: JSON.stringify(gamesArr),
     })
         .then((response) => {
             if (!response.ok) {
@@ -25,7 +48,7 @@ function addGamesToHistory(gamesArr) {
 
             return response.json();
         })
-        .then (data => {
+        .then((data) => {
             addMessage(data);
         })
         .catch((e) => {
@@ -38,5 +61,3 @@ function addGamesToHistory(gamesArr) {
             }
         });
 }
-
-export { addGamesToHistory };

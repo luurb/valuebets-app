@@ -1,6 +1,8 @@
 let number = document.querySelector('.filters__refresh-num');
 let wrapper = document.querySelector('.filters__refresh-wrapper');
 
+
+//Refresh option
 wrapper.addEventListener('click', (e) => {
     let x = Number(number.textContent);
     if (x > 2 && x < 15) {
@@ -20,5 +22,4 @@ wrapper.addEventListener('click', (e) => {
     }
     number.textContent = x;
 });
-
 

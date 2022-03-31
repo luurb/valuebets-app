@@ -21,77 +21,110 @@
 @endsection
 
 @section('nav-box-content')
-    {{ $bets->links() }}
+    {{ $bets->links('vendor/pagination.simple-tailwind') }}
 @endsection
 
 @section('main-content')
-    <table class="main-table__table main-table__history-table">
-        <form id="delete-form">
-        </form>
-        <thead>
-            <tr>
-                <th scope="colgroup">ID</th>
-                <th scope="colgroup">Bookmaker</th>
-                <th scope="colgroup">Sport</th>
-                <th scope="colgroup">Date and time</th>
-                <th scope="colgroup">Teams</th>
-                <th scope="colgroup">Bet</th>
-                <th scope="colgroup">Odd</th>
-                <th scope="colgroup">Value</th>
-                <th scope="colgroup">Stake</th>
-                <th scope="colgroup">Result</th>
-                <th scope="colgroup">Return</th>
-                <th scope="colgroup">
-                    <input type="button" value="Delete" 
-                    class="main-table__button main-table__delete-button"
-                    form="delete-form">
-                </th>
-                <th scope="colgroup"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if ($bets->count())
-                @php
-                    $iter = 0;
-                @endphp
-                @foreach ($bets as $bet)
-                    @php
-                       $iter++; 
-                    @endphp
-                    <tr>
-                        <td><span class="main-table__iter-span">{{ $iter }}</span></td> 
-                        <td>{{ $bet->bookie->bookie_name }}</td> 
-                        <td>{{ $bet->sport->sport_name }}</td> 
-                        <td>{{ $bet->date_time }}</td> 
-                        <td class="{{ strtolower($bet->result) }}">
-                            {{ $bet->teams }}
-                        </td> 
-                        <td>{{ $bet->bet }}</td> 
-                        <td>{{ $bet->odd }}</td> 
-                        <td>{{ $bet->value . ' %'}}</td> 
-                        <td class="stake">{{ $bet->stake . ' $'}}</td> 
-                        <td>{{ $bet->result }}</td> 
-                        <td class="{{ strtolower($bet->result) }}">{{ $bet->return . ' $' }}</td> 
-                        <td>
-                            <label>
-                                <input type="checkbox" value="{{ $bet->id }}" name="delete[]" 
+    <div class="history-table">
+        <form id="delete-form"></form>
+        <div class="history-table__nav">
+            <div class="history-table__nav-left"></div>
+            <div class="history-table__nav-right">
+                <span>confirm delete: </span>
+                <button type="button" value="delete"
+                    class="history-table__nav-trash history-table__input form=" delete-form">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+        @if ($bets->count())
+            @foreach ($bets as $bet)
+            <div class="history-table__bet-wrapper ">
+                <div class="main-table__row">
+                    <div class="main-table__data relative max-width-30">
+                        <span class="main-table__title">
+                            bookie:
+                        </span>
+                        <span class="main-table__data-span">
+                            {{ $bet->bookie->bookie_name }}
+                        </span>
+                    </div>
+                    <div class="main-table__data relative">
+                        <span class="main-table__title">
+                            bet:
+                        </span>
+                        <span class="main-table__data-span">
+                            {{ $bet->bet }}
+                        </span>
+                    </div>
+                    <div class="main-table__inputs relative">
+                        <label>
+                            <input type="checkbox" value="118" name="delete[]"
                                 class="main-table__checkbox--del none" form="delete-form">
-                                <span class="main-table__span main-table__history-span">Del</span>
-                            </label>
-                        </td>
+                            <i class="fa-solid fa-trash main-table__trash"></i>
+                        </label>
+                        </input>
+                        <form method="get" action="/modify">
+                            <input type="hidden" name="id" value="118">
+                            <button type="button" value=""
+                                class="history-table__input history-table__wrench">
+                                <i class="fa-solid fa-wrench"></i>
+                            </button>
                         </form>
-                        <td>
-                            <form method="get" action="/modify">
-                                <input type="hidden" name="id" value="{{ $bet->id }}">
-                                <button type="submit" value="" 
-                                class="main-table__button main-table__history-button">Mod</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            @endif
-        </tbody>         
-    </table>
+                    </div>
+                </div>
+                <div class="main-table__row">
+                    <div class="main-table__data relative">
+                        <span class="main-table__title">
+                            value:
+                        </span>
+                        <span class="main-table__data-span">
+                            {{ $bet->value . ' %'}}
+                        </span>
+                    </div>
+                    <div class="main-table__data relative">
+                        <span class="main-table__title">
+                            odd:
+                        </span>
+                        <span class="main-table__data-span">
+                            {{ $bet->odd }}
+                        </span>
+                    </div>
+                    <div class="main-table__data relative">
+                        <span class="main-table__title">
+                            stake:
+                        </span>
+                        <span class="main-table__data-span stake">
+                            {{ $bet->stake . ' $'}}
+                        </span>
+                    </div>
+                    <div class="main-table__data relative">
+                        <span class="main-table__title">
+                            return:
+                        </span>
+                        <span class="main-table__data-span
+                        {{ strtolower($bet->result) }}">
+                            {{ $bet->return . ' $' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="main-table__row">
+                    <div class="main-table__data">
+                        <div class="main-table__bet-info">
+                            <img src="./images/svg/{{ strtolower($bet->sport->sport_name) }}.svg"
+                                class="main-table__img none" />
+                            <div class="main-table__bet-info-data">{{ $bet->date_time }}</div>
+
+                        </div>
+                        <div class="history-table__teams {{ strtolower($bet->result) }}">
+                            {{ $bet->teams }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        @endif
+    </div>
 @endsection
 
 @section('filters-content')

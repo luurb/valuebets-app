@@ -1,12 +1,14 @@
 @use '../../../../../config/colors';
 @use '../../../../../config/breakpoints';
+@use '../../../../../config/layers';
 @use '../../../../fonts';
 
 .nav-box {
     font-size: fonts.$medium;
     background: colors.$grey1;
     box-shadow: 0 5px 10px colors.$grey2;
-    padding: 10px 0px;
+    padding: 10px 30px;
+    z-index: layers.$nav-box-index;
 }
 
 @media (max-width: breakpoints.$desktop-mid) {
