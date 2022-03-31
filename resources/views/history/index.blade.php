@@ -21,7 +21,7 @@
 @endsection
 
 @section('nav-box-content')
-    {{ $bets->links() }}
+    {{ $bets->links('vendor/pagination.simple-tailwind') }}
 @endsection
 
 @section('main-content')

@@ -74,6 +74,10 @@ html {
   display: flex;
 }
 
+.relative {
+  position: relative;
+}
+
 .grid {
   display: grid;
 }
@@ -370,7 +374,7 @@ button, select, input {
   font-size: 1.8rem;
   background: #ededed;
   box-shadow: 0 5px 10px #cdcdcd;
-  padding: 10px 0px;
+  padding: 10px 30px;
 }
 
 @media (max-width: 1430px) {
@@ -392,6 +396,7 @@ button, select, input {
 .nav-box__message {
   font-size: 1.6rem;
   padding: 0 20px;
+  position: relative;
 }
 .nav-box__message i {
   font-size: 2.8rem;
@@ -408,9 +413,11 @@ button, select, input {
 }
 
 .nav-box__message-text {
+  width: 250%;
   position: absolute;
-  padding: 5px;
-  margin-top: 5px;
+  padding: 8px;
+  left: 5px;
+  text-align: center;
   background: linear-gradient(to right, #646485, #1c1caa);
   color: #fff;
   border-radius: 5px;
@@ -424,7 +431,6 @@ button, select, input {
 }
 
 .nav-box__left {
-  padding-left: 30px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -614,6 +620,8 @@ button, select, input {
 
   .main-table__valuebets-table th {
     display: none;
+    padding: 0;
+    border-bottom: none;
   }
   .main-table__valuebets-table th:nth-child(9) {
     display: block;
@@ -1166,4 +1174,9 @@ button, select, input {
   text-align: center;
   padding: 10px;
   letter-spacing: 1px;
+}
+
+.pagination {
+  display: flex;
+  padding-top: 5px;
 }

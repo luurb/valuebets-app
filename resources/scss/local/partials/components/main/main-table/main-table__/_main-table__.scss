@@ -166,6 +166,8 @@
     .main-table__valuebets-table {
         th {
             display: none;
+            padding: 0;
+            border-bottom: none;
         }
 
         th:nth-child(9) {

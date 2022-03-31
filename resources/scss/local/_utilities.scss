@@ -1,5 +1,6 @@
 @use '../config/colors';
 @use './fonts';
+@use './../config/layers';
 
 .width-50 {
     width: 50% !important;
@@ -11,6 +12,10 @@
 
 .flex {
     display: flex;
+}
+
+.relative {
+    position: relative;
 }
 
 .grid {

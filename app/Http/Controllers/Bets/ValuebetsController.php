@@ -17,7 +17,7 @@ class ValuebetsController extends Controller
     {
         if (! auth()->user()) {
             return response()->json([
-                'response' => 0,
+                'response' => 4,
                 'counter' => 0
             ]);
         }

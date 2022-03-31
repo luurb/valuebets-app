@@ -14,6 +14,7 @@
 .nav-box__message {
     font-size: fonts.$small;
     padding: 0 20px;
+    position: relative;
 
     i {
         font-size: fonts.$v-large;
@@ -33,9 +34,11 @@
 }
 
 .nav-box__message-text {
+    width: 250%;
     position: absolute;
-    padding: 5px;
-    margin-top: 5px;
+    padding: 8px;
+    left: 5px;
+    text-align: center;
     background: colors.$purple-gradient;
     color: colors.$white-f;
     border-radius: 5px;
@@ -49,7 +52,6 @@
 }
 
 .nav-box__left {
-    padding-left: 30px;
     display: flex;
     justify-content: flex-start;
     align-items: center;

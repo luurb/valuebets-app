@@ -58,8 +58,17 @@ function createNewTrList(gamesArr) {
                     td.appendChild(a);
                     break;
                 }
+                case 5: 
+                    td.className = 'bet';
+                    td.textContent = game[j];
+                    break;
+                case 6: 
+                    td.className = 'odd';
+                    td.textContent = game[j];
+                    break;
                 case 7: {
                     td.textContent = game[j] + '%';
+                    td.className = 'value';
                     break;
                 }
                 default:
