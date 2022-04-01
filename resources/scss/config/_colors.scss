@@ -11,7 +11,7 @@ $pink: #dd968e;
 $purple: #1c1caa;
 $white-f: #fff;
 $grey-f: #6c6c6c;
-$green: #2d9129;
+$green: #396e50;
 $red: #cb1010;
 $gold: #a38b00;
 
@@ -20,7 +20,8 @@ $gold: #a38b00;
 $grey-gradient: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
 $purple-gradient: linear-gradient(to right ,#646485, #1c1caa);
 $green-gradient: linear-gradient(to left, #5eb987, #396e50);
-$green1-gradient: linear-gradient(#ededed, #288545);
-$red-gradient: linear-gradient(#ededed, #fa9f9c);
+$green1-gradient: linear-gradient(to right, #f7f7f7, #a1bdad, #f7f7f7);
+$red-gradient: linear-gradient(to left, #b64545, #d6b8b8);
+$red1-gradient: linear-gradient(to right, #ededed, #d19a9a, #ededed);
 
 $purple-hover-gradient: linear-gradient(to right ,#757596, #2d2dbb);

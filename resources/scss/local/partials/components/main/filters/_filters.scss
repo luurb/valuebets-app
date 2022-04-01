@@ -5,8 +5,8 @@
 
 .filters {
     height: 100%;
-    min-width: 15%;
-    max-width: 200px;
+    width: 15%;
+    min-width: 240px;
     background: colors.$grey-gradient;
     z-index: layers.$filters-index;
 }

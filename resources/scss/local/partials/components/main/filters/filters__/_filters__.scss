@@ -171,7 +171,7 @@
     }
 }
 
-@media (max-width: breakpoints.$desktop-mid) {
+@media (max-width: breakpoints.$tablets) {
     .filters {
         position: fixed;
         right: -100%;

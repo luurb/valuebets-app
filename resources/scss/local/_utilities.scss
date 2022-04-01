@@ -44,10 +44,16 @@
 
 .win {
     color: colors.$green;
+    font-weight: 600;
 }
 
 .lost {
     color: colors.$red;
+    font-weight: 600;
+}
+
+.pending {
+    color: colors.$grey-f;
 }
 
 .stake {
@@ -102,4 +108,97 @@
 .hide-filters {
     transform: rotate(0deg) translateZ(0);
     transition: all 0.8s ease;
+}
+
+.result-span {
+    font-size: fonts.$tiny;
+    font-weight: 600;
+    position: absolute;
+    width: 50%;
+    max-width: 100px;
+    height: 22px;
+    top: 3px;
+    left: -9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    color: colors.$white-f;
+}
+
+.result-win-helper {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 25px;
+    left: -9px;
+    overflow: hidden;
+}
+
+.result-win-helper::before {
+    position: absolute;
+    content: '';
+    background: colors.$green-gradient;
+    width: 150%;
+    height: 8px;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-lost-helper {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 25px;
+    left: -9px;
+    overflow: hidden;
+}
+
+.result-lost-helper::before {
+    position: absolute;
+    content: '';
+    background: colors.$red-gradient;
+    width: 150%;
+    height: 8px;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-pending-helper {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 25px;
+    left: -9px;
+    overflow: hidden;
+}
+
+.result-pending-helper::before {
+    position: absolute;
+    content: '';
+    background: colors.$grey-f;
+    width: 150%;
+    height: 8px;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-lost-span {
+    background: colors.$red;
+}
+
+.result-win-span {
+    background: colors.$green;
+}
+
+.result-pending-span {
+    background: colors.$grey-f;
 }

@@ -1,6 +1,6 @@
 import { addMessage } from '../modules/print-message.js';
 
-let deleteButton = document.querySelector('.main-table__delete-button');
+let deleteButton = document.querySelector('.history-table__nav-trash');
 
 deleteButton.addEventListener('click', () => {
     let dataForm = new FormData(document.querySelector('#delete-form'));
@@ -12,14 +12,14 @@ deleteButton.addEventListener('click', () => {
     }
 
     for (let checkedBox of checkedBoxes) {
-        hideGame(checkedBox.closest('tr'));
+        hideGame(checkedBox.closest('.history-table__bet-wrapper'));
     }
 });
 
-function hideGame(tr) {
-    tr.className = 'tr-delete-blink';
+function hideGame(betWrapper) {
+    betWrapper.className = 'tr-delete-blink';
     setTimeout(() => {
-        tr.remove();
+        betWrapper.remove();
     }, 1000);
 }
 

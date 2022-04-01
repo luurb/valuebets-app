@@ -65,11 +65,7 @@
 .nav-box__button {
 }
 
-@media (max-width: breakpoints.$desktop-mid) {
-    .nav-box__right {
-        padding-right: 0 25px;
-    }
-
+@media (max-width: breakpoints.$tablets) {
     .nav-box__filters-icon {
         display: block;
     }

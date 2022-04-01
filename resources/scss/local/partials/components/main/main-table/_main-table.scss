@@ -1,7 +1,9 @@
 @use '../../../../../config/colors';
 
 .main-table {
-    min-width: 85%;
+    width: 100%;
     height: 100%;
     padding: 30px 20px;
+    display: flex;
+    justify-content: center;
 }

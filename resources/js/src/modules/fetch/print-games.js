@@ -1,5 +1,3 @@
-import {addSportIcon} from '../add-icons.js';
-
 //Function create new body of games table
 function printNewTableBody(gamesArr) {
     let table = document.querySelector('.main-table__table');
@@ -23,7 +21,6 @@ function printNewTableBody(gamesArr) {
 
     oldTbody.remove();
     table.appendChild(newTbody); 
-    addSportIcon();
 }
 
 //Function create new rows list for valubets table 

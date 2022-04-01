@@ -20,7 +20,6 @@ mix.js([
     ], 
     'public/js/valuebets.js').sourceMaps()
     .js([
-        'resources/js/src/modules/add-icons.js',
         'resources/js/src/show-filters.js',
         'resources/js/src/history/delete-bet.js',
     ], 
