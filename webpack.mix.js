@@ -11,19 +11,26 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js([
+mix.js(
+    [
         'resources/js/src/valuebets/fetch.js',
         'resources/js/src/valuebets/events.js',
         'resources/js/src/show-filters.js',
         'resources/js/src/valuebets/game-filter.js',
         'resources/js/src/modules/sorting.js',
-    ], 
-    'public/js/valuebets.js').sourceMaps()
-    .js([
-        'resources/js/src/show-filters.js',
-        'resources/js/src/history/delete-bet.js',
-    ], 
-    'public/js/history.js').sourceMaps()
+    ],
+    'public/js/valuebets.js'
+)
+    .sourceMaps()
+    .js(
+        [
+            'resources/js/src/show-filters.js',
+            'resources/js/src/history/delete-bet.js',
+            'resources/js/src/history/pagination.js',
+        ],
+        'public/js/history.js'
+    )
+    .sourceMaps()
     .sass('resources/scss/main.scss', 'public/css', [
         //
     ]);

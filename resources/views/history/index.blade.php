@@ -21,21 +21,53 @@
 @endsection
 
 @section('nav-box-content')
-    {{ $bets->links('vendor/pagination.simple-tailwind') }}
+    <nav class="pagination">
+    {{ $bets->links('history.pagination.index') }}
+        <span class="pagination__results-box">
+            <span class="pagination__results-counter-text">
+                Results per page:
+            </span>
+            <span class="pagination__results-counter">
+                <span>
+                    {{ $counter }}
+                </span>
+                <i class="fa-solid fa-angle-down"></i>
+                <ul class="pagination__counter-list">
+                    <li class="pagination__counter-option">10</li>
+                    <li class="pagination__counter-option">20</li>
+                    <li class="pagination__counter-option">50</li>
+                    <li class="pagination__counter-option">100</li>
+                </ul>
+            </span>
+        </span>
+    </nav>
 @endsection
 
 @section('main-content')
-        <form id="delete-form"></form>
-        <div class="main-table__nav">
-            <div class="main-table__nav-left"></div>
-            <div class="main-table__nav-right">
-                <span>Delete: </span>
-                <button type="button" value="delete"
-                    class="main-table__nav-trash main-table__input form=" delete-form">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </div>
+    <form id="delete-form"></form>
+    <div class="main-table__nav">
+        <div class="main-table__nav-left">
+            <span>
+                <i class="fa-solid fa-trash">
+                </i>
+                    - check for delete
+            </span>
+            <span>
+                <i class="fa-solid fa-wrench grey-f">
+                </i>
+                    - click for modify 
+            </span>
+            
         </div>
+        <div class="main-table__nav-right">
+            <span>Delete: </span>
+            <button type="button" value="delete"
+                class="main-table__nav-trash main-table__input form=" delete-form">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
+    </div>
+    <div class="main-table__bets">
         @if ($bets->count())
             @foreach ($bets as $bet)
             <div class="main-table__bet-wrapper">
@@ -117,7 +149,7 @@
                         <div class="main-table__data">
                             <div class="main-table__bet-info">
                                 <img src="./images/svg/{{ strtolower($bet->sport->sport_name) }}.svg"
-                                    class="main-table__img none" />
+                                    class="main-table__img" />
                                 <div class="main-table__bet-info-data">{{ $bet->date_time }}</div>
 
                             </div>
@@ -130,6 +162,7 @@
             </div>
             @endforeach
         @endif
+    </div>
 @endsection
 
 @section('filters-content')

@@ -20,6 +20,10 @@ export function addMessage(data) {
             message: 'Bet was modified',
             icon: '<i class="fa-solid fa-check"></i>',
         },
+        5: {
+            message: 'Please choose bets for filter',
+            icon: '<i class="fa-solid fa-xmark"></i>',
+        },
         0: {
             message: 'Something went wrong',
             icon: '<i class="fa-solid fa-xmark"></i>',

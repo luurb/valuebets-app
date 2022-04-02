@@ -1,105 +1,148 @@
 //Function create new body of games table
 function printNewTableBody(gamesArr) {
-    let table = document.querySelector('.main-table__table');
-    let oldTbody = table.querySelector('tbody');
-     
-    let newTrList = createNewTrList(gamesArr);
-    let newTbody = oldTbody.cloneNode();
-    let trLength = newTrList.length;
+    let tableWrapper = document.querySelector('.main-table__wrapper');
+    let oldBetsBox = document.querySelector('.main-table__bets');
+    let newBetsBox = oldBetsBox.cloneNode();
+    newBetsBox = createNewBetsBox(gamesArr, newBetsBox);
 
-    for (let i = 0; i < trLength; i++) {
-        let tr = newTrList[i];
-        newTbody.appendChild(tr);
-        //Nedded to remove class for animation to be able
-        //to add another animation to that element later
-        if (tr.className === 'tr-add-blink') {
+    //Nedded to remove class for animation to be able
+    //to add another animation to that element later
+    newBetsBox.childNodes.forEach((betWrapper) => {
+        if (betWrapper.classList.contains('bet-add-blink')) {
             setTimeout(() => {
-                newTrList[i].classList.remove('tr-add-blink');
-            }, 4000)
+                betWrapper.classList.remove('bet-add-blink');
+            }, 4000);
         }
-    }
+    });
 
-    oldTbody.remove();
-    table.appendChild(newTbody); 
+    oldBetsBox.remove();
+    newBetsBox.classList.add('betsbox-blink');
+    tableWrapper.appendChild(newBetsBox);
 }
 
-//Function create new rows list for valubets table 
-function createNewTrList(gamesArr) {
-    let gamesLength = gamesArr.length;
-    let trList = [];
+//Function create new rows list for valubets table
+function createNewBetsBox(gamesArr, newBetsBox) {
+    gamesArr.forEach((game) => {
+        let betWrapper = document.createElement('div');
+        betWrapper.setAttribute('class', 'main-table__bet-wrapper');
 
-    for (let i = 0; i < gamesLength; i++) {
-        let tr = document.createElement('tr');
-        let game = gamesArr[i];
-        let gameLength = gamesArr[i].length;
-        
-        for (let j = 0; j < gameLength - 2; j++) {
-            let td = document.createElement('td');
-            switch (j) {
-                case 0: {
-                    td.innerHTML = '<i class="fa-regular fa-clock"></i>' +
-                    '<span class="main-table__valuebets-clock"> ' + 
-                    getClockTime(game[9]) + '</span>';
-                    break;
-                }
-                case 2: {
-                    td.innerHTML = '<span class="main-table__sport-span">' 
-                    + game[j] + '</span>';
-                    break;
-                }
-                case 4: {
-                    let a = document.createElement('a');
-                    a.setAttribute("href", "https://www.oddsportal.com/search/");
-                    a.setAttribute("target", "_blank");
-                    a.textContent = game[j];
-                    td.appendChild(a);
-                    break;
-                }
-                case 5: 
-                    td.className = 'bet';
-                    td.textContent = game[j];
-                    break;
-                case 6: 
-                    td.className = 'odd';
-                    td.textContent = game[j];
-                    break;
-                case 7: {
-                    td.textContent = game[j] + '%';
-                    td.className = 'value';
-                    break;
-                }
-                default:
-                    td.textContent = game[j];
-            }
-            tr.appendChild(td);
+        if (game[8] !== '') {
+            betWrapper.classList.add(game[8]);
         }
-        let td = document.createElement('td');
-        td.innerHTML = 
-        `<label>
-            <input type="checkbox" form="filter-form" name=add
-            class="main-table__checkbox main-table__checkbox--add none">                                           
-            <span class="main-table__span main-table__valuebets-span">Add</span>
-        </label>
-        <label>
-            <input type="checkbox" form="filter-form" name=delete
-            class="main-table__checkbox main-table__checkbox--del none">
-            <span class="main-table__span main-table__valuebets-span">Del</span>
-        </label>`;
-        tr.appendChild(td);
-        tr.className = game[8];
-        trList.push(tr);
-    }
-    
-    return trList;
+
+        let downRows = document.createElement('div');
+        downRows.setAttribute('class', 'main-table__down-rows');
+
+        let firstRow = getFirstRow(game);
+        let secondRow = getSecondRow(game);
+        let thirdRow = getThirdRow(game);
+
+        downRows.appendChild(secondRow);
+        downRows.appendChild(thirdRow);
+
+        betWrapper.appendChild(firstRow);
+        betWrapper.appendChild(downRows);
+        ``;
+
+        newBetsBox.appendChild(betWrapper);
+    });
+
+    return newBetsBox;
+}
+
+function getFirstRow(game) {
+    let firstRow = document.createElement('div');
+    firstRow.setAttribute('class', 'main-table__row');
+    firstRow.innerHTML = `
+        <div class="main-table__data relative max-width-30">
+            <span class="main-table__title">
+                bookie:
+            </span>
+            <span class="main-table__data-span bookie">${game[1]}</span>
+        </div>
+        <div class="main-table__data relative">
+            <span class="main-table__title">
+                bet:
+            </span>
+            <span class="main-table__data-span bet">${game[5]}</span>
+            </span>
+        </div>
+        <div class="main-table__inputs relative">
+            <label>
+                <input type="checkbox" name="add" 
+                class="main-table__checkbox--add main-table__checkbox none"
+                form="filter-form">
+                <i class="fa-solid fa-floppy-disk main-table__input"></i>
+            </label>
+            <label>
+                <input type="checkbox" name="delete"
+                class="main-table__checkbox--del main-table__checkbox none" 
+                form="filter-form">
+                <i class="fa-solid fa-trash main-table__input"></i>
+            </label>
+        </div>`;
+
+    return firstRow;
+}
+
+function getSecondRow(game) {
+    let secondRow = document.createElement('div');
+    secondRow.setAttribute('class', 'main-table__row');
+    secondRow.innerHTML = `
+        <div class="main-table__data relative delay">
+            <span class="main-table__title">
+                delay:
+            </span>
+            <span class="main-table__data-span">
+                <i class="fa-regular fa-clock"></i>
+                ${getClockTime(game[9])}
+            </span>
+        </div>
+        <div class="main-table__data relative">
+            <span class="main-table__title">
+                sport:
+            </span>
+            <span class="main-table__data-span">
+                <span class="sport none">${game[2]}</span>
+                <img src="./images/svg/${game[2].toLowerCase()}.svg" class="main-table__img"/>
+            </span>
+        </div>
+        <div class="main-table__data relative">
+            <span class="main-table__title">
+                value:
+            </span>
+            <span class="main-table__data-span value">${game[7]}%</span>
+        </div>
+        <div class="main-table__data relative">
+            <span class="main-table__title">
+                odd:
+            </span>
+            <span class="main-table__data-span odd">${game[6]}</span>
+        </div>`;
+
+    return secondRow;
+}
+
+function getThirdRow(game) {
+    let thirdRow = document.createElement('div');
+    thirdRow.setAttribute('class', 'main-table__row');
+    let a = document.createElement('a');
+    a;
+    thirdRow.innerHTML = `
+        <div class="main-table__data relative">
+            <div class="main-table__bet-info date">${game[3]}</div>
+            <div class="main-table__teams teams">${game[4]}</div>
+        </div>`;
+
+    return thirdRow;
 }
 
 //Function return delay for given game
 function getClockTime(time) {
     let timeDiff = Math.floor((new Date(Date.now()) - time) / 60000);
-    if (timeDiff == 0)
-        return '< 1 min';
+    if (timeDiff == 0) return '< 1 min';
 
     return timeDiff + ' min';
 }
 
-export {printNewTableBody, createNewTrList};
+export { printNewTableBody };

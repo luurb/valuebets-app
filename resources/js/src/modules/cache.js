@@ -140,7 +140,7 @@ export function getUpdatedArr(db, gamesArr, dbName) {
                         updatedGamesArr.push(oldGamesArr[exists]);
                         objectStore.add({game: oldGamesArr[exists]});
                     } else {
-                        gamesArr[i].push('tr-add-blink');
+                        gamesArr[i].push('bet-add-blink');
                         gamesArr[i].push(new Date(Date.now()));
                         updatedGamesArr.push(gamesArr[i]);
                         objectStore.add({game: gamesArr[i]});

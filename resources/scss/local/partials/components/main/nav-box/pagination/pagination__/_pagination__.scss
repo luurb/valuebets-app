@@ -1,0 +1,72 @@
+@use '../../../../../../../config/colors';
+@use '../../../../../../../config/breakpoints';
+@use '../../../../../../fonts';
+
+.pagination__nav {
+    font-size: fonts.$big;
+    padding-right: 15px;
+}
+
+.pagination__nav:hover {
+    cursor: pointer;
+}
+
+.pagination__nav-angle {
+    display: inline-block;
+    padding: 0 10px;
+    box-shadow: 0px 3px 5px -2px colors.$grey-f;
+}
+
+.pagination__nav-angle:hover {
+    box-shadow: 0px 5px 10px colors.$grey-f;
+}
+
+.pagination__nav-current {
+    padding: 0 15px;
+    box-shadow: 0px 3px 5px -2px colors.$grey-f;
+}
+
+.pagination__results-counter-text {
+    padding-right: 5px;
+}
+
+.pagination__results-counter {
+    display: inline-block;
+    position: relative;
+    padding: 5px 0;
+    width: 60px;
+    text-align: center;
+    box-shadow: 0px 3px 5px -2px colors.$grey-f;
+}
+
+.pagination__results-counter:hover > ul {
+    max-height: 500%;
+}
+
+.pagination__results-counter:hover {
+    cursor: pointer;
+}
+
+.pagination__counter-list {
+    position: absolute;
+    left: 0;
+    margin-top: 7px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.pagination__counter-option {
+    display: block;
+    background: colors.$white1;
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0px 2px 5px colors.$black;
+}
+
+@media (min-width: breakpoints.$tablets) {
+    .pagination__results-box {
+        padding-left: 30px;
+    }
+}

@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('meta')
+    @yield('js-links')
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
-    @yield('js-links')
     <nav class="nav flex">
         <div class="nav__logo"><a href="/home">Value<span class="nav__seclogo">scrap</span></a></div>
         <input type="checkbox" id="nav-check" class="none">

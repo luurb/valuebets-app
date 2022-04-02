@@ -9,7 +9,7 @@
 @endsection
 
 @section('js-links')
-    <script type="module" src="{{ asset('js/valuebets.js') }}" async></script>
+    <script src="{{ asset('js/valuebets.js') }}" defer></script>
 @endsection
 
 @section('nav-box__left')
@@ -17,27 +17,29 @@
 @endsection
 
 @section('main-content')
-    <table class="main-table__table main-table__valuebets-table">
-        <form id="filter-form"></form>
-        <thead>
-            <tr>
-                <th scope="colgroup">Delay</th>
-                <th scope="colgroup">Bookmaker</th>
-                <th scope="colgroup">Sport</th>
-                <th scope="colgroup">Date and time</th>
-                <th scope="colgroup">Teams</th>
-                <th scope="colgroup">Bet</th>
-                <th scope="colgroup">Odd</th>
-                <th scope="colgroup">Value</th>
-                <th scope="colgroup">
-                    <input type="button" value="Add/Delete" 
-                    class="main-table__button main-table__delete-button">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>  
-    </table>
+    <form id="filter-form"></form>
+    <div class="main-table__nav">
+        <div class="main-table__nav-left">
+            <span>
+                <i class="fa-solid fa-floppy-disk"></i>
+                </i>
+                - check for save
+            </span>
+            <span>
+                <i class="fa-solid fa-trash">
+                </i>
+                - check for delete
+            </span>
+        </div>
+        <div class="main-table__nav-right">
+            <span>Filter: </span>
+            <button type="button" value="delete" class="main-table__input main-table__nav-filter"
+                form="filter-form">
+                <i class="fa-solid fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="main-table__bets"></div>
 @endsection
 
 @section('filters-content')

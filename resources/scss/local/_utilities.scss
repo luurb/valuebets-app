@@ -61,16 +61,29 @@
     font-weight: 600;
 }
 
-.tr-delete-blink {
+.delay {
+    font-weight: 600;
+}
+
+.teams {
+    color: colors.$purple;
+    font-weight: 600;
+}
+
+.grey-f {
+    color: colors.$grey2;
+}
+
+.bet-delete-blink {
     animation: 2s blinker 0s linear 1;
 }
 
-.tr-add-blink {
+.bet-add-blink {
     animation: 2s blinker 2s linear 1;
 }
 
-.tbody-blink {
-    animation: 2s tbody-blinker 0s ease-out 1;
+.betsbox-blink {
+    animation: 2s betsbox-blinker 0s ease-out 1;
 }
 
 .sorted {

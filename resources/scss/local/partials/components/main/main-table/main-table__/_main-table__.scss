@@ -21,10 +21,11 @@
 }
 
 .main-table__nav {
+    height: 100px;
     margin: auto;
     position: sticky;
     top: 0;
-    padding: 5px 0px 5px 20px;
+    padding: 5px 0px 5px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,9 +35,16 @@
     font-size: fonts.$medium;
     font-family: fonts.$poppins;
     z-index: layers.$table-nav;
+
+    span {
+        padding: 5px 0;
+        font-size: fonts.$small;
+    }
 }
 
 .main-table__nav-left {
+    display: flex;
+    flex-direction: column;
 }
 
 .main-table__nav-right {
@@ -48,20 +56,19 @@
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-
-    span {
-        padding: 10px 0;
-        font-size: fonts.$small;
-    }
 }
 
-.main-table__nav-trash {
-    font-size: fonts.$nav-icon;
-    color: colors.$white-f;
+.main-table__wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    background: colors.$grey1;
+    box-shadow: -5px 10px 10px colors.$grey-f;
 }
 
-.main-table__nav-trash:hover {
-    color: colors.$red;
+.main-table__bets {
+    height: calc(100% - 100px);
+    overflow: auto;
 }
 
 .main-table__bet-wrapper {
@@ -82,25 +89,33 @@
 .main-table__input {
     background: none;
     border: none;
-    padding: 0 15px;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: colors.$white-f;
+    font-size: fonts.$v-large;
+}
+
+.main-table__input:hover {
     cursor: pointer;
 }
 
-.main-table__wrench {
-    color: colors.$grey-f;
-    font-size: fonts.$v-large;
+
+.main-table__nav-trash,
+.main-table__nav-filter {
+    font-size: fonts.$nav-icon;
+    color: colors.$white-f;
+}
+
+.main-table__nav-trash:hover {
+    color: colors.$red;
+}
+
+.main-table__nav-filter:hover {
+    color: colors.$purple;
 }
 
 .main-table__teams {
     font-weight: 600;
-}
-.main-table__wrapper {
-    width: 100%;
-    height: 100%;
-    max-width: 1400px;
-    background: colors.$grey1;
-    overflow: auto;
-    box-shadow: -5px 10px 10px colors.$grey-f;
 }
 
 .main-table__row {
@@ -119,13 +134,13 @@
     min-height: 65px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 5px;
     margin: 3px;
     text-align: center;
     word-break: break-word;
     border-radius: 5px;
-    box-shadow: 0px 3px 3px colors.$grey-f;
+    box-shadow: 0px 2px 5px colors.$grey-f;
 }
 
 .main-table__data-span {
@@ -150,7 +165,7 @@
 
 .main-table__img {
     display: inline-block;
-    width: fonts.$big;
+    width: 20px;
 }
 
 .main-table__title {
@@ -162,17 +177,12 @@
     left: 5px;
 }
 
-.main-table__trash {
-    color: colors.$white-f;
-    font-size: fonts.$v-large;
-}
-
 .main-table__checkbox--del:checked ~ i {
     color: colors.$red;
 }
 
-.main-table__checkbox--add:checked ~ span {
-    background: colors.$light-green;
+.main-table__checkbox--add:checked ~ i {
+    color: colors.$green;
 }
 
 .main-table__add-table-button {
@@ -196,6 +206,7 @@
 
     .main-table__bet-wrapper {
         padding: 20px;
+        box-shadow: 0 5px 10px colors.$black;
     }
 
     .main-table__inputs {

@@ -46,6 +46,13 @@ class ValuebetsController extends Controller
             $counter++;
         }
         
+        if ($counter === 0 && $data['counter'] === 0) {
+            return response()->json([
+                'response' => 5,
+                'counter' =>$counter 
+            ]);
+        }
+
         return response()->json([
             'response' => 1,
             'counter' => [

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Bets;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class BetsHistoryController extends Controller
 {
@@ -12,14 +13,31 @@ class BetsHistoryController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $bets = auth()->user()->bets()->with('sport', 'bookie')->paginate(10);
+        $counters = [10, 20, 50, 100];
+        $counter = 20;
+
+        if ($data = $request->get('counter')) {
+            if (in_array($request->get('counter'), $counters)) {
+                Cookie::queue('pagination_counter', (int)$data, 60);
+                $counter = $data;
+            }
+        } else {
+            if ($data = $request->cookie('pagination_counter')) {
+                $counter = $data;
+            } else {
+                Cookie::queue('pagination_counter', $counter, 60);
+            }
+        }
+
+        $bets = auth()->user()->bets()->with('sport', 'bookie')->paginate($counter);
         $betsCount= auth()->user()->bets()->count();
 
         return view('history.index', [
             'bets' => $bets,
-            'betsCount' => $betsCount
+            'betsCount' => $betsCount,
+            'counter' => $counter
         ]);
     }
 

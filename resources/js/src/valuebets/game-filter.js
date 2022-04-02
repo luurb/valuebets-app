@@ -1,7 +1,7 @@
 import { dbConnectAwait, addGamesToIndexedDb} from '../modules/cache.js';
 import {addMessage} from '../modules/print-message.js';
 
-let filterBtn = document.querySelector('.main-table__delete-button');
+let filterBtn = document.querySelector('.main-table__nav-filter');
 //Execute correct function after checking which checkboxes user checked
 filterBtn.addEventListener('click', () => {
     let checkedBoxes = document.querySelectorAll('.main-table__checkbox:checked');
@@ -9,11 +9,11 @@ filterBtn.addEventListener('click', () => {
 
     let gamesToSave = [];
     let gamesToHide = [];
-    let rowsToHide = [];
+    let betsToHide = [];
 
     for (let checkedBox of checkedBoxes) {
-        let tr = checkedBox.closest('tr');
-        let game = createGame(tr);
+        let betWrapper= checkedBox.closest('.main-table__bet-wrapper');
+        let game = createGame(betWrapper);
         let name = checkedBox.getAttribute('name');
 
         if (name === 'add') {
@@ -22,23 +22,17 @@ filterBtn.addEventListener('click', () => {
             gamesToHide.push(game);
         }
 
-        rowsToHide.push(tr);
+        betsToHide.push(betWrapper);
     }
 
     addGamesToHistory({
         games: gamesToSave,
         counter: checkBoxLength,
-    }, rowsToHide);
+    }, betsToHide);
 
     addGamesToCache(gamesToHide);
 });
 
-function hideGame(tr) {
-    tr.className = 'tr-delete-blink';
-    setTimeout(() => {
-        tr.remove();
-    }, 1000);
-}
 
 function addGamesToCache(games) {
     dbConnectAwait('hide_games').then((hideGamesDb) =>
@@ -46,23 +40,22 @@ function addGamesToCache(games) {
     );
 }
 
-function createGame(tr) {
+function createGame(betWrapper) {
     let game = {};
-    let tdList = tr.querySelectorAll('td');
-    game['bookie'] = tdList[1].textContent;
-    game['sport'] = tdList[2].textContent;
-    game['date'] = tdList[3].textContent;
-    game['teams'] = tdList[4].textContent;
-    game['bet'] = tdList[5].textContent;
-    game['odd'] = tdList[6].textContent;
-    game['value'] = tdList[7].textContent;
+    game['bookie'] = betWrapper.querySelector('.bookie').textContent;
+    game['sport'] = betWrapper.querySelector('.sport').textContent;
+    game['date'] = betWrapper.querySelector('.date').textContent;
+    game['teams'] = betWrapper.querySelector('.teams').textContent;
+    game['bet'] = betWrapper.querySelector('.bet').textContent;
+    game['odd'] = betWrapper.querySelector('.odd').textContent;
+    game['value'] = betWrapper.querySelector('.value').textContent;
 
     return game;
 }
 
 
 
-function addGamesToHistory(gamesArr, rowsToHide) {
+function addGamesToHistory(gamesArr, betsToHide) {
     let token = document
         .querySelector('meta[name=csrf-token]')
         .getAttribute('content');
@@ -92,8 +85,8 @@ function addGamesToHistory(gamesArr, rowsToHide) {
                 return window.location.href = '/login';
             }
 
-            rowsToHide.forEach(row => {
-                hideGame(row);
+            betsToHide.forEach(betWrapper=> {
+                hideGame(betWrapper);
             });
             
             addMessage(data);
@@ -107,4 +100,11 @@ function addGamesToHistory(gamesArr, rowsToHide) {
                 console.error(e);
             }
         });
+}
+
+function hideGame(betWrapper) {
+    betWrapper.classList.add('bet-delete-blink');
+    setTimeout(() => {
+        betWrapper.remove();
+    }, 1000);
 }
