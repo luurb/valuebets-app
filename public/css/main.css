@@ -659,11 +659,6 @@ button, select, input {
   box-shadow: 0px 2px 5px #1b1b1b;
 }
 
-@media (min-width: 1020px) {
-  .pagination__results-box {
-    padding-left: 30px;
-  }
-}
 .main-table__table {
   background: #ededed;
   width: 100%;
@@ -756,6 +751,10 @@ button, select, input {
 
 .main-table__input:hover {
   cursor: pointer;
+}
+
+.main-table__wrench {
+  color: #6c6c6c;
 }
 
 .main-table__nav-trash,

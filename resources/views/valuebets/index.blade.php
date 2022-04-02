@@ -23,16 +23,16 @@
             <span>
                 <i class="fa-solid fa-floppy-disk"></i>
                 </i>
-                - check for save
+                - choose for save
             </span>
             <span>
                 <i class="fa-solid fa-trash">
                 </i>
-                - check for delete
+                - choose for delete
             </span>
         </div>
         <div class="main-table__nav-right">
-            <span>Filter: </span>
+            <span>Confirm</span>
             <button type="button" value="delete" class="main-table__input main-table__nav-filter"
                 form="filter-form">
                 <i class="fa-solid fa-filter"></i>

@@ -50,7 +50,7 @@
             <span>
                 <i class="fa-solid fa-trash">
                 </i>
-                    - check for delete
+                    - choose for delete
             </span>
             <span>
                 <i class="fa-solid fa-wrench grey-f">
