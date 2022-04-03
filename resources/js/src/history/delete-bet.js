@@ -29,7 +29,7 @@ function deleteGameFromHistory(gamesArr) {
         .getAttribute('content');
 
     fetch('/history', {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': token,

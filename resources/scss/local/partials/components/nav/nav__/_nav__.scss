@@ -38,12 +38,10 @@
 }
 
 #nav__singup-button {
-    //background: colors.$purple-gradient;
     background: colors.$green-gradient;
 }
 
 #nav__singup-button:hover {
-    //background: colors.$purple-hover-gradient;
     color: colors.$white-f;
 }
 
@@ -101,7 +99,7 @@
         left: 0;
     }
 
-    #nav-check:checked ~ .nav__label i:before {
+    #nav-check:checked ~ .nav__label i::before {
         content: "\f00d";
     }
 }

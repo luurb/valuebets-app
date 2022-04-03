@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Bets;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Session;
 
 class BetsHistoryController extends Controller
 {
@@ -15,29 +15,45 @@ class BetsHistoryController extends Controller
 
     public function index(Request $request)
     {
-        $counters = [10, 20, 50, 100];
-        $counter = 20;
+        $counter = $this->getCounter($request->get('counter'));
 
-        if ($data = $request->get('counter')) {
-            if (in_array($request->get('counter'), $counters)) {
-                Cookie::queue('pagination_counter', (int)$data, 60);
-                $counter = $data;
-            }
-        } else {
-            if ($data = $request->cookie('pagination_counter')) {
-                $counter = $data;
-            } else {
-                Cookie::queue('pagination_counter', $counter, 60);
-            }
-        }
+        $bets = auth()->user()->bets()
+            ->with('sport', 'bookie')->orderBy('created_at', 'desc')->paginate($counter);
 
-        $bets = auth()->user()->bets()->with('sport', 'bookie')->paginate($counter);
         $betsCount= auth()->user()->bets()->count();
+
+        $return = auth()->user()->bets()->sum('return');
+        $stakesSum = auth()->user()->bets()->sum('stake');
+        $avgValue= auth()->user()->bets()->avg('value');
+
+        $overTimeReturn = 0;
+        $overTimeStakesSum= 0;
+        $overTimeValue= 0;
+
+        if ($firstDate = Session::get('first_date')) {
+            $secondDate = Session::get('second_date');
+            $overTimeReturn = auth()->user()->bets()
+                ->whereBetween('date_time', [$firstDate, $secondDate])->sum('return');
+            $overTimeStakesSum = auth()->user()->bets()
+                ->whereBetween('date_time', [$firstDate, $secondDate])->sum('stake');
+            $overTimeValue= auth()->user()->bets()
+                ->whereBetween('date_time', [$firstDate, $secondDate])->avg('value');
+        } 
 
         return view('history.index', [
             'bets' => $bets,
             'betsCount' => $betsCount,
-            'counter' => $counter
+            'counter' => $counter,
+            'allTimeStats' => [
+                'return' => $return,
+                'yield' => round($return / $stakesSum * 100, 2),
+                'value' => round($avgValue, 2)
+            ],
+            'overTimeStats' => [
+                'return' => $overTimeReturn,
+                'yield' => round($overTimeReturn/ $overTimeStakesSum* 100, 2),
+                'value' => round($overTimeValue, 2)
+            ]
         ]);
     }
 
@@ -66,5 +82,35 @@ class BetsHistoryController extends Controller
             'response' => 2,
             'counter' => $counter
         ]);
+    }
+
+    public function setTimeRange(Request $request)
+    {
+        $this->validate($request, [
+            'first_date' => 'required|date|after:01-01-2000',
+            'second_date' => 'required|date|after_or_equal:first_date'
+        ]);
+
+        Session::put('first_date', $request->get('first_date'));
+        Session::put('second_date', $request->get('second_date'));
+
+        return redirect()->route('history');
+    }
+
+    private function getCounter(?string $data): int 
+    {
+        $counters = [10, 20, 50, 100];
+        $counter = 20;
+
+        if ($data) {
+            if (in_array($data, $counters)) {
+                Session::put('pagination_counter', (int)$data);
+                $counter = $data;
+            }
+        } else if ($savedCounter = Session::get('pagination_counter')) {
+            $counter = $savedCounter;
+        }
+
+        return $counter;
     }
 }

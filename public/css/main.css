@@ -279,6 +279,19 @@ html {
   background: #6c6c6c;
 }
 
+::-webkit-calendar-picker-indicator {
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+  padding: 0 5px;
+}
+
 a {
   text-decoration: none;
   transition: all 0.3s ease;
@@ -433,7 +446,7 @@ button, select, input {
     left: 0;
   }
 
-  #nav-check:checked ~ .nav__label i:before {
+  #nav-check:checked ~ .nav__label i::before {
     content: "\f00d";
   }
 }
@@ -914,21 +927,26 @@ button, select, input {
 }
 
 .filters__stats {
-  padding: 10px 25px;
+  padding: 5px 25px;
   border-bottom: 1px solid #1c1caa;
 }
 
 .filters__box {
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 5px 10px;
 }
 
-.filters__input {
+.filters__date-input {
   width: 100%;
-  color: #1b1b1b;
-  background: #fff;
-  font-size: 1.4rem;
-  padding: 8px;
+  margin-top: 5px;
   border-radius: 10px;
+  font-size: 1.4rem;
+  padding: 5px;
+  height: 35px;
+}
+
+.filters__date-error {
+  font-size: 1.4rem;
+  padding: 5px 0;
 }
 
 .filters__submit {
@@ -940,13 +958,77 @@ button, select, input {
 }
 
 .filters__value {
-  width: 70%;
   display: block;
   padding: 5px;
   margin: auto;
   background: #1b1b1b;
   color: #fff;
+  font-size: 1.6rem;
   border-radius: 10px;
+}
+
+.filters__list-wrapper {
+  padding: 0 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px -2px #1c1caa;
+}
+
+.filters__list-box {
+  padding: 10px 0;
+  text-align: left;
+  border-bottom: 1px solid #1c1caa;
+}
+
+.filters__list {
+  max-height: 0;
+  overflow: hidden;
+  padding-left: 20px;
+  font-size: 1.4rem;
+}
+
+.filters__list-option {
+  display: block;
+  padding: 3px 0;
+}
+.filters__list-option label {
+  display: flex;
+  align-items: center;
+}
+.filters__list-option label:hover {
+  cursor: pointer;
+}
+
+.filters__list-text {
+  display: inline-block;
+  padding-left: 5px;
+}
+
+.filters__list-header {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.filters__list-header:hover {
+  cursor: pointer;
+}
+
+.filters__list-header-text {
+  padding: 0 0 5px 10px;
+}
+
+.filters__list-caret {
+  font-size: 2rem;
+}
+
+#filters-bets:checked ~ .filters__list {
+  max-height: 500%;
+}
+
+#filters-bets:checked ~ label i::before {
+  content: "\f0d7";
 }
 
 .filters__button {
