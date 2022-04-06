@@ -1,6 +1,7 @@
 let filtersIcon = document.querySelector('.nav-box__filters-icon');
 let filters = document.querySelector('.filters');
 
+//Show or hide filters bar 
 filtersIcon.addEventListener('click', () => {
     if (filtersIcon.classList.contains('show-filters')) {
         filtersIcon.classList.remove('show-filters');

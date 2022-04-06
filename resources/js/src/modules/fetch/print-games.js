@@ -26,8 +26,8 @@ function createNewBetsBox(gamesArr, newBetsBox) {
         let betWrapper = document.createElement('div');
         betWrapper.setAttribute('class', 'main-table__bet-wrapper');
 
-        if (game[8] !== '') {
-            betWrapper.classList.add(game[8]);
+        if (game['class'] !== '') {
+            betWrapper.classList.add(game['class']);
         }
 
         let downRows = document.createElement('div');
@@ -58,13 +58,13 @@ function getFirstRow(game) {
             <span class="main-table__title">
                 bookie:
             </span>
-            <span class="main-table__data-span bookie">${game[1]}</span>
+            <span class="main-table__data-span bookie">${game['bookie']}</span>
         </div>
         <div class="main-table__data relative">
             <span class="main-table__title">
                 bet:
             </span>
-            <span class="main-table__data-span bet">${game[5]}</span>
+            <span class="main-table__data-span bet">${game['bet']}</span>
             </span>
         </div>
         <div class="main-table__inputs relative">
@@ -95,7 +95,7 @@ function getSecondRow(game) {
             </span>
             <span class="main-table__data-span">
                 <i class="fa-regular fa-clock"></i>
-                ${getClockTime(game[9])}
+                ${getClockTime(game['delay'])}
             </span>
         </div>
         <div class="main-table__data relative">

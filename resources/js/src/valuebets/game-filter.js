@@ -2,6 +2,7 @@ import { dbConnectAwait, addGamesToIndexedDb} from '../modules/cache.js';
 import {addMessage} from '../modules/print-message.js';
 
 let filterBtn = document.querySelector('.main-table__nav-filter');
+
 //Execute correct function after checking which checkboxes user checked
 filterBtn.addEventListener('click', () => {
     let checkedBoxes = document.querySelectorAll('.main-table__checkbox:checked');

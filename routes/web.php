@@ -7,6 +7,7 @@ use App\Http\Controllers\Bets\AddBetController;
 use App\Http\Controllers\Bets\BetsHistoryController;
 use App\Http\Controllers\Bets\ModifyBetController;
 use App\Http\Controllers\Bets\ValuebetsController;
+use App\Http\Controllers\Test;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,8 @@ Route::post('/add', [AddBetController::class, 'store']);
 
 Route::get('/modify', [ModifyBetController::class, 'handle'])->name('modify');
 Route::post('/modify', [ModifyBetController::class, 'store']);
+
+Route::get('/test', [Test::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');

@@ -568,6 +568,7 @@ button, select, input {
   background: linear-gradient(to right, #646485, #1c1caa);
   color: #fff;
   border-radius: 5px;
+  z-index: 2;
 }
 
 .nav-box__bets-counter {
@@ -968,23 +969,21 @@ button, select, input {
 }
 
 .filters__list-wrapper {
-  padding: 0 15px;
   margin-bottom: 15px;
   border-radius: 5px;
-  box-shadow: 0px 3px 5px -2px #1c1caa;
 }
 
 .filters__list-box {
   padding: 10px 0;
-  text-align: left;
   border-bottom: 1px solid #1c1caa;
 }
 
 .filters__list {
   max-height: 0;
   overflow: hidden;
-  padding-left: 20px;
-  font-size: 1.4rem;
+  padding-left: 15px;
+  font-size: 1.6rem;
+  color: #6c6c6c;
 }
 
 .filters__list-option {
@@ -998,9 +997,34 @@ button, select, input {
 .filters__list-option label:hover {
   cursor: pointer;
 }
+.filters__list-option input[type=checkbox] {
+  display: none;
+}
+.filters__list-option input[type=checkbox]:checked ~ .filters__list-text > .filters__check-icon-box > i {
+  display: block;
+}
+.filters__list-option input[type=checkbox]:checked ~ .filters__list-text > .filters__check-icon-box {
+  background: #1c1caa;
+}
+
+.filters__check-icon-box {
+  width: 17px;
+  height: 17px;
+  padding: 1px;
+  margin-right: 5px;
+  text-align: center;
+  font-size: 1.4rem;
+  background: #fff;
+}
+
+.filters__check-icon {
+  color: #fff;
+  display: none;
+}
 
 .filters__list-text {
-  display: inline-block;
+  display: flex;
+  align-items: flex-end;
   padding-left: 5px;
 }
 
@@ -1028,6 +1052,14 @@ button, select, input {
 }
 
 #filters-bets:checked ~ label i::before {
+  content: "\f0d7";
+}
+
+#filters-sports:checked ~ .filters__list {
+  max-height: 500%;
+}
+
+#filters-sports:checked ~ label i::before {
   content: "\f0d7";
 }
 

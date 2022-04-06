@@ -65,8 +65,7 @@ export function getGamesArr(db, dbName) {
                 gamesArr.push(game);
                 cursor.continue();
             }
-            //Resolve promise with filtered JSON file after loop thru 
-            //every index in IndexedDB
+
             if (!cursor) resolve(gamesArr);
         };
     });  
@@ -86,15 +85,15 @@ export function hideGamesDbFilter(db, gamesArr, dbName) {
                 date += ":00";
                 date.replace(" ", "T");
                 date = new Date(date);
+
                 //Delete games which already started 
                 if (date < new Date(Date.now())) {
                     objectStore.delete(cursor.value.id);
                 } else {
                     for (let i = 0; i < gamesArr.length; i++) {
-                        if (gamesArr[i][4] === game.teams && 
-                            gamesArr[i][5] === game.bet) {
-                                //Splice instead of delete because delete
-                                //did not change indexes
+                        if (gamesArr[i]['teams'] === game.teams && 
+                            gamesArr[i]['bet'] === game.bet) {
+
                                 gamesArr.splice(i, 1);
                                 break;
                         }
@@ -102,9 +101,8 @@ export function hideGamesDbFilter(db, gamesArr, dbName) {
                 }
                 cursor.continue();
             }
-            //Resolve promise with filtered JSON file after loop thru 
-            //every index in IndexedDB
-            if (!cursor) resolve(gamesArr);
+
+            if (! cursor) resolve(gamesArr);
         };
     });
 }
@@ -122,8 +120,7 @@ export function getUpdatedArr(db, gamesArr, dbName) {
                 oldGamesArr.push(cursor.value.game);
                 cursor.continue();
             }
-            //Resolve promise with filtered JSON file after loop through 
-            //every index in IndexedDB
+            
             if (!cursor) {
                 objectStore.clear();
                 let arrLength = gamesArr.length;
@@ -131,12 +128,12 @@ export function getUpdatedArr(db, gamesArr, dbName) {
 
                 for (let i = 0; i < arrLength; i++) {
                     let exists = oldGamesArr.findIndex(arr => 
-                        arr.includes(gamesArr[i][4]));
+                        arr.includes(gamesArr[i]['teams']));
                     let bet = oldGamesArr.findIndex(arr => 
-                        arr.includes(gamesArr[i][5]));
+                        arr.includes(gamesArr[i]['bet']));
                         
                     if (exists !== -1 && bet !== -1) {
-                        oldGamesArr[exists][8] = '';
+                        oldGamesArr[exists]['class'] = '';
                         updatedGamesArr.push(oldGamesArr[exists]);
                         objectStore.add({game: oldGamesArr[exists]});
                     } else {

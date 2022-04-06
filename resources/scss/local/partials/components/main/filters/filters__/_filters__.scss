@@ -65,23 +65,21 @@
 }
 
 .filters__list-wrapper {
-    padding: 0 15px;
     margin-bottom: 15px;
     border-radius: 5px;
-    box-shadow: 0px 3px 5px -2px colors.$purple;
 }
 
 .filters__list-box {
     padding: 10px 0;
-    text-align: left;
     border-bottom: 1px solid colors.$purple;
 }
 
 .filters__list {
     max-height: 0;
     overflow: hidden;
-    padding-left: 20px;
-    font-size: fonts.$v-small;
+    padding-left: 15px;
+    font-size: fonts.$small;
+    color: colors.$grey-f;
 }
 
 .filters__list-option {
@@ -96,10 +94,38 @@
     label:hover {
         cursor: pointer;
     }
+
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    input[type='checkbox']:checked ~ .filters__list-text > .filters__check-icon-box > i{
+        display: block;
+    }
+
+    input[type='checkbox']:checked ~ .filters__list-text > .filters__check-icon-box {
+        background: colors.$purple;
+    }
+}
+
+.filters__check-icon-box {
+    width: 17px;
+    height: 17px;
+    padding: 1px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: fonts.$v-small;
+    background: colors.$white-f;
+}
+
+.filters__check-icon {
+    color: colors.$white-f;
+    display: none;
 }
 
 .filters__list-text {
-    display: inline-block;
+    display: flex;
+    align-items: flex-end;
     padding-left: 5px;
 }
 
@@ -127,6 +153,14 @@
 }
 
 #filters-bets:checked ~ label i::before {
+    content: '\f0d7';
+}
+
+#filters-sports:checked ~ .filters__list {
+    max-height: 500%;
+}
+
+#filters-sports:checked ~ label i::before {
     content: '\f0d7';
 }
 
