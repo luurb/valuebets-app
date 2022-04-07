@@ -7,7 +7,16 @@ let refreshButton = document.querySelector('.filters__refresh');
 makeRequest();
 
 /*function makeRequest() {
-    fetch('./feed/json.php')
+    let token = document
+        .querySelector('meta[name=csrf-token]')
+        .getAttribute('content');
+
+    fetch('/valuebets/fetch', {
+        method: 'GET',
+        headers: {
+            'X-CSRF-TOKEN': token,
+        }
+    })
         .then(response => {
             if (! response.ok) {
                 return null;

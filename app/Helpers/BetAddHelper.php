@@ -37,6 +37,7 @@ class BetAddHelper
             'bookie' => 'required|max:255',
             'sport' => 'required|max:255',
             'teams' => 'required|max:255',
+            'league' => 'required|max:255',
             'bet' => 'required|max:255',
             'odd' => 'required|numeric|max:1000000',
             'value' => 'required|numeric|max:10000',

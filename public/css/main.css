@@ -689,7 +689,6 @@ button, select, input {
 }
 
 .main-table__nav {
-  height: 100px;
   margin: auto;
   position: -webkit-sticky;
   position: sticky;
@@ -729,7 +728,7 @@ button, select, input {
 .main-table__wrapper {
   width: 100%;
   height: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   background: #ededed;
   box-shadow: -5px 10px 10px #6c6c6c;
 }
@@ -785,10 +784,6 @@ button, select, input {
   color: #1c1caa;
 }
 
-.main-table__teams {
-  font-weight: 600;
-}
-
 .main-table__row {
   display: flex;
   width: 100%;
@@ -805,7 +800,7 @@ button, select, input {
   min-height: 65px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 5px;
   margin: 3px;
   text-align: center;
@@ -821,12 +816,21 @@ button, select, input {
 
 .main-table__bet-info {
   padding: 5px 0;
-  min-width: 20%;
+  width: 30%;
 }
 
-.main-table__bet-info-data {
-  padding-top: 5px;
+.main-table__teams-box {
+  width: 70%;
+}
+
+.main-table__teams {
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.main-table__league {
   font-size: 1.4rem;
+  color: #6c6c6c;
 }
 
 .main-table__id {

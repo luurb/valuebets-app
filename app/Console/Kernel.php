@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\Feed\FetchValuebets;
+use App\Feed\CreateJobs;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,8 +17,12 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function() {
-            (new FetchValuebets());
-        })->everyMinute()->sendOutputTo('../../storage/framework/testing/test.json');
+            (new CreateJobs());
+        })->everyThreeMinutes()->between('06:00:00', '23:59:59');
+
+        $schedule->call(function() {
+            (new CreateJobs());
+        })->everyTenMinutes()->between('00:00:00', '05:59:59');
     }
 
     /**

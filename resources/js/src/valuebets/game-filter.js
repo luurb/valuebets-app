@@ -47,14 +47,13 @@ function createGame(betWrapper) {
     game['sport'] = betWrapper.querySelector('.sport').textContent;
     game['date'] = betWrapper.querySelector('.date').textContent;
     game['teams'] = betWrapper.querySelector('.teams').textContent;
+    game['league'] = betWrapper.querySelector('.league').textContent;
     game['bet'] = betWrapper.querySelector('.bet').textContent;
     game['odd'] = betWrapper.querySelector('.odd').textContent;
     game['value'] = betWrapper.querySelector('.value').textContent;
 
     return game;
 }
-
-
 
 function addGamesToHistory(gamesArr, betsToHide) {
     let token = document

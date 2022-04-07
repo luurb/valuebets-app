@@ -127,18 +127,18 @@ export function getUpdatedArr(db, gamesArr, dbName) {
                 let updatedGamesArr = [];
 
                 for (let i = 0; i < arrLength; i++) {
-                    let exists = oldGamesArr.findIndex(arr => 
-                        arr.includes(gamesArr[i]['teams']));
-                    let bet = oldGamesArr.findIndex(arr => 
-                        arr.includes(gamesArr[i]['bet']));
+                    let exists = oldGamesArr.findIndex(obj => 
+                        obj['teams'] == gamesArr[i]['teams']);
+                    let bet = oldGamesArr.findIndex(obj => 
+                        obj['teams'] == gamesArr[i]['teams']);
                         
                     if (exists !== -1 && bet !== -1) {
                         oldGamesArr[exists]['class'] = '';
                         updatedGamesArr.push(oldGamesArr[exists]);
                         objectStore.add({game: oldGamesArr[exists]});
                     } else {
-                        gamesArr[i].push('bet-add-blink');
-                        gamesArr[i].push(new Date(Date.now()));
+                        gamesArr[i]['class'] = 'bet-add-blink';
+                        gamesArr[i]['delay'] = new Date(Date.now());
                         updatedGamesArr.push(gamesArr[i]);
                         objectStore.add({game: gamesArr[i]});
                     }

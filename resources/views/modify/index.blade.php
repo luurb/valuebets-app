@@ -72,6 +72,20 @@
                     </div>
                 </div>
                 <div class="add-bet__box">
+                    <div class="add-bet__label-box @error('league') error-text @enderror">
+                        @if ($errors->has('league'))
+                            {{ $errors->first('league') }}
+                        @else
+                            League
+                        @endif
+                    </div>
+                    <div class="add-bet__input-box">
+                        <input type="text" name="league" 
+                        class="add-bet__input @error('league') error-input @enderror" 
+                        value="{{ $bet->league }}">
+                    </div>
+                </div>
+                <div class="add-bet__box">
                     <div class="add-bet__label-box @error('bet') error-text @enderror">
                        @if ($errors->has('bet'))
                             {{ $errors->first('bet') }}

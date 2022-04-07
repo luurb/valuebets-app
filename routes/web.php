@@ -31,7 +31,9 @@ Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::post('/logout', [LogoutController::class, 'store']);
 
 Route::get('/valuebets', [ValuebetsController::class, 'index'])->name('valuebets');
+Route::get('/valuebets/fetch', [ValuebetsController::class, 'fetch']);
 Route::post('/valuebets', [ValuebetsController::class, 'store']);
+Route::post('/valuebets/filter', [ValuebetsController::class, 'filter']);
 
 Route::get('/history', [BetsHistoryController::class, 'index'])->name('history');
 Route::delete('/history', [BetsHistoryController::class, 'betDelete']);

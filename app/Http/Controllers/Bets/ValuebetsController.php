@@ -13,6 +13,11 @@ class ValuebetsController extends Controller
         return view('valuebets.index');
     }
 
+    public function fetch(Request $request)
+    {
+
+    }
+
     public function store(Request $request) 
     {
         if (! auth()->user()) {
@@ -29,12 +34,12 @@ class ValuebetsController extends Controller
         foreach ($games as $game) {
             $bookieId = BetAddHelper::getBookieId($game['bookie']);
             $sportId = BetAddHelper::getSportId($game['sport']);
-
             auth()->user()->bets()->create([
                 'bookie_id' => $bookieId,
                 'sport_id' => $sportId,
                 'date_time' => $game['date'],
                 'teams' => $game['teams'],
+                'league' => $game['league'],
                 'bet' => $game['bet'],
                 'odd' => $game['odd'],
                 'value' => rtrim($game['value'], '%'),
@@ -61,4 +66,9 @@ class ValuebetsController extends Controller
             ]
         ]);
     }
+
+    public function filter(Request $request)
+    {
+        
+    } 
 }

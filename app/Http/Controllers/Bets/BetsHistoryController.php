@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Bets;
 
+use App\Helpers\BetStatsHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -22,40 +25,26 @@ class BetsHistoryController extends Controller
 
         $betsCount= auth()->user()->bets()->count();
 
-        $return = auth()->user()->bets()->sum('return');
-        $stakesSum = auth()->user()->bets()->sum('stake');
-        $avgValue= auth()->user()->bets()->avg('value');
-
-        $overTimeReturn = 0;
-        $overTimeStakesSum= 0;
-        $overTimeValue= 0;
-
-        if ($firstDate = Session::get('first_date')) {
-            $secondDate = Session::get('second_date');
-            $overTimeReturn = auth()->user()->bets()
-                ->whereBetween('date_time', [$firstDate, $secondDate])->sum('return');
-            $overTimeStakesSum = auth()->user()->bets()
-                ->whereBetween('date_time', [$firstDate, $secondDate])->sum('stake');
-            $overTimeValue= auth()->user()->bets()
-                ->whereBetween('date_time', [$firstDate, $secondDate])->avg('value');
-        } 
+        $stats = BetStatsHelper::getStats();
+        $overTimeStats= BetStatsHelper::getOverTimeStats();
 
         return view('history.index', [
             'bets' => $bets,
             'betsCount' => $betsCount,
             'counter' => $counter,
             'allTimeStats' => [
-                'return' => $return,
-                'yield' => round($return / $stakesSum * 100, 2),
-                'value' => round($avgValue, 2)
+                'return' => $stats['return'],
+                'yield' => $stats['yield'],
+                'value' => $stats['value'] 
             ],
             'overTimeStats' => [
-                'return' => $overTimeReturn,
-                'yield' => round($overTimeReturn/ $overTimeStakesSum* 100, 2),
-                'value' => round($overTimeValue, 2)
+                'return' => $overTimeStats['return'],
+                'yield' => $overTimeStats['yield'],
+                'value' => $overTimeStats['value'] 
             ]
         ]);
     }
+
 
     public function betDelete(Request $request)
     {
@@ -74,7 +63,6 @@ class BetsHistoryController extends Controller
                     'counter' => 0
                 ]);
             }
-
             $counter++;
         }
 
@@ -84,6 +72,7 @@ class BetsHistoryController extends Controller
         ]);
     }
 
+    //Function set time range for filters
     public function setTimeRange(Request $request)
     {
         $this->validate($request, [
@@ -97,6 +86,7 @@ class BetsHistoryController extends Controller
         return redirect()->route('history');
     }
 
+    //Function save in session and return pagination counter 
     private function getCounter(?string $data): int 
     {
         $counters = [10, 20, 50, 100];

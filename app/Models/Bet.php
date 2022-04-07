@@ -14,6 +14,7 @@ class Bet extends Model
         'sport_id',
         'date_time',
         'teams',
+        'league',
         'bet',
         'odd',
         'value',

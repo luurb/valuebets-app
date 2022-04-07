@@ -21,6 +21,7 @@ return new class extends Migration
             $table->smallInteger('sport_id');
             $table->dateTime('date_time');
             $table->string('teams');
+            $table->string('league');
             $table->string('bet')->nullable();
             $table->float('odd');
             $table->float('value');

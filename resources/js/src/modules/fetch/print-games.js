@@ -103,21 +103,21 @@ function getSecondRow(game) {
                 sport:
             </span>
             <span class="main-table__data-span">
-                <span class="sport none">${game[2]}</span>
-                <img src="./images/svg/${game[2].toLowerCase()}.svg" class="main-table__img"/>
+                <span class="sport none">${game['sport']}</span>
+                <img src="./images/svg/${game['sport'].toLowerCase()}.svg" class="main-table__img"/>
             </span>
         </div>
         <div class="main-table__data relative">
             <span class="main-table__title">
                 value:
             </span>
-            <span class="main-table__data-span value">${game[7]}%</span>
+            <span class="main-table__data-span value">${game['value']}%</span>
         </div>
         <div class="main-table__data relative">
             <span class="main-table__title">
                 odd:
             </span>
-            <span class="main-table__data-span odd">${game[6]}</span>
+            <span class="main-table__data-span odd">${game['odd']}</span>
         </div>`;
 
     return secondRow;
@@ -130,8 +130,11 @@ function getThirdRow(game) {
     a;
     thirdRow.innerHTML = `
         <div class="main-table__data relative">
-            <div class="main-table__bet-info date">${game[3]}</div>
-            <div class="main-table__teams teams">${game[4]}</div>
+            <div class="main-table__bet-info date">${game['date_time']}</div>
+            <div class="main-table__teams-box">
+                <div class="main-table__teams teams">${game['teams']}</div>
+                <div class="main-table__league league">${game['league']}</div>
+            </div>
         </div>`;
 
     return thirdRow;

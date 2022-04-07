@@ -150,10 +150,14 @@
                                 <img src="./images/svg/{{ strtolower($bet->sport->sport_name) }}.svg"
                                     class="main-table__img" />
                                 <div class="main-table__bet-info-data">{{ $bet->date_time }}</div>
-
                             </div>
-                            <div class="main-table__teams {{ strtolower($bet->result) }}">
-                                {{ $bet->teams }}
+                            <div class="main-table__teams-box">
+                                <div class="main-table__teams {{ strtolower($bet->result) }}">
+                                    {{ $bet->teams }}
+                                </div>
+                                <div class="main-table__league">
+                                    {{ $bet->league }}
+                                </div>
                             </div>
                         </div>
                     </div>

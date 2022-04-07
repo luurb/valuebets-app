@@ -47,6 +47,7 @@ class ModifyBetController extends Controller
             'sport_id' => $sportId,
             'date_time' => $request->date . ' ' . $request->time,
             'teams' => $request->teams,
+            'league' => $request->league,
             'bet' => $request->bet,
             'odd' => $request->odd,
             'value' => $request->value,

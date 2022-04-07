@@ -50,7 +50,8 @@
         <div class="filters__stats">
             <div class="filters__box">
                 <div class="filters__list-wrapper">
-                <form name="right-filters-form"></form>
+                <form action="/valuebets/filter" method="post" name="right-filters-form">
+                    @csrf
                 <div class="filters__list-box">
                     <input type="checkbox" class="none" id="filters-bets">
                     <label for="filters-bets">
@@ -64,7 +65,7 @@
                     <ul class="filters__list">
                         <li class="filters__list-option">
                             <label>
-                                <input type="checkbox" name="corners" form="right-filters-form">
+                                <input type="checkbox" name="type['corners']">
                                 <span class="filters__list-text">
                                     <span class="filters__check-icon-box">
                                         <i class="fa-solid fa-check filters__check-icon"></i>
@@ -75,7 +76,7 @@
                         </li>
                         <li class="filters__list-option">
                             <label>
-                                <input type="checkbox" name="corners" form="right-filters-form">
+                                <input type="checkbox" name="type['cards']">
                                 <span class="filters__list-text">
                                     <span class="filters__check-icon-box">
                                         <i class="fa-solid fa-check filters__check-icon"></i>
@@ -86,7 +87,7 @@
                         </li>
                         <li class="filters__list-option">
                             <label>
-                                <input type="checkbox" name="corners" form="right-filters-form">
+                                <input type="checkbox" name="type['fouls']">
                                 <span class="filters__list-text">
                                     <span class="filters__check-icon-box">
                                         <i class="fa-solid fa-check filters__check-icon"></i>
@@ -110,7 +111,7 @@
                     <ul class="filters__list">
                         <li class="filters__list-option">
                             <label>
-                                <input type="checkbox" name="football" form="right-filters-form">
+                                <input type="checkbox" name="sport['football']">
                                 <span class="filters__list-text">
                                     <span class="filters__check-icon-box">
                                         <i class="fa-solid fa-check filters__check-icon"></i>
@@ -121,7 +122,7 @@
                         </li>
                         <li class="filters__list-option">
                             <label>
-                                <input type="checkbox" name="basketball" form="right-filters-form">
+                                <input type="checkbox" name="sport['basketball']">
                                 <span class="filters__list-text">
                                     <span class="filters__check-icon-box">
                                         <i class="fa-solid fa-check filters__check-icon"></i>
@@ -132,7 +133,7 @@
                         </li>
                         <li class="filters__list-option">
                             <label>
-                                <input type="checkbox" name="tennis" form="right-filters-form">
+                                <input type="checkbox" name="sport['tennis']">
                                 <span class="filters__list-text">
                                     <span class="filters__check-icon-box">
                                         <i class="fa-solid fa-check filters__check-icon"></i>
@@ -141,12 +142,23 @@
                                 </span>
                             </label>
                         </li>
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="sport['esport']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    esport 
+                                </span>
+                            </label>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <input type="submit" class="filters__button" value="Filter" 
-            form="right-filters-form">
+            <input type="submit" class="filters__button filters__filters-submit" value="Filter">
             </div>
+            </form>
         </div>
         <span class="filters__header">Options</span>
         <div class="filters__stats">
