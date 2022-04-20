@@ -135,18 +135,18 @@ html {
 }
 
 .bet-delete-blink {
-  -webkit-animation: 2s blinker 0s linear 1;
-          animation: 2s blinker 0s linear 1;
+  -webkit-animation: blinker 2s linear 0s 1;
+          animation: blinker 2s linear 0s 1;
 }
 
 .bet-add-blink {
-  -webkit-animation: 2s blinker 2s linear 1;
-          animation: 2s blinker 2s linear 1;
+  -webkit-animation: blinker 2s linear 2s 1;
+          animation: blinker 2s linear 2s 1;
 }
 
 .betsbox-blink {
-  -webkit-animation: 2s betsbox-blinker 0s ease-out 1;
-          animation: 2s betsbox-blinker 0s ease-out 1;
+  -webkit-animation: betsbox-blinker 2s ease 0s 1;
+          animation: betsbox-blinker 2s ease 0s 1;
 }
 
 .sorted {
@@ -905,12 +905,17 @@ button, select, input {
 
 .filters {
   height: 100%;
-  width: 15%;
-  min-width: 200px;
+  width: 190px;
   background: #cdcdcd;
   z-index: 3;
 }
 
+@media (min-width: 1020px) {
+  .filters {
+    width: 20%;
+    max-width: 220px;
+  }
+}
 .filters__header {
   display: block;
   padding-top: 5px;
@@ -1064,6 +1069,14 @@ button, select, input {
 }
 
 #filters-sports:checked ~ label i::before {
+  content: "\f0d7";
+}
+
+#filters-bookies:checked ~ .filters__list {
+  max-height: 800%;
+}
+
+#filters-bookies:checked ~ label i::before {
   content: "\f0d7";
 }
 

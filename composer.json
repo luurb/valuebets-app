@@ -9,7 +9,7 @@
         "fabpot/goutte": "^4.0",
         "guzzlehttp/guzzle": "^7.4",
         "laravel/framework": "^9.2",
-        "laravel/sanctum": "^2.14.1",
+        "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.7",
         "symfony/filesystem": "^6.0"
     },

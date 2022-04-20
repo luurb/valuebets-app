@@ -26,7 +26,7 @@ mix.js(
     .js(
         [
             'resources/js/src/show-filters.js',
-            'resources/js/src/history/delete-bet.js',
+            'resources/js/src/history/delete-bets.js',
             'resources/js/src/history/pagination.js',
         ],
         'public/js/history.js'

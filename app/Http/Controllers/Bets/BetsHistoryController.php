@@ -45,24 +45,31 @@ class BetsHistoryController extends Controller
         ]);
     }
 
-
-    public function betDelete(Request $request)
+    public function deleteBets(Request $request)
     {
-        $data = $request->json()->all();
-        $games = $data['games'];
-        $counter= 0;
+        if ($request->json('games')) {
+            $games = $request->json('games');
+        } else {
+            return response()->json([
+                'response' => 0,
+                'counter' => 0
+            ], 400);
+        }
 
-        foreach ($games as $key => $id) {
-            $bets = auth()->user()->bets;
+        $counter = 0;
+        $bets = auth()->user()->bets;
 
-            if ($bets->where('id', $id)->first()) {
-                $bets->where('id', $id)->first()->delete();
-            } else {
+        foreach ($games as $id) {
+            if (! $bets->where('id', $id)->first()) {
                 return response()->json([
                     'response' => 0,
                     'counter' => 0
-                ]);
+                ], 400);
             }
+        }
+
+        foreach ($games as $id) {
+            $bets->where('id', $id)->first()->delete();
             $counter++;
         }
 
@@ -95,7 +102,7 @@ class BetsHistoryController extends Controller
         if ($data) {
             if (in_array($data, $counters)) {
                 Session::put('pagination_counter', (int)$data);
-                $counter = $data;
+                $counter = (int)$data;
             }
         } else if ($savedCounter = Session::get('pagination_counter')) {
             $counter = $savedCounter;

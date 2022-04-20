@@ -75,15 +75,15 @@
 }
 
 .bet-delete-blink {
-    animation: 2s blinker 0s linear 1;
+    animation: blinker 2s linear 0s 1;
 }
 
 .bet-add-blink {
-    animation: 2s blinker 2s linear 1;
+    animation: blinker 2s linear 2s 1;
 }
 
 .betsbox-blink {
-    animation: 2s betsbox-blinker 0s ease-out 1;
+    animation: betsbox-blinker 2s ease 0s 1;
 }
 
 .sorted {

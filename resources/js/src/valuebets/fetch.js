@@ -1,80 +1,29 @@
-import {initPrint} from '../modules/fetch/print-init.js';
-import {initTimer, clearCountDown} from '../modules/timer/count-down.js';
+import { initPrint } from '../modules/fetch/print-init.js';
+import { initTimer, clearCountDown } from '../modules/timer/count-down.js';
+import axios from 'axios';
 
 let time = document.querySelector('.filters__refresh-num');
 let refreshButton = document.querySelector('.filters__refresh');
 
 makeRequest();
 
-/*function makeRequest() {
-    let token = document
-        .querySelector('meta[name=csrf-token]')
-        .getAttribute('content');
-
-    fetch('/valuebets/fetch', {
-        method: 'GET',
-        headers: {
-            'X-CSRF-TOKEN': token,
-        }
-    })
-        .then(response => {
-            if (! response.ok) {
-                return null;
-            }
-
-            let type = response.headers.get('content-type');
-            if (type !== 'text/html; charset=UTF-8') {
-                throw new TypeError('Expected text/html, got ' + type);
-            }
-
-            return response.text();
-        })
-        .then(response => {
-            response = JSON.parse(response);
-            initPrint(response);
-            initTimer(Number(time.textContent) * 60000, makeRequest);
-        })
-        .catch(e => {
-            if (e.name == 'NetworkError') {
-                alert('Check your Internet connection');
-            } else if (e instanceof TypeError) {
-                alert('Something wrong with our server' + e.message);
-            } else {
-                console.error(e);
-            }
-        });
-}*/
-
-//Testing
 function makeRequest() {
-    fetch('/storage/games.json')
-        .then(response => {
-            if (! response.ok) {
-                return null;
-            }
-
-            let type = response.headers.get('content-type');
-            if (type !== 'application/json') {
-                throw new TypeError('Expected text/html, got ' + type);
-            }
-
-            return response.json();
-        })
-        .then(response => {
-            initPrint(response);
+    axios
+        .get('/storage/games.json')
+        .then((response) => {
+            initPrint(response['data']);
             initTimer(500000, makeRequest);
         })
-        .catch(e => {
+        .catch((e) => {
             if (e.name == 'NetworkError') {
-                alert('Check your Internet connection');
+                console.log('Check your Internet connection');
             } else if (e instanceof TypeError) {
-                alert('Something wrong with our server' + e.message);
+                console.log('Something wrong with our server' + e.message);
             } else {
                 console.error(e);
             }
         });
-};
-
+}
 
 //Prevent usert from multiple clicks on refresh button
 let clicked = false;
@@ -90,5 +39,3 @@ refreshButton.addEventListener('click', () => {
         }, 2000);
     }
 });
-
-

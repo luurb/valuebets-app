@@ -36,14 +36,14 @@ Route::post('/valuebets', [ValuebetsController::class, 'store']);
 Route::post('/valuebets/filter', [ValuebetsController::class, 'filter']);
 
 Route::get('/history', [BetsHistoryController::class, 'index'])->name('history');
-Route::delete('/history', [BetsHistoryController::class, 'betDelete']);
+Route::delete('/history/delete', [BetsHistoryController::class, 'deleteBets']);
 Route::post('/history/time-range', [BetsHistoryController::class, 'setTimeRange']);
 
 Route::get('/add', [AddBetController::class, 'index'])->name('add');
 Route::post('/add', [AddBetController::class, 'store']);
 
 Route::get('/modify', [ModifyBetController::class, 'handle'])->name('modify');
-Route::post('/modify', [ModifyBetController::class, 'store']);
+Route::patch('/modify', [ModifyBetController::class, 'update']);
 
 Route::get('/test', [Test::class, 'index']);
 

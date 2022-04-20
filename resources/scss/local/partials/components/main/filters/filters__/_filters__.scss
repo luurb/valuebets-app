@@ -164,6 +164,14 @@
     content: '\f0d7';
 }
 
+#filters-bookies:checked ~ .filters__list {
+    max-height: 800%;
+}
+
+#filters-bookies:checked ~ label i::before {
+    content: '\f0d7';
+}
+
 .filters__button {
     width: 70%;
     text-transform: unset;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Bets;
 use App\Helpers\BetAddHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ValuebetsController extends Controller
 {
@@ -69,6 +70,18 @@ class ValuebetsController extends Controller
 
     public function filter(Request $request)
     {
-        
+        $filtersToSave = [];
+        foreach ($request->all() as $filtersName => $filtersArr) {
+            if ($filtersName !== '_token') {
+                $filtersToSave[$filtersName] = [];
+                foreach ($filtersArr as $checkbox => $value) {
+                    array_push($filtersToSave[$filtersName], $checkbox);
+                }
+            }
+        }
+
+        Session::put('filters', $filtersToSave);
+
+        return redirect()->route('valuebets');
     } 
 }

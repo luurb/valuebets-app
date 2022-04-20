@@ -9,6 +9,7 @@
         <div class="add-bet">
             <form action="/modify" method="post">
                 @csrf
+                @method('PATCH')
                 <div class="add-bet__header">
                     Modify bet 
                 </div>

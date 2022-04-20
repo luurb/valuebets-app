@@ -1,9 +1,11 @@
-@extends('layouts.home')
+@extends('layouts.app')
 
 @section('title')
     Dashboard
 @endsection
 
-@section('home-content')
-    <h1>Dashboard</h1>
+@section('content')
+    <section class="form">
+        <h1>Dashboard - coming soon</h1>
+    </section>
 @endsection

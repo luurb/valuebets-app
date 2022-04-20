@@ -6,6 +6,6 @@
 
 @section('content')
     <section class="form">
-        <h1>Home page</h1>
+        <h1>Home page - coming soon</h1>
     </section>
 @endsection

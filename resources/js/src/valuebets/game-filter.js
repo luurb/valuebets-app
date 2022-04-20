@@ -1,11 +1,14 @@
-import { dbConnectAwait, addGamesToIndexedDb} from '../modules/cache.js';
-import {addMessage} from '../modules/print-message.js';
+import { dbConnectAwait, addGamesToIndexedDb } from '../modules/cache.js';
+import { addMessage } from '../modules/print-message.js';
+import axios from 'axios';
 
 let filterBtn = document.querySelector('.main-table__nav-filter');
 
 //Execute correct function after checking which checkboxes user checked
 filterBtn.addEventListener('click', () => {
-    let checkedBoxes = document.querySelectorAll('.main-table__checkbox:checked');
+    let checkedBoxes = document.querySelectorAll(
+        '.main-table__checkbox:checked'
+    );
     let checkBoxLength = checkedBoxes.length;
 
     let gamesToSave = [];
@@ -13,7 +16,7 @@ filterBtn.addEventListener('click', () => {
     let betsToHide = [];
 
     for (let checkedBox of checkedBoxes) {
-        let betWrapper= checkedBox.closest('.main-table__bet-wrapper');
+        let betWrapper = checkedBox.closest('.main-table__bet-wrapper');
         let game = createGame(betWrapper);
         let name = checkedBox.getAttribute('name');
 
@@ -26,14 +29,16 @@ filterBtn.addEventListener('click', () => {
         betsToHide.push(betWrapper);
     }
 
-    addGamesToHistory({
-        games: gamesToSave,
-        counter: checkBoxLength,
-    }, betsToHide);
+    addGamesToHistory(
+        {
+            games: gamesToSave,
+            counter: checkBoxLength,
+        },
+        betsToHide
+    );
 
     addGamesToCache(gamesToHide);
 });
-
 
 function addGamesToCache(games) {
     dbConnectAwait('hide_games').then((hideGamesDb) =>
@@ -60,36 +65,25 @@ function addGamesToHistory(gamesArr, betsToHide) {
         .querySelector('meta[name=csrf-token]')
         .getAttribute('content');
 
-    fetch('/valuebets', {
-        method: 'POST',
+    let config = {
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': token,
         },
-        body: JSON.stringify(gamesArr)
-    })
+    };
+
+    axios
+        .post('/valuebets', gamesArr, config)
         .then((response) => {
-            if (!response.ok) {
-                return null;
+            if (response['data']['response'] === 4) {
+                return (window.location.href = '/login');
             }
 
-            let type = response.headers.get('content-type');
-            if (type !== 'application/json') {
-                throw new TypeError('Expected application/json, got ' + type);
-            }
-
-            return response.json();
-        })
-        .then (data => {
-            if (data['response'] === 4) {
-                return window.location.href = '/login';
-            }
-
-            betsToHide.forEach(betWrapper=> {
+            betsToHide.forEach((betWrapper) => {
                 hideGame(betWrapper);
             });
-            
-            addMessage(data);
+
+            addMessage(response['data']);
         })
         .catch((e) => {
             if (e.name == 'NetworkError') {

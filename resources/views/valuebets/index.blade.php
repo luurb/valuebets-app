@@ -155,6 +155,96 @@
                         </li>
                     </ul>
                 </div>
+                <div class="filters__list-box">
+                    <input type="checkbox" class="none" id="filters-bookies">
+                    <label for="filters-bookies">
+                        <div class="filters__list-header">
+                            <i class="fa-solid fa-caret-right filters__list-caret"></i>
+                            <span class="filters__list-header-text">
+                                Bookies
+                            </span>
+                        </div>
+                    </label>
+                    <ul class="filters__list">
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="bookies['pinnacle']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    Pinnacle
+                                </span>
+                            </label>
+                        </li>
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="bookies['22bet']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    22bet
+                                </span>
+                            </label>
+                        </li>
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="bookies['unibet']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    Unibet
+                                </span>
+                            </label>
+                        </li>
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="bookies['bet365']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    Bet365
+                                </span>
+                            </label>
+                        </li>
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="bookies['william_hill']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    William hill
+                                </span>
+                            </label>
+                        </li>
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="bookies['ggbet']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    GGbet
+                                </span>
+                            </label>
+                        </li>
+                        <li class="filters__list-option">
+                            <label>
+                                <input type="checkbox" name="bookies['cloudbet']">
+                                <span class="filters__list-text">
+                                    <span class="filters__check-icon-box">
+                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                                    </span>
+                                    Cloudbet
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <input type="submit" class="filters__button filters__filters-submit" value="Filter">
             </div>
@@ -166,7 +256,7 @@
                 <span class="filters__header filters__header--stat">Refresh timeout</span>
                 <div class="filters__refresh-wrapper">
                     <span class="filters__refresh-iter">+</span>
-                    <span class="filters__refresh-num">2</span>
+                    <span class="filters__refresh-num">3</span>
                     <span class="filters__refresh-iter">-</span>
                 </div>
                 <button class="filters__button filters__submit filters__refresh">Refresh</button>

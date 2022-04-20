@@ -29,7 +29,7 @@ class ModifyBetController extends Controller
         return redirect()->route('history');
     }
 
-    public function store(Request $request)
+    public function update(Request $request)
     {
         BetAddHelper::betValidate('modify', $request);
 
