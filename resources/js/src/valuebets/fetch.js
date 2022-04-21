@@ -9,10 +9,10 @@ makeRequest();
 
 function makeRequest() {
     axios
-        .get('/storage/games.json')
+        .get('valuebets/fetch')
         .then((response) => {
             initPrint(response['data']);
-            initTimer(500000, makeRequest);
+            initTimer(Number(time.textContent) * 60000, makeRequest);
         })
         .catch((e) => {
             if (e.name == 'NetworkError') {

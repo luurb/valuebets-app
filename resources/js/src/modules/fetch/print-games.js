@@ -22,7 +22,9 @@ function printNewTableBody(gamesArr) {
 
 //Function create new rows list for valubets table
 function createNewBetsBox(gamesArr, newBetsBox) {
-    gamesArr.forEach((game) => {
+    let gamesArrLength = gamesArr.length;
+    for (let i = 0; i < gamesArrLength; i++) {
+        let game = gamesArr[i];
         let betWrapper = document.createElement('div');
         betWrapper.setAttribute('class', 'main-table__bet-wrapper');
 
@@ -42,10 +44,9 @@ function createNewBetsBox(gamesArr, newBetsBox) {
 
         betWrapper.appendChild(firstRow);
         betWrapper.appendChild(downRows);
-        ``;
 
         newBetsBox.appendChild(betWrapper);
-    });
+    }
 
     return newBetsBox;
 }

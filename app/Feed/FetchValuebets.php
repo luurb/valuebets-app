@@ -33,7 +33,7 @@ class FetchValuebets
 
         foreach ($addresses as $address) {
             $body = $this->fetch($address);
-            $scrapedbets = $this->scrapeBets($body);
+            $scrapedbets = $this->scrapeBets($body, $bookie);
             $bets = array_merge_recursive($bets, $scrapedbets);
         }
 
@@ -48,9 +48,11 @@ class FetchValuebets
     {
         $randNumber = rand(0, count($this->userAgents) - 1);
         $userAgent = $this->userAgents[$randNumber];
+        $proxyUser = env('PROXY_USER');
+        $proxyPass = env('PROXY_PASS');
 
         $response = Http::withOptions([
-            'proxy' => 'http://jqhyiwog-rotate:evk36qb06ny5@p.webshare.io:80'
+            'proxy' => 'http://' . $proxyUser . ':' . $proxyPass . '@p.webshare.io:80'
         ])->withHeaders([
             'User-Agent' => $userAgent,
             'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -67,7 +69,7 @@ class FetchValuebets
 
     //Function scrape bets from given html body and create 
     //JSON file for every sport, for specific bookie
-    private function scrapeBets(string $body): array
+    private function scrapeBets(string $body, string $bookie): array
     {
         $betsSortedBySports = [
             'football' => [],
@@ -78,12 +80,14 @@ class FetchValuebets
 
         $crawler = new Crawler($body);
         $trList = $crawler->filter('.app-table > tbody > tr');
-
         foreach ($trList as $tr) {
             $bet = $tr->childNodes;
             $betArr = $this->getBet($bet);
             $sport = strtolower($betArr['sport']);
-            array_push($betsSortedBySports[$sport], $betArr);
+            $scrapedBookie = strtolower(str_replace(' ', '', $betArr['bookie']));
+            if ($scrapedBookie == $bookie) {
+                array_push($betsSortedBySports[$sport], $betArr);
+            }
         }
         return $betsSortedBySports;
     }
@@ -92,6 +96,8 @@ class FetchValuebets
     {
         $bookieAndSport = $bet->item(0)->childNodes;
         $bookie = trim($bookieAndSport->item(0)->textContent);
+        //Allow only ASCII characters
+        $bookie= preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $bookie);
         $sport = trim($bookieAndSport->item(3)->textContent);
         if (
             $sport == "Dota" ||

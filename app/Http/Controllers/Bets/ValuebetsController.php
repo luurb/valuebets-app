@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Bets;
 
 use App\Helpers\BetAddHelper;
+use App\Helpers\ValuebetsHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -14,9 +15,10 @@ class ValuebetsController extends Controller
         return view('valuebets.index');
     }
 
-    public function fetch(Request $request)
+    public function fetch()
     {
-
+        $bets = ValuebetsHelper::getBetsArr();
+        return response()->json($bets);
     }
 
     public function store(Request $request) 
@@ -70,18 +72,26 @@ class ValuebetsController extends Controller
 
     public function filter(Request $request)
     {
-        $filtersToSave = [];
-        foreach ($request->all() as $filtersName => $filtersArr) {
-            if ($filtersName !== '_token') {
-                $filtersToSave[$filtersName] = [];
-                foreach ($filtersArr as $checkbox => $value) {
-                    array_push($filtersToSave[$filtersName], $checkbox);
-                }
+        $filtersToSave = [
+            'type' => [],
+            'sport' => [],
+            'bookies' => [],
+        ];
+
+        $filters = $request->only('sport', 'bookies', 'type');
+        if (! array_key_exists('sport', $filters) || ! array_key_exists('bookies', $filters)) {
+            return redirect()->route('valuebets')->withErrors([
+                'filtersErrorMessage' => 'Please choose at least one sport and bookie'
+            ]);
+        }
+
+        foreach ($filters as $filtersName => $filtersArr) {
+            foreach ($filtersArr as $checkbox => $value) {
+                $filtersToSave[$filtersName][] = $checkbox;
             }
         }
 
         Session::put('filters', $filtersToSave);
-
         return redirect()->route('valuebets');
     } 
 }

@@ -93,7 +93,6 @@ export function hideGamesDbFilter(db, gamesArr, dbName) {
                     for (let i = 0; i < gamesArr.length; i++) {
                         if (gamesArr[i]['teams'] === game.teams && 
                             gamesArr[i]['bet'] === game.bet) {
-
                                 gamesArr.splice(i, 1);
                                 break;
                         }
@@ -130,7 +129,7 @@ export function getUpdatedArr(db, gamesArr, dbName) {
                     let exists = oldGamesArr.findIndex(obj => 
                         obj['teams'] == gamesArr[i]['teams']);
                     let bet = oldGamesArr.findIndex(obj => 
-                        obj['teams'] == gamesArr[i]['teams']);
+                        obj['bookie'] == gamesArr[i]['bookie']);
                         
                     if (exists !== -1 && bet !== -1) {
                         oldGamesArr[exists]['class'] = '';

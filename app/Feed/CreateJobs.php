@@ -45,6 +45,8 @@ class CreateJobs
     public function fetchAll(): void
     {
         foreach ($this->bookiesAddr as $bookie => $addresses) {
+            //$fetchValuebets = new FetchValuebets();
+            //$fetchValuebets->createJSONFiles($addresses, $bookie);
             $randNumber = rand(0, 120);
             $message = 'Delay for ' . $bookie . ': ' . $randNumber;
             Log::channel('feed')->info($message);

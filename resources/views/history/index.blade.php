@@ -202,7 +202,7 @@
             <div class="filters__box">
                 <span class="filters__header filters__header--stat">Time range </span>
                     @if ($errors->has('first_date') || $errors->has('second_date'))
-                        <div class="filters__date-error error-text">Please insert correct date</div> 
+                        <div class="filters__error error-text">Please insert correct date</div> 
                     @endif
                 <form method="post" action="/history/time-range">
                     @csrf

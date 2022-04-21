@@ -47,207 +47,308 @@
 @section('filters-content')
     <div class="filters__options">
         <span class="filters__header">Filters</span>
+        @error('filtersErrorMessage')
+            <div class="filters__error error-text">{{ $message }}</div> 
+        @enderror
         <div class="filters__stats">
-            <div class="filters__box">
-                <div class="filters__list-wrapper">
-                <form action="/valuebets/filter" method="post" name="right-filters-form">
-                    @csrf
-                <div class="filters__list-box">
-                    <input type="checkbox" class="none" id="filters-bets">
-                    <label for="filters-bets">
-                        <div class="filters__list-header">
-                            <i class="fa-solid fa-caret-right filters__list-caret"></i>
-                            <span class="filters__list-header-text">
-                                Bets type
-                            </span>
+            <form action="/valuebets/filter" method="post" name="right-filters-form">
+                @csrf
+                <div class="filters__box">
+                    <div class="filters__list-wrapper">
+                        <div class="filters__list-box">
+                            <input type="checkbox" class="none" id="filters-bets">
+                            <label for="filters-bets">
+                                <div class="filters__list-header">
+                                    <i class="fa-solid fa-caret-right filters__list-caret"></i>
+                                    <span class="filters__list-header-text">
+                                        Hide bets 
+                                    </span>
+                                </div>
+                            </label>
+                            <ul class="filters__list">
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="type[corners]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('corners', Session::get('filters')['type']))
+                                                    checked
+                                                @endif
+                                            @else 
+                                                checked
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Corners
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="type[cards]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('cards', Session::get('filters')['type']))
+                                                    checked
+                                                @endif
+                                            @else 
+                                                checked
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Cards
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="type[fouls]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('fouls', Session::get('filters')['type']))
+                                                    checked
+                                                @endif
+                                            @else 
+                                                checked
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Fouls
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
-                    </label>
-                    <ul class="filters__list">
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="type['corners']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                        <div class="filters__list-box">
+                            <input type="checkbox" class="none" id="filters-sports">
+                            <label for="filters-sports">
+                                <div class="filters__list-header">
+                                    <i class="fa-solid fa-caret-right filters__list-caret"></i>
+                                    <span class="filters__list-header-text">
+                                        Sports
                                     </span>
-                                    corners
-                                </span>
+                                </div>
                             </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="type['cards']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    cards
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="type['fouls']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    fouls
-                                </span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="filters__list-box">
-                    <input type="checkbox" class="none" id="filters-sports">
-                    <label for="filters-sports">
-                        <div class="filters__list-header">
-                            <i class="fa-solid fa-caret-right filters__list-caret"></i>
-                            <span class="filters__list-header-text">
-                                Sports
-                            </span>
+                            <ul class="filters__list">
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="sport[football]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('football', Session::get('filters')['sport']))
+                                                    checked
+                                                @endif
+                                            @else 
+                                                checked
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Football
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="sport[basketball]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('basketball', Session::get('filters')['sport']))
+                                                    checked
+                                                @endif
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Basketball
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="sport[tennis]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('tennis', Session::get('filters')['sport']))
+                                                    checked
+                                                @endif
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Tennis
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="sport[esport]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('esport', Session::get('filters')['sport']))
+                                                    checked
+                                                @endif
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Esport 
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
-                    </label>
-                    <ul class="filters__list">
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="sport['football']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
+                        <div class="filters__list-box">
+                            <input type="checkbox" class="none" id="filters-bookies">
+                            <label for="filters-bookies">
+                                <div class="filters__list-header">
+                                    <i class="fa-solid fa-caret-right filters__list-caret"></i>
+                                    <span class="filters__list-header-text">
+                                        Bookies
                                     </span>
-                                    football
-                                </span>
+                                </div>
                             </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="sport['basketball']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    basketball
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="sport['tennis']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    tennis
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="sport['esport']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    esport 
-                                </span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="filters__list-box">
-                    <input type="checkbox" class="none" id="filters-bookies">
-                    <label for="filters-bookies">
-                        <div class="filters__list-header">
-                            <i class="fa-solid fa-caret-right filters__list-caret"></i>
-                            <span class="filters__list-header-text">
-                                Bookies
-                            </span>
+                            <ul class="filters__list">
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="bookies[pinnacle]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('pinnacle', Session::get('filters')['bookies']))
+                                                    checked
+                                                @endif
+                                            @else 
+                                                checked
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Pinnacle
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="bookies[22bet]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('22bet', Session::get('filters')['bookies']))
+                                                    checked
+                                                @endif
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            22bet
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="bookies[unibet]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('unibet', Session::get('filters')['bookies']))
+                                                    checked
+                                                @endif
+                                            @else 
+                                                checked
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Unibet
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="bookies[bet365]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('bet365', Session::get('filters')['bookies']))
+                                                    checked
+                                                @endif
+                                            @else 
+                                                checked
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Bet365
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="bookies[williamhill]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('williamhill', Session::get('filters')['bookies']))
+                                                    checked
+                                                @endif
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            William hill
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="bookies[ggbet]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('ggbet', Session::get('filters')['bookies']))
+                                                    checked
+                                                @endif
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            GGbet
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="filters__list-option">
+                                    <label>
+                                        <input type="checkbox" name="bookies[cloudbet]"
+                                            @if (Session::has('filters')) 
+                                                @if (in_array('cloudbet', Session::get('filters')['bookies']))
+                                                    checked
+                                                @endif
+                                            @endif
+                                        >
+                                        <span class="filters__list-text">
+                                            <span class="filters__check-icon-box">
+                                                <i class="fa-solid fa-check filters__check-icon"></i>
+                                            </span>
+                                            Cloudbet
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
-                    </label>
-                    <ul class="filters__list">
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="bookies['pinnacle']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    Pinnacle
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="bookies['22bet']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    22bet
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="bookies['unibet']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    Unibet
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="bookies['bet365']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    Bet365
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="bookies['william_hill']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    William hill
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="bookies['ggbet']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    GGbet
-                                </span>
-                            </label>
-                        </li>
-                        <li class="filters__list-option">
-                            <label>
-                                <input type="checkbox" name="bookies['cloudbet']">
-                                <span class="filters__list-text">
-                                    <span class="filters__check-icon-box">
-                                        <i class="fa-solid fa-check filters__check-icon"></i>
-                                    </span>
-                                    Cloudbet
-                                </span>
-                            </label>
-                        </li>
-                    </ul>
+                    </div>
+                    <input type="submit" class="filters__button filters__filters-submit" value="Filter">
                 </div>
-            </div>
-            <input type="submit" class="filters__button filters__filters-submit" value="Filter">
-            </div>
             </form>
         </div>
         <span class="filters__header">Options</span>
