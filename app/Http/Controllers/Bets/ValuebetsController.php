@@ -6,7 +6,6 @@ use App\Helpers\BetAddHelper;
 use App\Helpers\ValuebetsHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class ValuebetsController extends Controller
 {
@@ -21,18 +20,18 @@ class ValuebetsController extends Controller
         return response()->json($bets);
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
-        if (! auth()->user()) {
+        if (!auth()->user()) {
             return response()->json([
                 'response' => 4,
                 'counter' => 0
             ]);
         }
-        
+
         $data = $request->json()->all();
         $games = $data['games'];
-        $counter= 0;
+        $counter = 0;
 
         foreach ($games as $game) {
             $bookieId = BetAddHelper::getBookieId($game['bookie']);
@@ -53,11 +52,11 @@ class ValuebetsController extends Controller
 
             $counter++;
         }
-        
+
         if ($counter === 0 && $data['counter'] === 0) {
             return response()->json([
                 'response' => 5,
-                'counter' =>$counter 
+                'counter' => $counter
             ]);
         }
 
@@ -72,26 +71,19 @@ class ValuebetsController extends Controller
 
     public function filter(Request $request)
     {
-        $filtersToSave = [
-            'type' => [],
-            'sport' => [],
-            'bookies' => [],
-        ];
-
         $filters = $request->only('sport', 'bookies', 'type');
+
         if (! array_key_exists('sport', $filters) || ! array_key_exists('bookies', $filters)) {
             return redirect()->route('valuebets')->withErrors([
                 'filtersErrorMessage' => 'Please choose at least one sport and bookie'
             ]);
         }
 
-        foreach ($filters as $filtersName => $filtersArr) {
-            foreach ($filtersArr as $checkbox => $value) {
-                $filtersToSave[$filtersName][] = $checkbox;
-            }
-        }
+        ValuebetsHelper::saveFilters(
+            $filters,
+            $request->get('event-during')
+        );
 
-        Session::put('filters', $filtersToSave);
         return redirect()->route('valuebets');
-    } 
+    }
 }

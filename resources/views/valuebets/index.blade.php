@@ -54,7 +54,7 @@
             <form action="/valuebets/filter" method="post" name="right-filters-form">
                 @csrf
                 <div class="filters__box">
-                    <div class="filters__list-wrapper">
+                    <div class="filters__filters-wrapper">
                         <div class="filters__list-box">
                             <input type="checkbox" class="none" id="filters-bets">
                             <label for="filters-bets">
@@ -346,6 +346,32 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="filters__list-box">
+                            <input type="checkbox" class="none" id="filters-time">
+                            <label for="filters-time">
+                                <div class="filters__list-header">
+                                    <i class="fa-solid fa-caret-right filters__list-caret"></i>
+                                    <span class="filters__list-header-text">
+                                        Event during
+                                    </span>
+                                </div>
+                            </label>
+                            <ul class="filters__list">
+                                <li class="filters__list-option l-padding-0">
+                                    <div class="filters__time-box">
+                                        <input type="hidden" name="event-during" 
+                                        value="@if (Session::has('filters')){{ Session::get('filters')['time'] }}@else 6 @endif">
+                                        <div class="filters__iter-wrapper">
+                                            <span class="filters__iter">+</span>
+                                            <span class="filters__iter-num">
+                                                @if (Session::has('filters')){{ Session::get('filters')['time'] }}@else 6 @endif
+                                            </span>
+                                            <span class="filters__iter">-</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <input type="submit" class="filters__button filters__filters-submit" value="Filter">
                 </div>
@@ -355,10 +381,12 @@
         <div class="filters__stats">
             <div class="filters__box">
                 <span class="filters__header filters__header--stat">Refresh timeout</span>
-                <div class="filters__refresh-wrapper">
-                    <span class="filters__refresh-iter">+</span>
-                    <span class="filters__refresh-num">3</span>
-                    <span class="filters__refresh-iter">-</span>
+                <div class="filters__refresh-box">
+                    <div class="filters__iter-wrapper">
+                        <span class="filters__iter">+</span>
+                        <span class="filters__iter-num">3</span>
+                        <span class="filters__iter">-</span>
+                    </div>
                 </div>
                 <button class="filters__button filters__submit filters__refresh">Refresh</button>
             </div>

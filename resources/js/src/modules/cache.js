@@ -30,7 +30,7 @@ export function addGamesToIndexedDb(games, db, dbName) {
     let transaction = db.transaction([dbName +'_os'], 'readwrite');
     let objectStore = transaction.objectStore(dbName + '_os');
 
-    for (let game in games) {
+    for (let game of games) {
         objectStore.add({game: game});
         transaction.oncomplete = () => {
             //displayData(db);
@@ -93,6 +93,7 @@ export function hideGamesDbFilter(db, gamesArr, dbName) {
                     for (let i = 0; i < gamesArr.length; i++) {
                         if (gamesArr[i]['teams'] === game.teams && 
                             gamesArr[i]['bet'] === game.bet) {
+                                console.log('Delete bet: ', gamesArr[i]);
                                 gamesArr.splice(i, 1);
                                 break;
                         }

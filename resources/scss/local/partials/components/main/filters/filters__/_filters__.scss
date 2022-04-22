@@ -64,9 +64,8 @@
     border-radius: 10px;
 }
 
-.filters__list-wrapper {
+.filters__filters-wrapper {
     margin-bottom: 15px;
-    border-radius: 5px;
 }
 
 .filters__list-box {
@@ -77,7 +76,6 @@
 .filters__list {
     max-height: 0;
     overflow: hidden;
-    padding-left: 15px;
     font-size: fonts.$small;
     color: colors.$grey-f;
 }
@@ -85,6 +83,7 @@
 .filters__list-option {
     display: block;
     padding: 3px 0;
+    padding-left: 15px;
 
     label {
         display: flex;
@@ -148,27 +147,17 @@
     font-size: fonts.$big;
 }
 
-#filters-bets:checked ~ .filters__list {
-    max-height: 500%;
+#filters-bets:checked ~ .filters__list,
+#filters-sports:checked ~ .filters__list,
+#filters-bookies:checked ~ .filters__list,
+#filters-time:checked ~ .filters__list {
+    max-height: 900%;
 }
 
-#filters-bets:checked ~ label i::before {
-    content: '\f0d7';
-}
-
-#filters-sports:checked ~ .filters__list {
-    max-height: 500%;
-}
-
-#filters-sports:checked ~ label i::before {
-    content: '\f0d7';
-}
-
-#filters-bookies:checked ~ .filters__list {
-    max-height: 800%;
-}
-
-#filters-bookies:checked ~ label i::before {
+#filters-bets:checked ~ label i::before,
+#filters-sports:checked ~ label i::before,
+#filters-bookies:checked ~ label i::before,
+#filters-time:checked ~ label i::before {
     content: '\f0d7';
 }
 
@@ -188,13 +177,13 @@
     color: colors.$black;
 }
 
-.filters__refresh-num {
+.filters__iter-num {
     font-weight: 600;
     border-left: 2px solid colors.$grey1;
     border-right: 2px solid colors.$grey1;
 }
 
-.filters__refresh-wrapper {
+.filters__iter-wrapper {
     padding: 8px;
     width: 70%;
     margin: auto;

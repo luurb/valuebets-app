@@ -2,7 +2,7 @@ import { initPrint } from '../modules/fetch/print-init.js';
 import { initTimer, clearCountDown } from '../modules/timer/count-down.js';
 import axios from 'axios';
 
-let time = document.querySelector('.filters__refresh-num');
+let time = document.querySelector('.filters__refresh-box .filters__iter-num');
 let refreshButton = document.querySelector('.filters__refresh');
 
 makeRequest();
@@ -18,7 +18,7 @@ function makeRequest() {
             if (e.name == 'NetworkError') {
                 console.log('Check your Internet connection');
             } else if (e instanceof TypeError) {
-                console.log('Something wrong with our server' + e.message);
+                console.log('Something wrong with our server ' + e.message);
             } else {
                 console.error(e);
             }

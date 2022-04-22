@@ -74,6 +74,10 @@ html {
   right: 0 !important;
 }
 
+.l-padding-0 {
+  padding-left: 0 !important;
+}
+
 .flex {
   display: flex;
 }
@@ -905,7 +909,7 @@ button, select, input {
 
 .filters {
   height: 100%;
-  width: 190px;
+  width: 200px;
   background: #cdcdcd;
   z-index: 3;
 }
@@ -913,6 +917,7 @@ button, select, input {
 @media (min-width: 1020px) {
   .filters {
     width: 20%;
+    min-width: 200px;
     max-width: 220px;
   }
 }
@@ -977,9 +982,8 @@ button, select, input {
   border-radius: 10px;
 }
 
-.filters__list-wrapper {
+.filters__filters-wrapper {
   margin-bottom: 15px;
-  border-radius: 5px;
 }
 
 .filters__list-box {
@@ -990,7 +994,6 @@ button, select, input {
 .filters__list {
   max-height: 0;
   overflow: hidden;
-  padding-left: 15px;
   font-size: 1.6rem;
   color: #6c6c6c;
 }
@@ -998,6 +1001,7 @@ button, select, input {
 .filters__list-option {
   display: block;
   padding: 3px 0;
+  padding-left: 15px;
 }
 .filters__list-option label {
   display: flex;
@@ -1056,27 +1060,17 @@ button, select, input {
   font-size: 2rem;
 }
 
-#filters-bets:checked ~ .filters__list {
-  max-height: 500%;
+#filters-bets:checked ~ .filters__list,
+#filters-sports:checked ~ .filters__list,
+#filters-bookies:checked ~ .filters__list,
+#filters-time:checked ~ .filters__list {
+  max-height: 900%;
 }
 
-#filters-bets:checked ~ label i::before {
-  content: "\f0d7";
-}
-
-#filters-sports:checked ~ .filters__list {
-  max-height: 500%;
-}
-
-#filters-sports:checked ~ label i::before {
-  content: "\f0d7";
-}
-
-#filters-bookies:checked ~ .filters__list {
-  max-height: 800%;
-}
-
-#filters-bookies:checked ~ label i::before {
+#filters-bets:checked ~ label i::before,
+#filters-sports:checked ~ label i::before,
+#filters-bookies:checked ~ label i::before,
+#filters-time:checked ~ label i::before {
   content: "\f0d7";
 }
 
@@ -1100,13 +1094,13 @@ button, select, input {
   color: #1b1b1b;
 }
 
-.filters__refresh-num {
+.filters__iter-num {
   font-weight: 600;
   border-left: 2px solid #ededed;
   border-right: 2px solid #ededed;
 }
 
-.filters__refresh-wrapper {
+.filters__iter-wrapper {
   padding: 8px;
   width: 70%;
   margin: auto;
@@ -1117,7 +1111,7 @@ button, select, input {
   color: #111;
   font-size: 1.6rem;
 }
-.filters__refresh-wrapper span {
+.filters__iter-wrapper span {
   text-align: center;
   width: 100%;
   cursor: pointer;
