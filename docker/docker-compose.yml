@@ -36,7 +36,7 @@ services:
       context: ./npm
       dockerfile: Dockerfile
     volumes:
-      - ./:/var/www
+      - ../laravel:/var/www
     entrypoint: ['npm']
 volumes:
   mysql:

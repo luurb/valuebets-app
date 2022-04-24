@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
 #Install extension
 RUN docker-php-ext-install zip pdo_mysql
 
-#Cron
+#Cron conf
 RUN touch /var/log/cron.log
 COPY crontab /etc/cron.d/cjob
 RUN chmod 0644 /etc/cron.d/cjob
@@ -32,3 +32,6 @@ WORKDIR /var/www
 
 #Change owner of the container document root
 RUN chown -R www-data:www-data /var/www
+
+#Supervisor conf
+RUN echo -n " /var/www/laravel-worker.conf" >> /etc/supervisor/supervisord.conf
