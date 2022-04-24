@@ -1,18 +1,18 @@
 version: '3.8'
 services:
-  php: 
+  php-apache: 
     build:
-      context: ./docker/php
+      context: ./php
       dockerfile: Dockerfile
-    container_name: valuebets 
+    container_name: app
     restart: always
     ports:
       - "8005:80"
     volumes:
-      - ./:/var/www
-  db:
-    container_name: mysql-db
+      - ../laravel:/var/www
+  mysql-db:
     image: mysql:8.0
+    container_name: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
@@ -22,6 +22,8 @@ services:
       MYSQL_PASSWORD: '${DB_PASSWORD}'
     ports:
       - 3307:3306
+    volumes:
+      - mysql:/var/lib/mysql
   mailhog:
     image: mailhog/mailhog
     logging:
@@ -31,9 +33,10 @@ services:
       - 8025:8025 # web ui
   npm:
     build:
-      context: ./docker/npm
+      context: ./npm
       dockerfile: Dockerfile
-    container_name: npm
     volumes:
       - ./:/var/www
     entrypoint: ['npm']
+volumes:
+  mysql:

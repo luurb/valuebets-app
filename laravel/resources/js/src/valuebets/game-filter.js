@@ -22,10 +22,9 @@ filterBtn.addEventListener('click', () => {
 
         if (name === 'add') {
             gamesToSave.push(game);
-        } else {
-            gamesToHide.push(game);
         }
 
+        gamesToHide.push(game);
         betsToHide.push(betWrapper);
     }
 
