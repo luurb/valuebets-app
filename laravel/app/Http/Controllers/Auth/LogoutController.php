@@ -20,7 +20,7 @@ class LogoutController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('home');
+        return redirect()->route('valuebets');
     }
 }
 

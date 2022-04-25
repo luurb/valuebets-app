@@ -24,7 +24,7 @@
                     <li><a class="active" href="/valuebets">Valuebets</a></li>
                     <li><a href="/history">Bet history</a></li>
                     <li><a href="/add">Add bet</a></li>
-                    <li><a href="/home"> Tutorials</a></li>    
+                    <li><a href="/tools">Tools</a></li>    
                 </ul>
             </div>
             <input type="checkbox" id="user-check" class="none">

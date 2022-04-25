@@ -22,7 +22,7 @@
 
 @section('nav-box-content')
     <nav class="pagination">
-    {{ $bets->links('history.pagination.index') }}
+    {{ $bets->links('bets.history.pagination.index') }}
         <span class="pagination__results-box">
             <span class="pagination__results-counter-text">
                 Results per page:

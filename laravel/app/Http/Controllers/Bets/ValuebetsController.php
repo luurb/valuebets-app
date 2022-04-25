@@ -11,7 +11,7 @@ class ValuebetsController extends Controller
 {
     public function index()
     {
-        return view('valuebets.index');
+        return view('bets.valuebets.index');
     }
 
     public function fetch()

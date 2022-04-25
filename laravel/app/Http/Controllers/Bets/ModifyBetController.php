@@ -21,7 +21,7 @@ class ModifyBetController extends Controller
 
         $id = $request->input('id');
         if ($bet = auth()->user()->bet($id)->first()) {
-            return view('modify.index', [
+            return view('bets.modify.index', [
                 'bet' => $bet,
             ]);
         }

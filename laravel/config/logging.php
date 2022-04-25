@@ -118,7 +118,7 @@ return [
         'feed' => [
             'driver' => 'single',
             'path' => storage_path('logs/feed.log'),
-            'level' => 'debug'
+            'level' => env('LOG_LEVEL', 'critical'),
         ]
     ],
 

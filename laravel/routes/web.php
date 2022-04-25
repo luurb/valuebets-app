@@ -31,8 +31,8 @@ Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::post('/logout', [LogoutController::class, 'store']);
 
 Route::get('/valuebets', [ValuebetsController::class, 'index'])->name('valuebets');
-Route::get('/valuebets/fetch', [ValuebetsController::class, 'fetch']);
 Route::post('/valuebets', [ValuebetsController::class, 'store']);
+Route::get('/valuebets/fetch', [ValuebetsController::class, 'fetch']);
 Route::post('/valuebets/filter', [ValuebetsController::class, 'filter'])->middleware('auth');
 
 Route::get('/history', [BetsHistoryController::class, 'index'])->name('history');
@@ -47,14 +47,12 @@ Route::patch('/modify', [ModifyBetController::class, 'update']);
 
 Route::get('/test', [Test::class, 'index']);
 
+Route::get('/{url}', [ValuebetsController::class, 'index'])->where('url', '(home|//|)');
+
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
 
-Route::get('/', function () {
-    return view('home.index');
+Route::get('/tools', function () {
+    return view('tools.index');
 });
-
-Route::get('/home', function () {
-    return view('home.index');
-})->name('home');

@@ -15,7 +15,7 @@ class AddBetController extends Controller
     
     public function index()
     {
-        return view('add.index');
+        return view('bets.add.index');
     } 
 
     public function store(Request $request)

@@ -1,0 +1,126 @@
+@use '../../../../../../config/colors';
+@use '../../../../../fonts';
+@use '../../../../../../config/breakpoints';
+
+
+.tools__box {
+    font-family: fonts.$poppins;
+    font-size: fonts.$small;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: colors.$grey1;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px colors.$grey-f;
+
+    p {
+        line-height: fonts.$large;
+        padding-bottom: 10px;
+    }
+}
+
+.tools__text-wrapper {
+    padding: 20px;
+}
+
+.tools__text-header {
+    color: colors.$purple;
+    font-size: fonts.$large;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-bottom: 20px;
+}
+
+.tools__calcs-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 600px;
+}
+
+.tools__calc {
+    background: colors.$grey1; 
+    width: 100%;
+    padding: 20px 15px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px colors.$grey-f;
+}
+
+.tools__header {
+    font-size: fonts.$big;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: colors.$purple;
+    padding-bottom: 10px;
+}
+
+.tools__calc-description {
+    text-align: justify;
+}
+
+.tools__calc-header {
+    font-size: fonts.$medium;
+    font-weight: 500;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.tools__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.tools__inputs-headers,
+.tools__inputs-box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tools__input-header {
+    font-size: fonts.$v-small;
+    color: colors.$grey-f;
+    width: 30%;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.tools__input {
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 3px 5px -2px colors.$purple;
+    border-radius: 5px;
+}
+
+.tools__input:hover,
+.tools__input:focus {
+    box-shadow: 0px 5px 10px -2px colors.$purple;
+}
+
+@media(min-width: breakpoints.$tablets) {
+    .tools__box {
+        align-items: flex-start;
+    }
+
+    .tools__text-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .tools__calcs-wrapper {
+        max-width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .tools__calc {
+        width: 45%;
+        min-height: 550px;
+    }
+}

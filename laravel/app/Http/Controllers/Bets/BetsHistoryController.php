@@ -28,7 +28,7 @@ class BetsHistoryController extends Controller
         $stats = BetStatsHelper::getStats();
         $overTimeStats= BetStatsHelper::getOverTimeStats();
 
-        return view('history.index', [
+        return view('bets.history.index', [
             'bets' => $bets,
             'betsCount' => $betsCount,
             'counter' => $counter,
