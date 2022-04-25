@@ -38,5 +38,12 @@ services:
     volumes:
       - ../laravel:/var/www
     entrypoint: ['npm']
+  cron:
+    build:
+      context: ./cron
+      dockerfile: Dockerfile
+    container_name: cron
+    volumes:
+      - ../laravel:/var/www
 volumes:
   mysql:

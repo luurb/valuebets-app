@@ -13,17 +13,10 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     supervisor \
-    vim \
-    cron
+    vim 
 
 #Install extension
 RUN docker-php-ext-install zip pdo_mysql
-
-#Cron conf
-RUN touch /var/log/cron.log
-COPY crontab /etc/cron.d/cjob
-RUN chmod 0644 /etc/cron.d/cjob
-CMD ["cron", "-f"]
 
 #Copy virtual host into container
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
