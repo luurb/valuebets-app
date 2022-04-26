@@ -32,6 +32,8 @@ mix.js(
         'public/js/history.js'
     )
     .sourceMaps(false)
+    .js('resources/js/src/tools.js', 'public/js/tools.js')
+    .sourceMaps(false)
     .sass('resources/scss/main.scss', 'public/css', [
         //
     ]);

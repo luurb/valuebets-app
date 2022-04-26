@@ -50,23 +50,26 @@
     display: none;
 }
 
-.win {
+.win,
+.green-bold {
     color: colors.$green;
     font-weight: 600;
 }
 
-.lost {
+.lost,
+.red-bold {
     color: colors.$red;
+    font-weight: 600;
+}
+
+.stake,
+.gold-bold {
+    color: colors.$gold;
     font-weight: 600;
 }
 
 .pending {
     color: colors.$grey-f;
-}
-
-.stake {
-    color: colors.$gold;
-    font-weight: 600;
 }
 
 .delay {
