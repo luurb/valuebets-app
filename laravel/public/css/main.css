@@ -110,26 +110,23 @@ html {
   display: none;
 }
 
-.win,
-.green-bold {
+.win {
   color: #396e50;
   font-weight: 600;
 }
 
-.lost,
-.red-bold {
+.lost {
   color: #cb1010;
-  font-weight: 600;
-}
-
-.stake,
-.gold-bold {
-  color: #a38b00;
   font-weight: 600;
 }
 
 .pending {
   color: #6c6c6c;
+}
+
+.stake {
+  color: #a38b00;
+  font-weight: 600;
 }
 
 .delay {
@@ -1430,7 +1427,7 @@ button, select, input {
 .tools__calc {
   background: #ededed;
   width: 100%;
-  padding: 20px 15px 0 15px;
+  padding: 20px 15px;
   text-align: center;
   border-radius: 5px;
   box-shadow: 0px 1px 5px #6c6c6c;
@@ -1454,14 +1451,13 @@ button, select, input {
   padding: 10px 0;
   width: 100%;
   text-align: center;
-  border-top: 1px solid #6c6c6c;
 }
 
 .tools__inputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .tools__inputs-headers,
@@ -1485,11 +1481,6 @@ button, select, input {
   text-align: center;
   box-shadow: 0px 3px 5px -2px #1c1caa;
   border-radius: 5px;
-}
-
-.tools__result {
-  font-size: 1.8rem;
-  padding-top: 30px;
 }
 
 .tools__input:hover,
