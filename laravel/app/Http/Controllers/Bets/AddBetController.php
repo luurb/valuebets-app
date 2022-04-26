@@ -20,6 +20,7 @@ class AddBetController extends Controller
 
     public function store(Request $request)
     {
+        $request = BetAddHelper::filterCommas($request);
         BetAddHelper::betValidate('add', $request);
 
         $bookieId = BetAddHelper::getBookieId($request->bookie);

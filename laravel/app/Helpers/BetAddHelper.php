@@ -73,4 +73,13 @@ class BetAddHelper
         $factor = ($result === 'Win') ? 1 : 0;
         return ($odd * $stake * $factor) - $stake;
     }
+
+    public static function filterCommas(Request $request): Request
+    {
+        $request->merge(['odd'=> str_replace(',', '.', $request->odd)]);
+        $request->merge(['value'=> str_replace(',', '.', $request->value)]);
+        $request->merge(['stake'=> str_replace(',', '.', $request->stake)]);
+
+        return $request;
+    }
 }
