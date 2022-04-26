@@ -23,6 +23,8 @@ mix.js(
     'public/js/valuebets.js'
 )
     .sourceMaps(false)
+    .js('resources/js/src/tools.js', 'public/js/tools.js')
+    .sourceMaps(false)
     .js(
         [
             'resources/js/src/show-filters.js',
