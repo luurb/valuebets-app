@@ -2,14 +2,14 @@ version: '3.8'
 services:
   php-apache: 
     build:
-      context: ./php
+      context: .
       dockerfile: Dockerfile
     container_name: app
     restart: always
     ports:
       - "8005:80"
     volumes:
-      - ../laravel:/var/www
+      - ./laravel:/var/www
   mysql-db:
     image: mysql:8.0
     container_name: mysql
@@ -31,19 +31,5 @@ services:
     ports:
       - 1025:1025 # smtp server
       - 8025:8025 # web ui
-  npm:
-    build:
-      context: ./npm
-      dockerfile: Dockerfile
-    volumes:
-      - ../laravel:/var/www
-    entrypoint: ['npm']
-  cron:
-    build:
-      context: ./cron
-      dockerfile: Dockerfile
-    container_name: cron
-    volumes:
-      - ../laravel:/var/www
 volumes:
   mysql:
