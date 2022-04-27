@@ -50,12 +50,14 @@
     display: none;
 }
 
-.win {
+.win,
+.green-bold {
     color: colors.$green;
     font-weight: 600;
 }
 
-.lost {
+.lost,
+.red-bold {
     color: colors.$red;
     font-weight: 600;
 }
@@ -64,7 +66,8 @@
     color: colors.$grey-f;
 }
 
-.stake {
+.stake,
+.gold-bold {
     color: colors.$gold;
     font-weight: 600;
 }

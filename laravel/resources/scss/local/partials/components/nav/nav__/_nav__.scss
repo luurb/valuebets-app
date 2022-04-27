@@ -19,10 +19,13 @@
     font-size: fonts.$v-large;
     font-weight: 600;
     letter-spacing: 1px;
-    text-decoration: underline;
     a {
         color: colors.$light-green;
     }
+}
+
+.nav__first-logo {
+    text-decoration: underline;
 }
 
 .nav__seclogo {
@@ -69,7 +72,7 @@
 
     .nav__label--nav {
         display: block;
-        position: fixed;
+        position: absolute;
         right: 50px;
     }
 

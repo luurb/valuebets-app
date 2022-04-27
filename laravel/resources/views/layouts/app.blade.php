@@ -12,7 +12,7 @@
 </head>
 <body>
     <nav class="nav flex">
-        <div class="nav__logo"><a href="/home">Value<span class="nav__seclogo">scrap</span></a></div>
+        <div class="nav__logo"><a href="/home"><span class="nav__first-logo">Value</span><span class="nav__seclogo">scrap</span></a></div>
         <input type="checkbox" id="nav-check" class="none">
         <label for="nav-check" class="nav__label nav__label--nav none">
             <i class="fas fa-bars"></i>

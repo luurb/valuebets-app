@@ -43,7 +43,7 @@
 .tools__calc {
     background: colors.$grey1; 
     width: 100%;
-    padding: 20px 15px;
+    padding: 20px 15px 0 15px;
     text-align: center;
     border-radius: 5px;
     box-shadow: 0px 1px 5px colors.$grey-f;
@@ -67,13 +67,14 @@
     padding: 10px 0;
     width: 100%;
     text-align: center;
+    border-top: 1px solid colors.$purple;
 }
 
 .tools__inputs {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .tools__inputs-headers,
@@ -97,6 +98,10 @@
     text-align: center;
     box-shadow: 0px 3px 5px -2px colors.$purple;
     border-radius: 5px;
+}
+
+.tools__result {
+    padding-top: 30px;
 }
 
 .tools__input:hover,
