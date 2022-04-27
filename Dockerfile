@@ -1,4 +1,4 @@
-FROM php:8.1.3-apache
+FROM php:8.1.5-apache-bullseye
 
 #Enable rewrite rule
 RUN a2enmod rewrite
