@@ -52,7 +52,9 @@
                 </div>
                 <div class="auth__text">
                     Already have a account?
-                    <a href="/login">Log in</a>
+                    <p>
+                        <a href="/login">Log in</a>
+                    </p>
                 </div>
             </form>
         </div> 

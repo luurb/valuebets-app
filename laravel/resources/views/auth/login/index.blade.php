@@ -44,7 +44,9 @@
                 </div>
                 <div class="auth__text">
                     Don't have an account?
-                    <a href="/register">Sing in</a>
+                    <p>
+                        <a href="/register">Sing in</a>
+                    </p>
                 </div>
             </form>
         </div> 

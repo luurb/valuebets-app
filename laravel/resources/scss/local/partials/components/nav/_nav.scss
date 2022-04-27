@@ -46,8 +46,10 @@
     }
 }
 
-@media (max-width: 950px) {
+@media (max-width: breakpoints.$tablets) {
     .nav {
+        padding: 0 25px;
+
         ul {
             a:hover {
                 color: colors.$light-green;

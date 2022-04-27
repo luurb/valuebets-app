@@ -5,15 +5,7 @@
 
 .filters {
     height: 100%;
-    width: 200px;
+    width: 210px;
     background: colors.$grey2;
     z-index: layers.$filters-index;
-}
-
-@media (min-width: breakpoints.$tablets) {
-    .filters {
-        width: 20%;
-        min-width: 200px;
-        max-width: 220px;
-    }
 }

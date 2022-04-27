@@ -54,6 +54,10 @@
     font-size: fonts.$small;
     margin-top: 15px;
     padding: 0px 20px;
+
+    p {
+        font-weight: 500;
+    }
 }
 
 .auth__error-box {
