@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('js-links')
+    <script src="{{ asset('js/tools.js') }}" defer></script>
+@endsection
+
 @section('title')
     Tools
 @endsection
@@ -43,10 +47,13 @@
                             <div class="tools__input-header">Draw odd</div>
                             <div class="tools__input-header">Away odd</div>
                         </div>
-                        <div class="tools__inputs-box">
-                            <input type="text" placeholder="3.6" class="tools__input">
-                            <input type="text" placeholder="2.2" class="tools__input">
-                            <input type="text" placeholder="3.82" class="tools__input">
+                        <div class="tools__inputs-box three-way">
+                            <input type="text" placeholder="3.6" name="home_odd"
+                            class="tools__input">
+                            <input type="text" placeholder="2.2" name="draw_odd"
+                            class="tools__input">
+                            <input type="text" placeholder="3.82" name="away_odd"
+                            class="tools__input">
                         </div>
                     </div>
                     <div class="tools__calc-header">
@@ -57,9 +64,11 @@
                             <div class="tools__input-header">First odd</div>
                             <div class="tools__input-header">Second odd</div>
                         </div>
-                        <div class="tools__inputs-box">
-                            <input type="text" placeholder="1.8" class="tools__input">
-                            <input type="text" placeholder="2.05" class="tools__input">
+                        <div class="tools__inputs-box two-way">
+                            <input type="text" placeholder="1.8" name="first_odd"
+                            class="tools__input">
+                            <input type="text" placeholder="2.05" name="second_odd"
+                            class="tools__input">
                         </div>
                     </div>
                 </div>
@@ -96,10 +105,13 @@
                             <div class="tools__input-header">Real odd</div>
                             <div class="tools__input-header">Payout (%)</div>
                         </div>
-                        <div class="tools__inputs-box">
-                            <input type="text" placeholder="2.4" class="tools__input">
-                            <input type="text" placeholder="2.16" class="tools__input">
-                            <input type="text" placeholder="96" class="tools__input">
+                        <div class="tools__inputs-box value">
+                            <input type="text" placeholder="2.4" name="checked_odd"
+                            class="tools__input">
+                            <input type="text" placeholder="2.16" name="real_odd"
+                            class="tools__input">
+                            <input type="text" placeholder="96" name="payout"
+                            class="tools__input">
                         </div>
                     </div>
                 </div>
