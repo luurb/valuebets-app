@@ -6,7 +6,7 @@
 .nav-box {
     position: sticky;
     top: 80px;
-    min-height: 50px;
+    height: 60px;
     font-size: fonts.$medium;
     background: colors.$white1;
     box-shadow: 0 5px 10px colors.$grey2;
@@ -14,5 +14,9 @@
     z-index: layers.$nav-box-index;
 }
 
-@media (min-width: breakpoints.$tablets) {
+@media (max-width: breakpoints.$tablets) {
+    .nav-box {
+        top: 60px;
+        height: 40px;
+    }
 }

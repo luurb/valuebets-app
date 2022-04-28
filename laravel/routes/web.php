@@ -27,8 +27,7 @@ Route::post('/register', [AuthRegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
-Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
-Route::post('/logout', [LogoutController::class, 'store']);
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::get('/valuebets', [ValuebetsController::class, 'index'])->name('valuebets');
 Route::post('/valuebets', [ValuebetsController::class, 'store']);

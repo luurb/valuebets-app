@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
-    <nav class="nav flex">
+    <nav class="nav">
         <div class="nav__logo"><a href="/home"><span class="nav__first-logo">Value</span><span class="nav__seclogo">scrap</span></a></div>
         <input type="checkbox" id="nav-check" class="none">
         <label for="nav-check" class="nav__label nav__label--nav none">

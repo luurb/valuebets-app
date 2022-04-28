@@ -14,7 +14,7 @@ html {
   font-size: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1050px) {
   html {
     font-size: 8px;
   }
@@ -68,6 +68,10 @@ html {
 
 .max-width-30 {
   max-width: 30%;
+}
+
+.max-height-8 {
+  max-height: 800% !important;
 }
 
 .right-0 {
@@ -325,6 +329,8 @@ button, select, input {
 
 .nav {
   font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-between;
   height: 80px;
   background: #1b1b1b;
   align-items: center;
@@ -342,7 +348,7 @@ button, select, input {
   padding-right: 10px;
 }
 .nav ul li {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 .nav ul a {
   color: #fff;
@@ -357,13 +363,17 @@ button, select, input {
   background: #fff;
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1050px) {
   .nav {
-    padding: 0 25px;
+    height: 60px;
+    padding: 0 20px;
   }
   .nav ul a:hover {
     color: #5eb987;
     background: none;
+  }
+  .nav ul li {
+    padding: 10px 0;
   }
 }
 .nav__label {
@@ -374,14 +384,11 @@ button, select, input {
   font-size: 2rem;
 }
 
-.nav__left-nav {
-  padding-left: 100px;
-}
-
 .nav__logo {
   font-size: 2.8rem;
   font-weight: 600;
   letter-spacing: 1px;
+  padding-right: 20px;
 }
 .nav__logo a {
   color: #5eb987;
@@ -397,7 +404,7 @@ button, select, input {
 }
 
 .nav__wrapper {
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -428,59 +435,17 @@ button, select, input {
   background: #fff;
 }
 
-@media (max-width: 1020px) {
-  .nav__left-nav {
-    padding-left: 0;
-  }
-
-  .nav__label--nav {
-    display: block;
-    position: absolute;
-    right: 50px;
-  }
-
-  .nav__wrapper {
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 80px;
-    width: 100%;
-    height: 100vh;
-    background: #111;
-    text-align: center;
-    left: -100%;
-    transition: all 0.3s ease;
-  }
-  .nav__wrapper ul {
-    display: block;
-    padding: 20px 0;
-  }
-  .nav__wrapper li {
-    padding: 10px 0;
-  }
-
-  #nav-check:checked ~ .nav__wrapper {
-    left: 0;
-  }
-
-  #nav-check:checked ~ .nav__label i::before {
-    content: "\f00d";
-  }
-}
-@media (max-width: 1250px) {
-  .nav__logout-button {
-    background: #111;
-  }
-}
-@media (max-width: 1250px) and (min-width: 1020px) {
+@media (max-width: 1050px) and (min-width: 700px) {
   .nav__label--user {
     display: block;
+    position: fixed;
+    right: 20px;
   }
 
   .nav__right-nav {
     position: fixed;
     left: 0;
-    top: 80px;
+    top: 60px;
     width: 100%;
     background: #111;
     text-align: right;
@@ -500,6 +465,73 @@ button, select, input {
     content: "\f00d";
   }
 }
+@media (max-width: 700px) and (min-width: 500px) {
+  .nav__label--nav {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+
+  .nav__wrapper {
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    background: #111;
+    display: none;
+  }
+
+  #nav-check:checked ~ .nav__wrapper {
+    display: flex;
+  }
+
+  #nav-check:checked ~ .nav__label i::before {
+    content: "\f00d";
+  }
+}
+@media (max-width: 500px) {
+  .nav__left-nav {
+    padding-left: 0;
+  }
+
+  .nav__label--nav {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+
+  .nav__wrapper {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    height: 100vh;
+    background: #111;
+    text-align: center;
+    left: -100%;
+    transition: all 0.3s ease;
+  }
+  .nav__wrapper ul {
+    display: block;
+    padding: 20px 0;
+  }
+
+  .nav__logout-button {
+    background: #111;
+  }
+
+  #nav-check:checked ~ .nav__wrapper {
+    left: 0;
+  }
+
+  #nav-check:checked ~ .nav__label i::before {
+    content: "\f00d";
+  }
+}
 .nav-btn {
   color: #fff;
   font-size: 24px;
@@ -513,7 +545,6 @@ button, select, input {
 }
 
 .main {
-  min-height: calc(100vh - 80px);
   font-family: "Lato", sans-serif;
   background: #f7f7f7;
 }
@@ -522,7 +553,7 @@ button, select, input {
   position: -webkit-sticky;
   position: sticky;
   top: 80px;
-  min-height: 50px;
+  height: 60px;
   font-size: 1.8rem;
   background: #f7f7f7;
   box-shadow: 0 5px 10px #cdcdcd;
@@ -530,6 +561,12 @@ button, select, input {
   z-index: 4;
 }
 
+@media (max-width: 1050px) {
+  .nav-box {
+    top: 60px;
+    height: 40px;
+  }
+}
 .nav-box__box-wrapper {
   width: 100%;
   height: 100%;
@@ -540,26 +577,25 @@ button, select, input {
 
 .nav-box__box {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  max-width: 1000px;
+  justify-content: space-between;
+  max-width: 950px;
   width: 100%;
   height: 100%;
-  padding-left: 25px;
+  padding: 0 20px;
 }
 
 .nav-box__timer {
   font-size: 2rem;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .nav-box__info-box {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .nav-box__message {
   font-size: 1.6rem;
-  padding: 0 20px;
+  padding-left: 10px;
   position: relative;
 }
 .nav-box__message i {
@@ -588,17 +624,11 @@ button, select, input {
   z-index: 2;
 }
 
-.nav-box__bets-counter {
-  font-size: 2rem;
-  font-family: "Lato", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
 .nav-box__left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-right: 10px;
 }
 
 .nav-box__filters-icon {
@@ -606,11 +636,7 @@ button, select, input {
   display: block;
 }
 
-@media (min-width: 1020px) {
-  .nav-box__filters-icon {
-    display: none;
-  }
-
+@media (min-width: 1050px) {
   .nav-box__box-wrapper {
     max-width: calc(100% - 200px);
     width: 87%;
@@ -620,11 +646,20 @@ button, select, input {
     padding-left: 75px;
   }
 }
+@media (min-width: 500px) {
+  .nav-box__filters-icon {
+    display: none;
+  }
+
+  .nav-box__box {
+    justify-content: flex-start;
+  }
+}
 .pagination {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 5px 0;
+  padding-left: 10px;
 }
 
 .pagination__nav {
@@ -664,10 +699,6 @@ button, select, input {
   box-shadow: 0px 3px 5px -2px #6c6c6c;
 }
 
-.pagination__results-counter:hover > ul {
-  max-height: 500%;
-}
-
 .pagination__results-counter:hover {
   cursor: pointer;
 }
@@ -675,7 +706,7 @@ button, select, input {
 .pagination__counter-list {
   position: absolute;
   left: 0;
-  margin-top: 7px;
+  margin-top: 6px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -710,10 +741,10 @@ button, select, input {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding: 5px 0px 5px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px 15px 5px 30px;
   background: #1b1b1b;
   color: #fff;
   border-radius: 5px;
@@ -732,14 +763,12 @@ button, select, input {
 }
 
 .main-table__nav-right {
-  font-size: 2rem;
   width: 26%;
+  font-size: 2rem;
   margin: 5px;
   text-align: center;
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .main-table__wrapper {
@@ -891,7 +920,7 @@ button, select, input {
   display: block;
 }
 
-@media (min-width: 1020px) {
+@media (min-width: 1050px) {
   .main-table__wrapper {
     padding: 0 50px;
   }
@@ -914,7 +943,7 @@ button, select, input {
 .main-table {
   width: 100%;
   height: 100%;
-  padding: 30px 20px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
@@ -922,11 +951,25 @@ button, select, input {
 
 .filters {
   height: 100%;
-  width: 210px;
-  background: #cdcdcd;
+  width: 300px;
   z-index: 3;
+  box-shadow: 0 5px 10px #6c6c6c;
 }
 
+@media (max-width: 1050px) {
+  .filters {
+    width: 200px;
+  }
+}
+@media (max-width: 500px) {
+  .filters {
+    position: fixed;
+    right: -100%;
+    height: 0;
+    width: 100vw;
+    transition: all 0.3s ease;
+  }
+}
 .filters__header {
   display: block;
   padding-top: 5px;
@@ -940,11 +983,19 @@ button, select, input {
 }
 
 .filters__options {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  height: 100%;
+  padding: 20px 0;
   background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
   text-align: center;
   border-top: 2px solid #cdcdcd;
-  max-height: calc(100vh - 110px);
   overflow: auto;
+}
+
+.filters__options-box {
+  width: 100%;
 }
 
 .filters__stats {
@@ -1029,7 +1080,7 @@ button, select, input {
 .filters__check-icon-box {
   width: 17px;
   height: 17px;
-  padding: 1px;
+  padding: 2px;
   margin-right: 5px;
   text-align: center;
   font-size: 1.4rem;
@@ -1048,10 +1099,10 @@ button, select, input {
 }
 
 .filters__list-header {
+  font-size: 1.6rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  font-weight: 600;
-  font-size: 1.6rem;
 }
 
 .filters__list-header:hover {
@@ -1059,7 +1110,7 @@ button, select, input {
 }
 
 .filters__list-header-text {
-  padding: 0 0 5px 10px;
+  padding: 0 0 2px 10px;
 }
 
 .filters__list-caret {
@@ -1071,6 +1122,7 @@ button, select, input {
 #filters-bookies:checked ~ .filters__list,
 #filters-time:checked ~ .filters__list {
   max-height: 900%;
+  padding-top: 5px;
 }
 
 #filters-bets:checked ~ label i::before,
@@ -1100,6 +1152,10 @@ button, select, input {
   color: #1b1b1b;
 }
 
+.filters__iter {
+  padding: 5px;
+}
+
 .filters__iter-num {
   font-weight: 600;
   border-left: 2px solid #ededed;
@@ -1107,7 +1163,6 @@ button, select, input {
 }
 
 .filters__iter-wrapper {
-  padding: 8px;
   width: 70%;
   margin: auto;
   display: flex;
@@ -1199,12 +1254,16 @@ button, select, input {
   color: #1c1caa;
 }
 
-@media (max-width: 1020px) {
-  .filters {
-    position: fixed;
-    right: -100%;
-    height: 0;
-    transition: all 0.3s ease;
+@media (max-width: 500px) {
+  .filters__options {
+    height: calc(100vh - 95px);
+    border-radius: 10px;
+    padding: 10px 0;
+  }
+
+  .filters__options-box {
+    width: 220px;
+    box-shadow: 0px 5px 10px -2px #6c6c6c;
   }
 }
 .auth__input-box {
@@ -1386,7 +1445,7 @@ button, select, input {
   height: 200vh;
 }
 
-@media (min-width: 1020px) {
+@media (min-width: 1050px) {
   .main-section {
     height: 100vh;
   }
@@ -1503,7 +1562,7 @@ button, select, input {
   box-shadow: 0px 5px 10px -2px #1c1caa;
 }
 
-@media (min-width: 1020px) {
+@media (min-width: 1050px) {
   .tools__box {
     align-items: flex-start;
   }

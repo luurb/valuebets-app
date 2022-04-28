@@ -7,6 +7,8 @@
 
 .nav {
     font-family: fonts.$poppins;
+    display: flex;
+    justify-content: space-between;
     height: 80px;
     background: colors.$black;
     align-items: center;
@@ -25,7 +27,7 @@
         }
 
         li {
-            margin: 0 10px;
+            margin: 0 5px;
         }
         
         a {
@@ -35,8 +37,6 @@
             letter-spacing: 1px;
             padding: 6px 8px;
             border-radius: 5px;
-
-         
         }
         
         a:hover {
@@ -48,12 +48,16 @@
 
 @media (max-width: breakpoints.$tablets) {
     .nav {
-        padding: 0 25px;
+        height: 60px;
+        padding: 0 20px;
 
         ul {
             a:hover {
                 color: colors.$light-green;
                 background: none;
+            }
+            li {
+                padding: 10px 0;
             }
         } 
     }

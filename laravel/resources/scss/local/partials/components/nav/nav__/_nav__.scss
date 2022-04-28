@@ -11,14 +11,12 @@
     }
 }
 
-.nav__left-nav {
-    padding-left: 100px;
-}
-
 .nav__logo {
     font-size: fonts.$v-large;
     font-weight: 600;
     letter-spacing: 1px;
+    padding-right: 20px;
+
     a {
         color: colors.$light-green;
     }
@@ -34,7 +32,7 @@
 }
 
 .nav__wrapper {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,63 +63,17 @@
     background: colors.$white-f;
 }
 
-@media (max-width: breakpoints.$tablets) {
-    .nav__left-nav {
-        padding-left: 0;
-    }
-
-    .nav__label--nav {
-        display: block;
-        position: absolute;
-        right: 50px;
-    }
-
-    .nav__wrapper {
-        display: block;
-        position: fixed;
-        left: 0;
-        top: 80px;
-        width: 100%;
-        height: 100vh;
-        background: colors.$black1;
-        text-align: center;
-        left: -100%;
-        transition: all 0.3s ease;
-
-        ul {
-            display: block;
-            padding: 20px 0;
-        }
-
-        li {
-            padding: 10px 0;
-        }
-    }
-
-    #nav-check:checked ~ .nav__wrapper {
-        left: 0;
-    }
-
-    #nav-check:checked ~ .nav__label i::before {
-        content: "\f00d";
-    }
-}
-
-@media (max-width: breakpoints.$desktop-small) {
-    .nav__logout-button {
-        background: colors.$black1;
-    }
-}
-
-@media (max-width: breakpoints.$desktop-small) and (min-width: breakpoints.$tablets) {
+@media (max-width: breakpoints.$tablets) and (min-width: breakpoints.$nav) {
     .nav__label--user {
         display: block;
+        position: fixed;
+        right: 20px;
     }
 
     .nav__right-nav {
         position: fixed;
         left: 0;
-        top: 80px;
+        top: 60px;
         width: 100%;
         background: colors.$black1;
         text-align: right;
@@ -139,6 +91,76 @@
     }
 
     #user-check:checked ~ .nav__label i:before {
+        content: "\f00d";
+    }
+}
+
+@media (max-width: breakpoints.$nav) and (min-width: breakpoints.$phones) {
+    .nav__label--nav {
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+
+    .nav__wrapper {
+        position: fixed;
+        flex-direction: column;
+        justify-content: center;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 0 20px;
+        background: colors.$black1;
+        display: none;
+    }
+
+    #nav-check:checked ~ .nav__wrapper {
+        display: flex;
+    }
+
+    #nav-check:checked ~ .nav__label i::before {
+        content: "\f00d";
+    }
+}
+
+@media (max-width: breakpoints.$phones) {
+    .nav__left-nav {
+        padding-left: 0;
+    }
+
+    .nav__label--nav {
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+
+    .nav__wrapper {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        width: 100%;
+        height: 100vh;
+        background: colors.$black1;
+        text-align: center;
+        left: -100%;
+        transition: all 0.3s ease;
+
+        ul {
+            display: block;
+            padding: 20px 0;
+        }
+    }
+
+    .nav__logout-button {
+        background: colors.$black1;
+    }
+
+    #nav-check:checked ~ .nav__wrapper {
+        left: 0;
+    }
+
+    #nav-check:checked ~ .nav__label i::before {
         content: "\f00d";
     }
 }

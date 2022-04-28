@@ -25,7 +25,7 @@
     {{ $bets->links('bets.history.pagination.index') }}
         <span class="pagination__results-box">
             <span class="pagination__results-counter-text">
-                Results per page:
+                Results:
             </span>
             <span class="pagination__results-counter">
                 <span>
@@ -169,58 +169,56 @@
 @endsection
 
 @section('filters-content')
-    <div class="filters__options">
-        <span class="filters__header">All time stats</span> 
-        <div class="filters__stats"> 
-            <div class="filters__box"> 
-                <span class="filters__header filters__header--stat">Return</span> 
-                <span class="filters__value">{{ $allTimeStats['return'] }}</span> 
-            </div> 
-            <div class="filters__box"> 
-                <span class="filters__header filters__header--stat">Yield</span> 
-                <span class="filters__value">{{ $allTimeStats['yield'] }}%</span> 
-            </div> 
-            <div class="filters__box">
-                <span class="filters__header filters__header--stat">Avg value</span>
-                <span class="filters__value">{{ $allTimeStats['value'] }}%</span>
-            </div>
+    <span class="filters__header">All time stats</span> 
+    <div class="filters__stats"> 
+        <div class="filters__box"> 
+            <span class="filters__header filters__header--stat">Return</span> 
+            <span class="filters__value">{{ $allTimeStats['return'] }}</span> 
+        </div> 
+        <div class="filters__box"> 
+            <span class="filters__header filters__header--stat">Yield</span> 
+            <span class="filters__value">{{ $allTimeStats['yield'] }}%</span> 
+        </div> 
+        <div class="filters__box">
+            <span class="filters__header filters__header--stat">Avg value</span>
+            <span class="filters__value">{{ $allTimeStats['value'] }}%</span>
         </div>
-        <span class="filters__header">Set time stats</span>
-        <div class="filters__stats">
-            <div class="filters__box">
-                <span class="filters__header filters__header--stat">Return</span>
-                <span class="filters__value">{{ $overTimeStats['return'] }}</span>
-            </div>
-            <div class="filters__box">
-                <span class="filters__header filters__header--stat">Yield</span>
-                <span class="filters__value">{{ $overTimeStats['yield'] }}</span>
-            </div>
-            <div class="filters__box">
-                <span class="filters__header filters__header--stat">Avg value</span>
-                <span class="filters__value">{{ $overTimeStats['value'] }}%</span>
-            </div>
-            <div class="filters__box">
-                <span class="filters__header filters__header--stat">Time range </span>
-                    @if ($errors->has('first_date') || $errors->has('second_date'))
-                        <div class="filters__error error-text">Please insert correct date</div> 
-                    @endif
-                <form method="post" action="/history/time-range">
-                    @csrf
-                    <input type="date" name="first_date" class="filters__date-input"
-                    @if (session('first_date'))
-                       value="{{ session('first_date') }}" 
-                    @endif
-                    >
-                    <span class="ftilers__header filters__header--stat">/</span>
-                    <input type="date" name="second_date" class="filters__date-input"
-                    @if (session('second_date'))
-                       value="{{ session('second_date') }}" 
-                    @endif
-                    >
-                    <input type="submit" name="submit" 
-                    class="filters__button filters__submit purple-input">
-                </form>
-            </div>
+    </div>
+    <span class="filters__header">Set time stats</span>
+    <div class="filters__stats">
+        <div class="filters__box">
+            <span class="filters__header filters__header--stat">Return</span>
+            <span class="filters__value">{{ $overTimeStats['return'] }}</span>
+        </div>
+        <div class="filters__box">
+            <span class="filters__header filters__header--stat">Yield</span>
+            <span class="filters__value">{{ $overTimeStats['yield'] }}</span>
+        </div>
+        <div class="filters__box">
+            <span class="filters__header filters__header--stat">Avg value</span>
+            <span class="filters__value">{{ $overTimeStats['value'] }}%</span>
+        </div>
+        <div class="filters__box">
+            <span class="filters__header filters__header--stat">Time range </span>
+                @if ($errors->has('first_date') || $errors->has('second_date'))
+                    <div class="filters__error error-text">Please insert correct date</div> 
+                @endif
+            <form method="post" action="/history/time-range">
+                @csrf
+                <input type="date" name="first_date" class="filters__date-input"
+                @if (session('first_date'))
+                    value="{{ session('first_date') }}" 
+                @endif
+                >
+                <span class="ftilers__header filters__header--stat">/</span>
+                <input type="date" name="second_date" class="filters__date-input"
+                @if (session('second_date'))
+                    value="{{ session('second_date') }}" 
+                @endif
+                >
+                <input type="submit" name="submit" 
+                class="filters__button filters__submit purple-input">
+            </form>
         </div>
     </div>
 @endsection

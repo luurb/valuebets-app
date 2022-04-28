@@ -21,7 +21,11 @@
             </div>
         </section>
         <section class="filters">
-            @yield('filters-content')
+            <div class="filters__options">
+                <div class="filters__options-box">
+                    @yield('filters-content')
+                </div>
+            </div>
         </section>
     </section>
 @endsection

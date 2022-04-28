@@ -11,7 +11,7 @@ html {
     font-size: 10px;
 }
 
-@media (max-width: breakpoints.$phones) {
+@media (max-width: breakpoints.$tablets) {
     html {
         font-size: 8px;
     }

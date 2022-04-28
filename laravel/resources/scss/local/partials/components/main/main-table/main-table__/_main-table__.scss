@@ -24,10 +24,10 @@
     margin: auto;
     position: sticky;
     top: 0;
-    padding: 5px 0px 5px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 5px 15px 5px 30px;
     background: colors.$black;
     color: colors.$white-f;
     border-radius: 5px;
@@ -47,14 +47,12 @@
 }
 
 .main-table__nav-right {
-    font-size: fonts.$big;
     width: 26%;
+    font-size: fonts.$big;
     margin: 5px;
     text-align: center;
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .main-table__wrapper {
