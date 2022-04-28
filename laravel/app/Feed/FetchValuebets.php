@@ -48,8 +48,8 @@ class FetchValuebets
     {
         $randNumber = rand(0, count($this->userAgents) - 1);
         $userAgent = $this->userAgents[$randNumber];
-        $proxyUser = env('PROXY_USER');
-        $proxyPass = env('PROXY_PASS');
+        $proxyUser = config('app.proxy_user');
+        $proxyPass = config('app.proxy_pass');
 
         $response = Http::withOptions([
             'proxy' => 'http://' . $proxyUser . ':' . $proxyPass . '@p.webshare.io:80'
