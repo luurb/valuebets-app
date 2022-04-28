@@ -56,9 +56,16 @@
                 color: colors.$light-green;
                 background: none;
             }
+        } 
+    }
+}
+
+@media (max-width: breakpoints.$nav) {
+    .nav {
+        ul {
             li {
                 padding: 10px 0;
             }
-        } 
+        }
     }
 }

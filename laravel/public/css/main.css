@@ -372,6 +372,8 @@ button, select, input {
     color: #5eb987;
     background: none;
   }
+}
+@media (max-width: 700px) {
   .nav ul li {
     padding: 10px 0;
   }
@@ -404,7 +406,7 @@ button, select, input {
 }
 
 .nav__wrapper {
-  width: 80%;
+  width: 85%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -435,6 +437,11 @@ button, select, input {
   background: #fff;
 }
 
+@media (max-width: 1050px) {
+  .nav__logout-button {
+    background: #111;
+  }
+}
 @media (max-width: 1050px) and (min-width: 700px) {
   .nav__label--user {
     display: block;
@@ -553,10 +560,10 @@ button, select, input {
   position: -webkit-sticky;
   position: sticky;
   top: 80px;
-  height: 60px;
+  height: 50px;
   font-size: 1.8rem;
   background: #f7f7f7;
-  box-shadow: 0 5px 10px #cdcdcd;
+  box-shadow: 0 2px 5px #cdcdcd;
   padding: 10px 0px;
   z-index: 4;
 }
@@ -776,7 +783,7 @@ button, select, input {
   height: 100%;
   max-width: 900px;
   background: #ededed;
-  box-shadow: -5px 10px 10px #6c6c6c;
+  box-shadow: 0 5px 5px #6c6c6c;
 }
 
 .main-table__bets {
@@ -943,7 +950,7 @@ button, select, input {
 .main-table {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
   background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
@@ -990,7 +997,6 @@ button, select, input {
   padding: 20px 0;
   background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
   text-align: center;
-  border-top: 2px solid #cdcdcd;
   overflow: auto;
 }
 
@@ -1336,7 +1342,7 @@ button, select, input {
   font-family: "Poppins", sans-serif;
   padding: 30px;
   background: #ededed;
-  box-shadow: 0px 5px 10px #6c6c6c;
+  box-shadow: 0px 2px 10px #6c6c6c;
   border-radius: 10px;
 }
 
@@ -1348,7 +1354,7 @@ button, select, input {
   font-family: "Poppins", sans-serif;
   padding: 30px;
   background: #ededed;
-  box-shadow: 0px 5px 10px #6c6c6c;
+  box-shadow: 0px 2px 10px #6c6c6c;
   border-radius: 10px;
 }
 
@@ -1443,6 +1449,7 @@ button, select, input {
   width: 100%;
   display: flex;
   height: 200vh;
+  background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
 }
 
 @media (min-width: 1050px) {

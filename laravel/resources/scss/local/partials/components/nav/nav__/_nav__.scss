@@ -32,7 +32,7 @@
 }
 
 .nav__wrapper {
-    width: 80%;
+    width: 85%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,6 +61,12 @@
 .nav__logout-button:hover {
     color: colors.$black;
     background: colors.$white-f;
+}
+
+@media (max-width: breakpoints.$tablets) {
+    .nav__logout-button {
+        background: colors.$black1;
+    }
 }
 
 @media (max-width: breakpoints.$tablets) and (min-width: breakpoints.$nav) {
