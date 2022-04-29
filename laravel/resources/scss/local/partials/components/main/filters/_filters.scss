@@ -5,7 +5,8 @@
 
 .filters {
     height: 100%;
-    width: 300px;
+    width: 250px;
+    margin-left: 10px;
     z-index: layers.$filters-index;
     box-shadow: 0 5px 10px #6c6c6c;
 }

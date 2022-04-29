@@ -8,12 +8,12 @@ export function addMessage(data) {
             message:
                 'Added: ' +
                 counter['saved'] +
-                '. Deleted: ' +
+                ' Deleted: ' +
                 counter['deleted'],
             icon: '<i class="fa-solid fa-check"></i>',
         },
         2: {
-            message: 'Deleted bets: ' + counter,
+            message: 'Deleted: ' + counter,
             icon: '<i class="fa-solid fa-check"></i>',
         },
         3: {

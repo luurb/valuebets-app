@@ -13,6 +13,7 @@
 .nav-box__box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 950px;
     width: 100%;
     height: 100%;
@@ -32,9 +33,13 @@
     font-size: fonts.$small;
     padding-left: 10px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     i {
-        font-size: fonts.$v-large;
+        margin-top: 4px;
+        font-size: 2.7rem;
     }
 
     .fa-check {
@@ -51,26 +56,35 @@
 }
 
 .nav-box__message-text {
-    width: 250%;
     position: absolute;
     padding: 8px;
-    left: 5px;
+    width: 100px;
+    top: 35px;
     text-align: center;
-    background: colors.$purple-gradient;
+    background: colors.$purple;
     color: colors.$white-f;
     border-radius: 5px;
-    z-index: 2;
+}
+
+.nav-box__message-text::before {
+    position:absolute;
+    content: '';
+    height: 15px;
+    width: 15px;
+    top: -7px;
+    left: 43px;
+    transform: rotate(45deg);
+    background: inherit;
 }
 
 .nav-box__left {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-right: 10px;
 }
 
 .nav-box__filters-icon {
-    font-size: fonts.$large;
+    font-size: 2.2rem;
     display: block;
 }
 

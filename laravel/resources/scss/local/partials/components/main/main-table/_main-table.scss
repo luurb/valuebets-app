@@ -1,10 +1,17 @@
 @use '../../../../../config/colors';
+@use '../../../../../config/breakpoints';
 
 .main-table {
-    width: 100%;
     height: 100%;
-    padding: 10px 20px;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     justify-content: center;
     background: colors.$grey-gradient;
+}
+
+@media (min-width: breakpoints.$tablets) {
+    .main-table {
+        max-width: 900px;
+    }
 }

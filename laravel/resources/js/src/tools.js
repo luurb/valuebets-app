@@ -95,7 +95,7 @@ function printMargin(odds, inputsBox) {
     let margin = 0;
 
     for (let key in odds) {
-        odd = odds[key].replace(',', '.');
+        let odd = odds[key].replace(',', '.');
         margin += 1 / odd;
     }
 
@@ -121,7 +121,7 @@ function printMargin(odds, inputsBox) {
 
 function printValue(odds, inputsBox) {
     for (let key in odds) {
-        odd = odds[key].replace(',', '.');
+        odds[key] = odds[key].replace(',', '.');
     }
 
     let checked = odds['checked'];
