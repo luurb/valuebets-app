@@ -4,6 +4,10 @@
    Modify bet 
 @endsection
 
+@section('js-links')
+    <script src="{{ asset('js/add.js') }}" defer></script>
+@endsection
+
 @section('content')
     <section class="form">
         <div class="add-bet">
@@ -147,11 +151,15 @@
                         Result
                     </div>
                     <div class="add-bet__input-box">
-                        <select name="result" class="add-bet__select width-50">
-                            <option>Pending</option>
-                            <option>Lost</option>
-                            <option>Win</option>
-                        </select>
+                        <div class="add-bet__input add-bet__result-box">
+                            <span>Pending</span>
+                            <input type="hidden" name="result" value="pending">
+                            <ul class="add-bet__result-list">
+                                <li class="add-bet__result-li">Win</li>
+                                <li class="add-bet__result-li">Lost</li>
+                                <li class="add-bet__result-li">Pending</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="add-bet__box">

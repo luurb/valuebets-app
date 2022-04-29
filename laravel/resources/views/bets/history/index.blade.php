@@ -15,7 +15,12 @@
 @section('nav-box__left')
     <div class="nav-box__info-box">
         <div class="nav-box__counter">
-            Found {{ $betsCount }} bets
+            Found {{ $betsCount }}
+            @if ($betsCount == 1)
+                bet
+            @else
+                bets
+            @endif
         </div>
     </div>
 @endsection

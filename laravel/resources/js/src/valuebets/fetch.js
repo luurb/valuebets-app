@@ -11,8 +11,7 @@ function makeRequest() {
     axios
         .get('valuebets/fetch')
         .then((response) => {
-            addBetsCounter(response['data']['counter']);
-            initPrint(response['data']['bets']);
+            initPrint(response['data']);
             initTimer(Number(time.textContent) * 60000, makeRequest);
         })
         .catch((e) => {
@@ -24,14 +23,6 @@ function makeRequest() {
                 console.error(e);
             }
         });
-}
-
-function addBetsCounter(counter) {
-    let navBox = document.querySelector('.nav-box__left');
-    let counterDiv = document.createElement('div');
-    counterDiv.setAttribute('class', 'nav-box__counter');
-    counterDiv.textContent = `Found ${counter} valuebets`;
-    navBox.insertBefore(counterDiv, navBox.firstChild);
 }
 
 //Prevent usert from multiple clicks on refresh button

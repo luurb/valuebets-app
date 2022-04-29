@@ -294,19 +294,6 @@ html {
   background: #6c6c6c;
 }
 
-::-webkit-calendar-picker-indicator {
-  border-radius: 10px;
-  margin: 0;
-  padding: 0;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-::-webkit-calendar-picker-indicator:hover {
-  cursor: pointer;
-  padding: 0 5px;
-}
-
 a {
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1401,24 +1388,28 @@ button, select, input {
 
 .add-bet__label-box {
   font-weight: 500;
-  width: 45%;
+  width: 30%;
   text-align: center;
   padding: 10px 0;
   border-bottom: 1px solid #1c1caa;
 }
 
 .add-bet__input-box {
-  width: 50%;
-  text-align: center;
+  width: 65%;
+  display: flex;
+  justify-content: center;
   padding: 10px 0;
 }
 
 .add-bet__input,
-.add-bet__select {
+.add-bet__select,
+.add-bet__result-li {
   width: 100%;
   min-width: 50px;
   max-width: 200px;
   text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
   color: #1b1b1b;
   background: #fff;
   font-size: 1.4rem;
@@ -1463,6 +1454,33 @@ button, select, input {
   color: #1c1caa;
 }
 
+.add-bet__result-box {
+  position: relative;
+}
+
+.add-bet__result-list {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 11px;
+  transition: max-height 0.3s ease;
+}
+
+.add-bet__result-li {
+  border-bottom: 1px solid #1c1caa;
+}
+
+@media (min-width: 500px) {
+  .add-bet__label-box {
+    width: 45%;
+  }
+
+  .add-bet__input-box {
+    width: 50%;
+  }
+}
 .form {
   background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
   display: flex;

@@ -15,6 +15,7 @@ async function initPrint(gamesArr) {
                 getUpdatedArr(gamesDb, filteredGamesArr, 'games')
             )
             .then(updatedGamesArr => {
+                addBetsCounter(updatedGamesArr.length)
                 printNewTableBody(sort(updatedGamesArr));
                 let betsWrapper= document.querySelector('.main-table__wrapper');
                 betsWrapper.addEventListener('click', e => {
@@ -23,6 +24,20 @@ async function initPrint(gamesArr) {
             });
         }
     }
+}
+
+function addBetsCounter(counter) {
+    let navBox = document.querySelector('.nav-box__left');
+    let counterDiv = document.querySelector('.nav-box__counter');
+    
+    if (! counterDiv) {
+        counterDiv = document.createElement('div');
+        counterDiv.setAttribute('class', 'nav-box__counter');
+        navBox.insertBefore(counterDiv, navBox.firstChild);
+    }
+
+    let message = (counter == 1) ? 'valuebet' : 'valuebets';
+    counterDiv.textContent = `Found ${counter} ${message}`;
 }
 
 export {initPrint};

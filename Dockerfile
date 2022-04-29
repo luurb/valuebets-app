@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install pdo pdo_mysql
 
 #Cron conf
-RUN touch /var/log/cron.log
-RUN chmod 0644 /var/log/cron.log
+RUN touch /var/log/cron.log && chmod 0644 /var/log/cron.log
+
 RUN echo "* * * * * root cd /var/www/ && php artisan schedule:run >> /dev/null 2>&1" >> /etc/crontab
 
 #Copy virtual host into container

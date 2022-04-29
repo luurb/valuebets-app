@@ -33,6 +33,8 @@ mix.js(
         'public/js/history.js'
     )
     .sourceMaps(false)
+    .js('resources/js/src/add/events.js', 'public/js/add.js')
+    .sourceMaps(false)
     .sass('resources/scss/main.scss', 'public/css', [
         //
     ]);

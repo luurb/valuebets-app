@@ -230,15 +230,3 @@
 .result-pending-span {
     background: colors.$grey-f;
 }
-
-::-webkit-calendar-picker-indicator {
-    border-radius: 10px;
-    margin: 0;
-    padding: 0;
-    transition: all 0.5s ease;
-}
-
-::-webkit-calendar-picker-indicator:hover {
-    cursor: pointer;
-    padding: 0 5px;
-}

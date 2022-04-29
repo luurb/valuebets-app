@@ -22,24 +22,28 @@
 
 .add-bet__label-box {
     font-weight: 500;
-    width: 45%;
+    width: 30%;
     text-align: center;
     padding: 10px 0;
     border-bottom: 1px solid colors.$purple;
 }
 
 .add-bet__input-box {
-    width: 50%;
-    text-align: center;
+    width: 65%;
+    display: flex;
+    justify-content: center;
     padding: 10px 0;
 }
 
 .add-bet__input,
-.add-bet__select {
+.add-bet__select,
+.add-bet__result-li {
     width: 100%;
     min-width: 50px;
     max-width: 200px;
     text-align: center;
+    text-align-last: center;
+    -moz-text-align-last: center;
     @include mixins.button(colors.$black, colors.$white-f);
     transition: all 0.5s ease;
 }
@@ -74,3 +78,33 @@
     width: 45%;
     color: colors.$purple;
 }
+
+.add-bet__result-box {
+    position: relative;
+}
+
+.add-bet__result-list {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 11px;
+    transition: max-height 0.3s ease;
+}
+
+.add-bet__result-li {
+    border-bottom: 1px solid colors.$purple;
+}
+
+@media (min-width: breakpoints.$phones) {
+
+    .add-bet__label-box {
+        width: 45%;
+    }
+
+    .add-bet__input-box {
+        width: 50%;
+    }
+}
+

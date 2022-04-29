@@ -17,10 +17,8 @@ class ValuebetsController extends Controller
     public function fetch()
     {
         $bets = ValuebetsHelper::getBetsArr();
-        return response()->json([
-            'bets' => $bets,
-            'counter' => count($bets)
-        ]);
+        return response()->json($bets);
+
     }
 
     public function store(Request $request)
