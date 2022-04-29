@@ -363,7 +363,7 @@
                                     <div class="filters__iter-wrapper">
                                         <span class="filters__iter">+</span>
                                         <span class="filters__iter-num filters__iter">
-                                            @if (Session::has('filters')){{ Session::get('filters')['time'] }}@else 6 @endif
+                                            @if (Session::has('filters')){{ Session::get('filters')['time'] }}@else 3 @endif
                                         </span>
                                         <span class="filters__iter">-</span>
                                     </div>

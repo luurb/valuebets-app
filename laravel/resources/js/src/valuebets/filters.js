@@ -1,1 +1,0 @@
-let filterButton = document.querySelector('.filters__filters-submit');

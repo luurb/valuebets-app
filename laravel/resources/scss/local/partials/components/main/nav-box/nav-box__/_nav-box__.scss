@@ -20,19 +20,16 @@
     padding: 0 20px;
 }
 
-.nav-box__timer {
-    font-size: fonts.$big;
-    padding-right: 10px;
-}
-
-.nav-box__info-box {
+.nav-box__timer,
+.nav-box__counter {
+    font-size: fonts.$medium;
     padding-right: 10px;
 }
 
 .nav-box__message {
     font-size: fonts.$small;
-    padding-left: 10px;
     position: relative;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,5 +103,9 @@
 
     .nav-box__box {
         justify-content: flex-start;
+    }
+
+    .nav-box__message {
+        padding-left: 0;
     }
 }

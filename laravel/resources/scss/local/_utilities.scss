@@ -2,12 +2,12 @@
 @use './fonts';
 @use './../config/layers';
 
-.width-50 {
-    width: 50% !important;
-}
-
 .max-width-30 {
     max-width: 30%;
+}
+
+.max-width-100 {
+    max-width: 100% !important;
 }
 
 .max-height-8 {
@@ -112,7 +112,7 @@
 }
 
 .error-input {
-    border: 2px solid colors.$red;
+    border: 1px solid colors.$red;
 }
 
 .error-text {

@@ -67,7 +67,7 @@
                     </div>
                     <div class="add-bet__input-box">
                         <input type="text" name="teams" 
-                        class="add-bet__input @error('teams') error-input @enderror" 
+                        class="add-bet__input max-width-100 @error('teams') error-input @enderror" 
                         placeholder="Denver Nuggets - Orlando Magic" value="{{ old('teams')}}">
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="add-bet__input-box">
                         <input type="text" name="league" 
-                        class="add-bet__input @error('league') error-input @enderror" 
+                        class="add-bet__input max-width-100 @error('league') error-input @enderror" 
                         placeholder="Denver Nuggets - Orlando Magic" value="{{ old('league')}}">
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                         Result
                     </div>
                     <div class="add-bet__input-box">
-                        <select name="result" class="add-bet__select width-50">
+                        <select name="result" class="add-bet__select">
                             <option>Pending</option>
                             <option>Lost</option>
                             <option>Win</option>

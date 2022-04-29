@@ -15,7 +15,6 @@ mix.js(
     [
         'resources/js/src/valuebets/fetch.js',
         'resources/js/src/valuebets/events.js',
-        'resources/js/src/valuebets/filters.js',
         'resources/js/src/show-filters.js',
         'resources/js/src/valuebets/game-filter.js',
         'resources/js/src/modules/sorting.js',

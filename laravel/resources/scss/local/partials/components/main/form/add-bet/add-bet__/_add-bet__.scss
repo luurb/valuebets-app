@@ -1,6 +1,7 @@
 @use '../../../../../../../config/colors';
 @use '../../../../../../fonts';
 @use '../../../../../../mixins';
+@use '../../../../../../../config/breakpoints';
 
 .add-bet__header {
     font-size: fonts.$large;
@@ -36,6 +37,8 @@
 .add-bet__input,
 .add-bet__select {
     width: 100%;
+    min-width: 50px;
+    max-width: 200px;
     text-align: center;
     @include mixins.button(colors.$black, colors.$white-f);
     transition: all 0.5s ease;

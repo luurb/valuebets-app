@@ -62,12 +62,12 @@ html {
     opacity: 1;
   }
 }
-.width-50 {
-  width: 50% !important;
-}
-
 .max-width-30 {
   max-width: 30%;
+}
+
+.max-width-100 {
+  max-width: 100% !important;
 }
 
 .max-height-8 {
@@ -175,7 +175,7 @@ html {
 }
 
 .error-input {
-  border: 2px solid #cb1010;
+  border: 1px solid #cb1010;
 }
 
 .error-text {
@@ -592,19 +592,16 @@ button, select, input {
   padding: 0 20px;
 }
 
-.nav-box__timer {
-  font-size: 2rem;
-  padding-right: 10px;
-}
-
-.nav-box__info-box {
+.nav-box__timer,
+.nav-box__counter {
+  font-size: 1.8rem;
   padding-right: 10px;
 }
 
 .nav-box__message {
   font-size: 1.6rem;
-  padding-left: 10px;
   position: relative;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -674,6 +671,10 @@ button, select, input {
 
   .nav-box__box {
     justify-content: flex-start;
+  }
+
+  .nav-box__message {
+    padding-left: 0;
   }
 }
 .pagination {
@@ -991,6 +992,7 @@ button, select, input {
   .filters {
     position: fixed;
     right: -100%;
+    top: 100px;
     height: 0;
     width: 100vw;
     transition: all 0.3s ease;
@@ -1166,6 +1168,7 @@ button, select, input {
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
+  -webkit-appearance: none;
 }
 
 .filters__button--filter {
@@ -1218,6 +1221,7 @@ button, select, input {
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
+  -webkit-appearance: none;
   text-align: left;
 }
 .filters__select option {
@@ -1412,12 +1416,15 @@ button, select, input {
 .add-bet__input,
 .add-bet__select {
   width: 100%;
+  min-width: 50px;
+  max-width: 200px;
   text-align: center;
   color: #1b1b1b;
   background: #fff;
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
+  -webkit-appearance: none;
   transition: all 0.5s ease;
 }
 
@@ -1434,6 +1441,7 @@ button, select, input {
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
+  -webkit-appearance: none;
   padding: 15px;
 }
 

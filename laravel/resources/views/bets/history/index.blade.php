@@ -14,7 +14,7 @@
 
 @section('nav-box__left')
     <div class="nav-box__info-box">
-        <div class="nav-box__bets-counter">
+        <div class="nav-box__counter">
             Found {{ $betsCount }} bets
         </div>
     </div>

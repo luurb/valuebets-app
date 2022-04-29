@@ -68,7 +68,7 @@
                     </div>
                     <div class="add-bet__input-box">
                         <input type="text" name="teams" 
-                        class="add-bet__input @error('teams') error-input @enderror" 
+                        class="add-bet__input max-width-100 @error('teams') error-input @enderror" 
                         value="{{ $bet->teams }}">
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="add-bet__input-box">
                         <input type="text" name="league" 
-                        class="add-bet__input @error('league') error-input @enderror" 
+                        class="add-bet__input max-width-100 @error('league') error-input @enderror" 
                         value="{{ $bet->league }}">
                     </div>
                 </div>
