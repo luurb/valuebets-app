@@ -32,7 +32,7 @@
     width: 65%;
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    align-items: center;
 }
 
 .add-bet__input,
@@ -42,10 +42,22 @@
     min-width: 50px;
     max-width: 200px;
     text-align: center;
-    text-align-last: center;
-    -moz-text-align-last: center;
     @include mixins.button(colors.$black, colors.$white-f);
     transition: all 0.5s ease;
+}
+
+.add-bet__date-input {
+    width: unset;
+}
+
+.add-bet__time-input {
+    margin-left: 10px;
+}
+
+.add-bet__result-box {
+    position: relative;
+    width: 50%;
+    max-width: 120px;
 }
 
 .add-bet__input:hover,
@@ -58,6 +70,7 @@
     min-width: 100px;
     @include mixins.button(colors.$white-f, colors.$purple-gradient);
     padding: 15px;
+    margin-top: 10px;
 }
 
 .add-bet__button:hover {
@@ -70,17 +83,12 @@
     text-align: center;
 }
 
-
 .add-bet__no-error-box {
     padding: 10px 0;
     text-align: center;
     font-weight: 500;
-    width: 45%;
+    width: 30%;
     color: colors.$purple;
-}
-
-.add-bet__result-box {
-    position: relative;
 }
 
 .add-bet__result-list {
@@ -98,8 +106,8 @@
 }
 
 @media (min-width: breakpoints.$phones) {
-
-    .add-bet__label-box {
+    .add-bet__label-box, 
+    .add-bet__no-error-box {
         width: 45%;
     }
 
@@ -107,4 +115,3 @@
         width: 50%;
     }
 }
-

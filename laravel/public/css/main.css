@@ -1003,7 +1003,7 @@ button, select, input {
   align-items: baseline;
   height: 100%;
   padding: 20px 0;
-  background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
+  background: #ededed;
   text-align: center;
   overflow: auto;
 }
@@ -1028,6 +1028,7 @@ button, select, input {
   font-size: 1.4rem;
   padding: 5px;
   height: 35px;
+  text-align: center;
 }
 
 .filters__error {
@@ -1398,7 +1399,7 @@ button, select, input {
   width: 65%;
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  align-items: center;
 }
 
 .add-bet__input,
@@ -1408,8 +1409,6 @@ button, select, input {
   min-width: 50px;
   max-width: 200px;
   text-align: center;
-  text-align-last: center;
-  -moz-text-align-last: center;
   color: #1b1b1b;
   background: #fff;
   font-size: 1.4rem;
@@ -1417,6 +1416,20 @@ button, select, input {
   border-radius: 10px;
   -webkit-appearance: none;
   transition: all 0.5s ease;
+}
+
+.add-bet__date-input {
+  width: unset;
+}
+
+.add-bet__time-input {
+  margin-left: 10px;
+}
+
+.add-bet__result-box {
+  position: relative;
+  width: 50%;
+  max-width: 120px;
 }
 
 .add-bet__input:hover,
@@ -1434,6 +1447,7 @@ button, select, input {
   border-radius: 10px;
   -webkit-appearance: none;
   padding: 15px;
+  margin-top: 10px;
 }
 
 .add-bet__button:hover {
@@ -1450,12 +1464,8 @@ button, select, input {
   padding: 10px 0;
   text-align: center;
   font-weight: 500;
-  width: 45%;
+  width: 30%;
   color: #1c1caa;
-}
-
-.add-bet__result-box {
-  position: relative;
 }
 
 .add-bet__result-list {
@@ -1473,7 +1483,8 @@ button, select, input {
 }
 
 @media (min-width: 500px) {
-  .add-bet__label-box {
+  .add-bet__label-box,
+.add-bet__no-error-box {
     width: 45%;
   }
 

@@ -21,7 +21,7 @@
                         @if ($errors->has('bookie'))
                             {{ $errors->first('bookie') }}
                         @else
-                            Bookmaker 
+                            Bookie
                         @endif
                     </div>
                     <div class="add-bet__input-box">
@@ -36,7 +36,6 @@
                         @else
                             Sport 
                         @endif
-
                     </div>
                     <div class="add-bet__input-box">
                         <input name="sport" class="add-bet__input @error('sport') error-input @enderror"
@@ -45,19 +44,16 @@
                 </div>
                 <div class="add-bet__box">
                     <div class="add-bet__label-box">
-                        Date
+                        <span class="add-bet__label-text">
+                            Date and time
+                        </span>
                     </div>
-                    <div class="add-bet__input-box">
-                        <input type="date" name="date" class="add-bet__input"
+                    <div class="add-bet__input-box ">
+                        <input type="date" name="date" 
+                        class="add-bet__input add-bet__date-input"
                         value="{{ old('date') ?? date('Y-m-d')}}">
-                    </div>
-                </div>
-                <div class="add-bet__box">
-                    <div class="add-bet__label-box">
-                        Time
-                    </div>
-                    <div class="add-bet__input-box">
-                        <input type="time" name="time" class="add-bet__input"
+                        <input type="time" name="time" 
+                        class="add-bet__input add-bet__date-input add-bet__time-input"
                         value="{{ old('time') ?? date('H:i')}}">
                     </div>
                 </div>

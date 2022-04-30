@@ -21,7 +21,7 @@
     align-items: baseline;
     height: 100%;
     padding: 20px 0;
-    background: colors.$grey-gradient;
+    background: colors.$grey1;
     text-align: center;
     overflow: auto;
 }
@@ -46,6 +46,7 @@
     font-size: fonts.$v-small;
     padding: 5px;
     height: 35px;
+    text-align: center;
 }
 
 .filters__error {

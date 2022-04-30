@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('meta')
     @yield('js-links')
+    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }} type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ asset('/favicon_180x180.png') }} sizes="180x180">
+    <link rel="icon" href="{{ asset('/favicon_32x32.png') }}" sizes="32x32">
+    <link rel="icon" href="{{ asset('/favicon_48x48.png') }}" sizes="48x48">
+    <link rel="icon" href="{{ asset('/favicon_96x96.png') }}" sizes="96x96">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
     <nav class="nav">
-        <div class="nav__logo"><a href="/home"><span class="nav__first-logo">Value</span><span class="nav__seclogo">scrap</span></a></div>
+        <div class="nav__logo"><a href="/home"><span class="nav__first-logo">Value</span><span class="nav__seclogo">scrape</span></a></div>
         <input type="checkbox" id="nav-check" class="none">
         <label for="nav-check" class="nav__label nav__label--nav none">
             <i class="fas fa-bars"></i>
