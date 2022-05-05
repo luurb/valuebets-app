@@ -204,17 +204,21 @@
                 @endif
             <form method="post" action="/history/time-range">
                 @csrf
-                <input type="date" name="first_date" class="filters__date-input"
-                @if (session('first_date'))
-                    value="{{ session('first_date') }}" 
-                @endif
-                >
-                <span class="ftilers__header filters__header--stat">/</span>
-                <input type="date" name="second_date" class="filters__date-input"
-                @if (session('second_date'))
-                    value="{{ session('second_date') }}" 
-                @endif
-                >
+                <div class="filters__date-input">
+                    <input type="date" name="first_date" 
+                    @if (session('first_date'))
+                        value="{{ session('first_date') }}" 
+                    @endif
+                    >
+                </div>
+                <div class="filters__date-separator">/</div>
+                <div class="filters__date-input">
+                    <input type="date" name="second_date"
+                    @if (session('second_date'))
+                        value="{{ session('second_date') }}" 
+                    @endif
+                    >
+                </div>
                 <input type="submit" name="submit" 
                 class="filters__button filters__submit purple-input">
             </form>

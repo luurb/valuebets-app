@@ -45,16 +45,27 @@
                 <div class="add-bet__box">
                     <div class="add-bet__label-box">
                         <span class="add-bet__label-text">
-                            Date and time
+                            Date
                         </span>
                     </div>
                     <div class="add-bet__input-box ">
-                        <input type="date" name="date" 
-                        class="add-bet__input add-bet__date-input"
-                        value="{{ old('date') ?? date('Y-m-d')}}">
-                        <input type="time" name="time" 
-                        class="add-bet__input add-bet__date-input add-bet__time-input"
-                        value="{{ old('time') ?? date('H:i')}}">
+                        <div class="add-bet__input add-bet__date-input">
+                            <input type="date" name="date" 
+                            value="{{ old('date') ?? date('Y-m-d')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="add-bet__box">
+                    <div class="add-bet__label-box">
+                        <span class="add-bet__label-text">
+                            Time
+                        </span>
+                    </div>
+                    <div class="add-bet__input-box ">
+                        <div class="add-bet__input add-bet__date-input">
+                            <input type="time" name="time" 
+                            value="{{ old('time') ?? date('H:i')}}">
+                        </div>
                     </div>
                 </div>
                 <div class="add-bet__box">
