@@ -205,9 +205,10 @@ html {
   font-size: 1.2rem;
   font-weight: 600;
   position: absolute;
-  width: 50%;
+  min-width: 50%;
   max-width: 100px;
   height: 22px;
+  padding: 2px;
   top: 3px;
   left: -9px;
   display: flex;
@@ -673,7 +674,7 @@ button, select, input {
 
 .pagination__nav {
   font-size: 2rem;
-  padding-right: 15px;
+  padding-right: 10px;
 }
 
 .pagination__nav:hover {
@@ -683,16 +684,13 @@ button, select, input {
 .pagination__nav-angle {
   display: inline-block;
   padding: 0 10px;
-  box-shadow: 0px 3px 5px -2px #6c6c6c;
-}
-
-.pagination__nav-angle:hover {
-  box-shadow: 0px 5px 10px #6c6c6c;
 }
 
 .pagination__nav-current {
-  padding: 0 15px;
-  box-shadow: 0px 3px 5px -2px #6c6c6c;
+  display: inline-block;
+  background: #cdcdcd;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .pagination__results-counter-text {
@@ -705,7 +703,8 @@ button, select, input {
   padding: 5px 0;
   width: 60px;
   text-align: center;
-  box-shadow: 0px 3px 5px -2px #6c6c6c;
+  box-shadow: 0px 1px 5px -2px #1b1b1b;
+  border-radius: 5px;
 }
 
 .pagination__results-counter:hover {

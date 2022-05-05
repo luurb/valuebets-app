@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Bets;
 use App\Helpers\BetAddHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ModifyBetController extends Controller
 {
@@ -15,6 +16,8 @@ class ModifyBetController extends Controller
 
     public function handle(Request $request)
     {
+        Redirect::setIntendedUrl(url()->previous());
+
         if (! $request->input('id')) {
             return redirect()->route('history');
         }
@@ -26,7 +29,7 @@ class ModifyBetController extends Controller
             ]);
         }
 
-        return redirect()->route('history');
+        return redirect()->intended('history');
     }
 
     public function update(Request $request)
@@ -57,6 +60,6 @@ class ModifyBetController extends Controller
             'return' => $return
         ]);
 
-        return redirect()->route('history');
+        return redirect()->intended('history');
     }
 }

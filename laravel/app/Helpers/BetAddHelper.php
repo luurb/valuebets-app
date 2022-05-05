@@ -66,7 +66,7 @@ class BetAddHelper
         float $stake
     ): float
     {
-        if ($result === 'Pending') {
+        if ($result === 'pending') {
             return 0;
         }
 

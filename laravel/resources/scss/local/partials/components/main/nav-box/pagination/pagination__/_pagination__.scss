@@ -4,7 +4,7 @@
 
 .pagination__nav {
     font-size: fonts.$big;
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 .pagination__nav:hover {
@@ -14,16 +14,13 @@
 .pagination__nav-angle {
     display: inline-block;
     padding: 0 10px;
-    box-shadow: 0px 3px 5px -2px colors.$grey-f;
-}
-
-.pagination__nav-angle:hover {
-    box-shadow: 0px 5px 10px colors.$grey-f;
 }
 
 .pagination__nav-current {
-    padding: 0 15px;
-    box-shadow: 0px 3px 5px -2px colors.$grey-f;
+    display: inline-block;
+    background: colors.$grey2;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .pagination__results-counter-text {
@@ -36,7 +33,8 @@
     padding: 5px 0;
     width: 60px;
     text-align: center;
-    box-shadow: 0px 3px 5px -2px colors.$grey-f;
+    box-shadow: 0px 1px 5px -2px colors.$black;
+    border-radius: 5px;
 }
 
 .pagination__results-counter:hover {

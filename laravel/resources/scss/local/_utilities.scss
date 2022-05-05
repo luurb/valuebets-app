@@ -142,9 +142,10 @@
     font-size: fonts.$tiny;
     font-weight: 600;
     position: absolute;
-    width: 50%;
+    min-width: 50%;
     max-width: 100px;
     height: 22px;
+    padding: 2px;
     top: 3px;
     left: -9px;
     display: flex;

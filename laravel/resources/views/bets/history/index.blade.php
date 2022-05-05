@@ -12,19 +12,6 @@
     <script src="{{ asset('js/history.js') }}" defer></script>
 @endsection
 
-@section('nav-box__left')
-    <div class="nav-box__info-box">
-        <div class="nav-box__counter">
-            Found {{ $betsCount }}
-            @if ($betsCount == 1)
-                bet
-            @else
-                bets
-            @endif
-        </div>
-    </div>
-@endsection
-
 @section('nav-box-content')
     <nav class="pagination">
     {{ $bets->links('bets.history.pagination.index') }}
@@ -103,7 +90,6 @@
                                 class="main-table__checkbox--del none" form="delete-form">
                             <i class="fa-solid fa-trash main-table__trash main-table__input"></i>
                         </label>
-                        </input>
                         <form method="get" action="/modify">
                             <input type="hidden" name="id" value="{{ $bet->id }}">
                             <button type="submit" value=""
@@ -188,6 +174,10 @@
             <span class="filters__header filters__header--stat">Avg value</span>
             <span class="filters__value">{{ $allTimeStats['value'] }}%</span>
         </div>
+        <div class="filters__box">
+            <span class="filters__header filters__header--stat">Number of bets</span>
+            <span class="filters__value">{{ $allTimeStats['counter'] }}</span>
+        </div>
     </div>
     <span class="filters__header">Set time stats</span>
     <div class="filters__stats">
@@ -202,6 +192,10 @@
         <div class="filters__box">
             <span class="filters__header filters__header--stat">Avg value</span>
             <span class="filters__value">{{ $overTimeStats['value'] }}%</span>
+        </div>
+        <div class="filters__box">
+            <span class="filters__header filters__header--stat">Number of bets</span>
+            <span class="filters__value">{{ $overTimeStats['value'] }}</span>
         </div>
         <div class="filters__box">
             <span class="filters__header filters__header--stat">Time range </span>

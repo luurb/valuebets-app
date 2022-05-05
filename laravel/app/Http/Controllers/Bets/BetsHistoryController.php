@@ -32,16 +32,8 @@ class BetsHistoryController extends Controller
             'bets' => $bets,
             'betsCount' => $betsCount,
             'counter' => $counter,
-            'allTimeStats' => [
-                'return' => $stats['return'],
-                'yield' => $stats['yield'],
-                'value' => $stats['value'] 
-            ],
-            'overTimeStats' => [
-                'return' => $overTimeStats['return'],
-                'yield' => $overTimeStats['yield'],
-                'value' => $overTimeStats['value'] 
-            ]
+            'allTimeStats' => $stats,
+            'overTimeStats' => $overTimeStats,
         ]);
     }
 

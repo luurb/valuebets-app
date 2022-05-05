@@ -361,11 +361,11 @@
                                     <input type="hidden" name="event-during" 
                                     value="@if (Session::has('filters')){{ Session::get('filters')['time'] }}@else 6 @endif">
                                     <div class="filters__iter-wrapper">
-                                        <span class="filters__iter">+</span>
+                                        <span class="filters__iter">-</span>
                                         <span class="filters__iter-num filters__iter">
                                             @if (Session::has('filters')){{ Session::get('filters')['time'] }}@else 3 @endif
                                         </span>
-                                        <span class="filters__iter">-</span>
+                                        <span class="filters__iter">+</span>
                                     </div>
                                 </div>
                             </li>
@@ -382,9 +382,9 @@
             <span class="filters__header filters__header--stat">Refresh timeout</span>
             <div class="filters__refresh-box">
                 <div class="filters__iter-wrapper">
-                    <span class="filters__iter">+</span>
-                    <span class="filters__iter-num filters__iter">3</span>
                     <span class="filters__iter">-</span>
+                    <span class="filters__iter-num filters__iter">3</span>
+                    <span class="filters__iter">+</span>
                 </div>
             </div>
             <button class="filters__button filters__submit filters__refresh">Refresh</button>
