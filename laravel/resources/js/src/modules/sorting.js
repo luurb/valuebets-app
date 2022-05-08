@@ -6,14 +6,15 @@ let sortingBox = document.querySelector('.filters__sorting-box');
 let sortDirection;
 
 sortingBox.addEventListener('click', (e) => {
-    if (e.target.tagName === 'SPAN') {
+    let box = e.target;
+    if (box.tagName === 'SPAN') {
         let sortSpan = document.querySelector('.sort-span');
 
         if (sortSpan) {
             sortSpan.classList.remove('sort-span');
         }
 
-        e.target.classList.add('sort-span');
+        box.classList.add('sort-span');
 
         let caret = document.querySelector('.sorted');
 
@@ -42,6 +43,7 @@ carets.forEach((caret) => {
     });
 });
 
+
 //Init sort by getting games table from IndexedDB
 //and execute sort func after promise resolve
 function initSort() {
@@ -54,7 +56,7 @@ function initSort() {
     });
 }
 
-function sort(arr) {
+export function sort(arr) {
     let sortByValue = getSortByValue();
     if (typeof sortByValue !== 'undefined') {
         arr.sort((first, second) => {
@@ -64,10 +66,13 @@ function sort(arr) {
                 return sortDirection * (firstDelay > secondDelay ? 1 : -1);
             } else if (sortByValue === 'date_time') {
                 return (
-                    sortDirection * (first[sortByValue] > second[sortByValue] ? 1 : -1)
+                    sortDirection *
+                    (first[sortByValue] > second[sortByValue] ? 1 : -1)
                 );
             } else {
-                return sortDirection * (first[sortByValue] - second[sortByValue]);
+                return (
+                    sortDirection * (first[sortByValue] - second[sortByValue])
+                );
             }
         });
     }
@@ -85,9 +90,7 @@ function getSortByValue() {
     if (sortSpan) {
         let sortByValue = sortSpan.textContent.toLowerCase();
         sortByValue = sortByValue === 'date' ? 'date_time' : sortByValue;
-        
+
         return sortByValue;
     }
 }
-
-export { sort };

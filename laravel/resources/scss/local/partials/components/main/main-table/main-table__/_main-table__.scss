@@ -27,27 +27,65 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 15px 5px 30px;
+    padding: 5px 20px;
     background: colors.$black;
     color: colors.$white-f;
     border-radius: 5px;
     font-size: fonts.$medium;
     font-family: fonts.$poppins;
     z-index: layers.$table-nav;
+}
 
-    span {
-        padding: 5px 0;
-        font-size: fonts.$small;
-    }
+.main-table__nav-info {
+    font-size: fonts.$large;
+}
+
+.main-table__nav-info:hover ~ .main-table__nav-info-list,
+.main-table__nav-info:active~ .main-table__nav-info-list {
+    display: flex;
 }
 
 .main-table__nav-left {
+    font-size: fonts.$v-small;
+    position: relative;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    span {
+        padding-right: 10px;
+    }
+}
+
+.main-table__nav-info-list{
+    width: 150px;
+    position: absolute;
+    display: none;
     flex-direction: column;
+    background: colors.$purple;
+    left: 30px;
+    padding: 5px;
+    border-radius: 5px;
+
+    span {
+        padding: 2px 0;
+    }
+}
+
+.main-table__nav-info-list::before {
+    position:absolute;
+    content: '';
+    height: 10px;
+    width: 10px;
+    top: 10px;
+    left: -5px;
+    transform: rotate(45deg);
+    background: inherit;
+    z-index: -1;
 }
 
 .main-table__nav-right {
-    width: 26%;
+    width: calc(25% - 27px);
     font-size: fonts.$big;
     margin: 5px;
     text-align: center;
@@ -63,13 +101,14 @@
 }
 
 .main-table__bets {
-    height: calc(100% - 100px);
+    height: calc(100% - 50px);
     overflow: auto;
 }
 
 .main-table__bet-wrapper {
     padding: 15px 10px;
-    margin: 20px auto;
+    margin: auto;
+    margin-bottom: 20px;
     box-shadow: 0 3px 5px colors.$black;
 }
 
@@ -221,5 +260,24 @@
 
     .main-table__down-rows {
         display: flex;
+    }
+}
+
+@media (min-width: breakpoints.$nav) {
+    .main-table__nav-info {
+        display: none;
+    }
+
+    .main-table__nav-info-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: unset;
+        background: inherit;
+        width: unset;
+
+        span {
+            padding-right: 10px;
+        }
     }
 }

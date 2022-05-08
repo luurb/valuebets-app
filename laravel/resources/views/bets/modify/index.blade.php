@@ -48,10 +48,9 @@
                         Date
                     </div>
                     <div class="add-bet__input-box">
-                        <div class="add-bet__input add-bet__date-input">
-                            <input type="date" name="date" 
-                            value="{{ explode(' ', $bet->date_time)[0] }}">
-                        </div>
+                        <input type="date" name="date" 
+                        class="add-bet__input add-bet__date-input"
+                        value="{{ explode(' ', $bet->date_time)[0] }}">
                     </div>
                 </div>
                 <div class="add-bet__box">
@@ -59,10 +58,9 @@
                         Time 
                     </div>
                     <div class="add-bet__input-box">
-                        <div class="add-bet__input add-bet__date-input">
-                            <input type="time" name="time" 
-                            value="{{ substr(explode(' ', $bet->date_time)[1], 0, 5) }}">
-                        </div>
+                        <input type="time" name="time" 
+                        class="add-bet__input add-bet__date-input"
+                        value="{{ substr(explode(' ', $bet->date_time)[1], 0, 5) }}">
                     </div>
                 </div>
                 <div class="add-bet__box">

@@ -13,11 +13,11 @@ const mix = require('laravel-mix');
 
 mix.js(
     [
+        'resources/js/src/modules/sorting.js',
         'resources/js/src/valuebets/fetch.js',
         'resources/js/src/valuebets/events.js',
-        'resources/js/src/show-filters.js',
+        'resources/js/src/events.js',
         'resources/js/src/valuebets/game-filter.js',
-        'resources/js/src/modules/sorting.js',
     ],
     'public/js/valuebets.js'
 )
@@ -26,7 +26,7 @@ mix.js(
     .sourceMaps(false)
     .js(
         [
-            'resources/js/src/show-filters.js',
+            'resources/js/src/events.js',
             'resources/js/src/history/delete-bets.js',
             'resources/js/src/history/pagination.js',
         ],

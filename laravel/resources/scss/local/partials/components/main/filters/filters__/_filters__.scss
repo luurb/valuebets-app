@@ -41,6 +41,7 @@
 }
 
 .filters__date-input {
+    display: block;
     position: relative;
     width: 80%;
     background: colors.$white-f;
@@ -49,9 +50,10 @@
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 2px 3px colors.$purple;
+    -webkit-appearance: none;
 }
 
-.filters__date-input input::-webkit-calendar-picker-indicator {
+.filters__date-input::-webkit-calendar-picker-indicator {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -61,10 +63,6 @@
     padding: 0;
     opacity: 0;
     cursor: pointer;
-}
-
-.filters__date-input input {
-    text-align: center;
 }
 
 .filters__date-separator {
@@ -319,7 +317,7 @@
     .filters__options {
         height: calc(100vh - 95px);
         border-radius: 10px;
-        padding: 10px 0;
+        padding: 10px 0 40px 0;
     }
 
     .filters__options-box {

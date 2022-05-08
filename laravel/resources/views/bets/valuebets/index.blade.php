@@ -20,19 +20,28 @@
     <form id="filter-form"></form>
     <div class="main-table__nav">
         <div class="main-table__nav-left">
-            <span>
-                <i class="fa-solid fa-floppy-disk"></i>
-                </i>
-                - choose for save
+            <span class="main-table__nav-info">
+                <i class="fa-solid fa-circle-info"></i>
             </span>
-            <span>
-                <i class="fa-solid fa-trash">
-                </i>
-                - choose for delete
-            </span>
+            <div class="main-table__nav-info-list">
+                <span>
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    </i>
+                    - choose for save
+                </span>
+                <span>
+                    <i class="fa-solid fa-trash">
+                    </i>
+                    - choose for delete
+                </span>
+                <span>
+                    <i class="fa-solid fa-filter">
+                    </i>
+                    - confirm selections
+                </span>
+            </div>
         </div>
         <div class="main-table__nav-right">
-            <span>Confirm:</span>
             <button type="button" value="delete" class="main-table__input main-table__nav-filter"
                 form="filter-form">
                 <i class="fa-solid fa-filter"></i>
@@ -60,7 +69,7 @@
                             <div class="filters__list-header">
                                 <i class="fa-solid fa-caret-right filters__list-caret"></i>
                                 <span class="filters__list-header-text">
-                                    Bets type 
+                                    Hide bets 
                                 </span>
                             </div>
                         </label>
@@ -72,8 +81,6 @@
                                             @if (in_array('corners', Session::get('filters')['type']))
                                                 checked
                                             @endif
-                                        @else 
-                                            checked
                                         @endif
                                     >
                                     <span class="filters__list-text">
@@ -91,8 +98,6 @@
                                             @if (in_array('cards', Session::get('filters')['type']))
                                                 checked
                                             @endif
-                                        @else 
-                                            checked
                                         @endif
                                     >
                                     <span class="filters__list-text">
@@ -110,8 +115,6 @@
                                             @if (in_array('fouls', Session::get('filters')['type']))
                                                 checked
                                             @endif
-                                        @else 
-                                            checked
                                         @endif
                                     >
                                     <span class="filters__list-text">
@@ -119,6 +122,57 @@
                                             <i class="fa-solid fa-check filters__check-icon"></i>
                                         </span>
                                         Fouls
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="filters__list-option">
+                                <label>
+                                    <input type="checkbox" name="type[offsides]"
+                                        @if (Session::has('filters')) 
+                                            @if (in_array('offsides', Session::get('filters')['type']))
+                                                checked
+                                            @endif
+                                        @endif
+                                    >
+                                    <span class="filters__list-text">
+                                        <span class="filters__check-icon-box">
+                                            <i class="fa-solid fa-check filters__check-icon"></i>
+                                        </span>
+                                        Offsides
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="filters__list-option">
+                                <label>
+                                    <input type="checkbox" name="type[shots]"
+                                        @if (Session::has('filters')) 
+                                            @if (in_array('shots', Session::get('filters')['type']))
+                                                checked
+                                            @endif
+                                        @endif
+                                    >
+                                    <span class="filters__list-text">
+                                        <span class="filters__check-icon-box">
+                                            <i class="fa-solid fa-check filters__check-icon"></i>
+                                        </span>
+                                        Shots
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="filters__list-option">
+                                <label>
+                                    <input type="checkbox" name="type[period]"
+                                        @if (Session::has('filters')) 
+                                            @if (in_array('period', Session::get('filters')['type']))
+                                                checked
+                                            @endif
+                                        @endif
+                                    >
+                                    <span class="filters__list-text">
+                                        <span class="filters__check-icon-box">
+                                            <i class="fa-solid fa-check filters__check-icon"></i>
+                                        </span>
+                                        Period
                                     </span>
                                 </label>
                             </li>

@@ -27,7 +27,7 @@
                 <ul>
                     <li><a href="/home">Home</a></li>
                     <li><a class="active" href="/valuebets">Valuebets</a></li>
-                    <li><a href="/history">Bet history</a></li>
+                    <li><a href="/history">Bets history</a></li>
                     <li><a href="/add">Add bet</a></li>
                     <li><a href="/tools">Tools</a></li>    
                 </ul>

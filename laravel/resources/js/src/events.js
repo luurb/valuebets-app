@@ -1,5 +1,7 @@
 let filtersIcon = document.querySelector('.nav-box__filters-icon');
 let filters = document.querySelector('.filters');
+let infoBtn = document.querySelector('.main-table__nav-info .fa-circle-info');
+let leftNav = document.querySelector('.main-table__nav-left');
 
 //Show or hide filters bar 
 filtersIcon.addEventListener('click', () => {
@@ -12,4 +14,4 @@ filtersIcon.addEventListener('click', () => {
         filtersIcon.classList.add('show-filters');
         filters.classList.add('right-0')
     }
-})
+});

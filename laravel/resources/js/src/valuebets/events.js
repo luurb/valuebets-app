@@ -4,15 +4,18 @@ let timeBox = document.querySelector('.filters__time-box');
 let eventDuring = timeBox.querySelector('.filters__iter-num');
 let timeInput = timeBox.querySelector("input[type='hidden']");
 
-const minRefreshTimeout= 3;
-const maxRefreshTimeout= 15;
+const minRefreshTimeout = 3;
+const maxRefreshTimeout = 15;
 const minTime = 1;
 const maxTime = 6;
 
 //Refresh option
 refreshBox.addEventListener('click', (e) => {
     let refreshTimeout = Number(refreshTimeoutToPrint.textContent);
-    if (refreshTimeout > minRefreshTimeout && refreshTimeout < maxRefreshTimeout) {
+    if (
+        refreshTimeout > minRefreshTimeout &&
+        refreshTimeout < maxRefreshTimeout
+    ) {
         if (e.target.textContent === '+') {
             ++refreshTimeout;
         } else if (e.target.textContent === '-') {
@@ -28,6 +31,7 @@ refreshBox.addEventListener('click', (e) => {
         }
     }
     refreshTimeoutToPrint.textContent = refreshTimeout;
+    localStorage.setItem('timeout', refreshTimeout);
 });
 
 //Event during
@@ -52,3 +56,9 @@ timeBox.addEventListener('click', (e) => {
     timeInput.value = time;
 });
 
+window.addEventListener('load', () => {
+    let timeout = localStorage.getItem('timeout');
+    timeout
+        ? (refreshTimeoutToPrint.textContent = timeout)
+        : (refreshTimeoutToPrint.textContent = 3);
+});

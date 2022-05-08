@@ -54,7 +54,9 @@ class ValuebetsHelper
     {
         $types = $filters['type'];
         $time = $filters['time'];
-        if (! empty($types) && $time == 6) {
+        $maxTime = 6;
+
+        if (! empty($types) && $time == $maxTime) {
             for ($i = 0; $i < count($bets); $i++) {
                 $bet = $bets[$i];
                 if (self::filterBetsByType($bet, $types)) {
@@ -62,7 +64,7 @@ class ValuebetsHelper
                     $i--;
                 }
             }
-        } else if (! empty($types) && $time != 6) {
+        } else if (! empty($types) && $time != $maxTime) {
             for ($i = 0; $i < count($bets); $i++) {
                 $bet = $bets[$i];
                 if (self::filterBetsByType($bet, $types)) {
@@ -73,7 +75,7 @@ class ValuebetsHelper
                     $i--;
                 }
             }
-        } else if (empty($types) && $time != 6) {
+        } else if (empty($types) && $time != $maxTime) {
             for ($i = 0; $i < count($bets); $i++) {
                 $bet = $bets[$i];
                 if (self::filterByDate($bet, $time)) {

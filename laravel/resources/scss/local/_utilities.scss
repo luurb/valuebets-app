@@ -157,48 +157,8 @@
     color: colors.$white-f;
 }
 
-.result-win-helper {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 25px;
-    left: -9px;
-    overflow: hidden;
-}
-
-.result-win-helper::before {
-    position: absolute;
-    content: '';
-    background: colors.$green-gradient;
-    width: 150%;
-    height: 8px;
-    transform: rotate(45deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.result-lost-helper {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 25px;
-    left: -9px;
-    overflow: hidden;
-}
-
-.result-lost-helper::before {
-    position: absolute;
-    content: '';
-    background: colors.$red-gradient;
-    width: 150%;
-    height: 8px;
-    transform: rotate(45deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+.result-win-helper,
+.result-lost-helper,
 .result-pending-helper {
     position: absolute;
     width: 10px;
@@ -208,16 +168,29 @@
     overflow: hidden;
 }
 
+.result-win-helper::before,
+.result-lost-helper::before,
 .result-pending-helper::before {
     position: absolute;
     content: '';
-    background: colors.$grey-f;
     width: 150%;
-    height: 8px;
+    height: 6px;
     transform: rotate(45deg);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.result-win-helper::before {
+    background: colors.$green-gradient;
+}
+
+.result-lost-helper::before {
+    background: colors.$red-gradient;
+}
+
+.result-pending-helper::before {
+    background: colors.$grey-f;
 }
 
 .result-lost-span {

@@ -39,22 +39,31 @@
     <form id="delete-form"></form>
     <div class="main-table__nav">
         <div class="main-table__nav-left">
-            <span>
-                <i class="fa-solid fa-trash">
-                </i>
+            <span class="main-table__nav-info">
+                <i class="fa-solid fa-circle-info"></i>
+            </span>
+            <div class="main-table__nav-info-list">
+                <span>
+                    <i class="fa-solid fa-trash">
+                    </i>
                     - choose for delete
-            </span>
-            <span>
-                <i class="fa-solid fa-wrench grey-f">
-                </i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-wrench grey-f">
+                    </i>
                     - click for modify 
-            </span>
+                </span>
+                <span>
+                    <i class="fa-solid fa-filter">
+                    </i>
+                    - confirm selections 
+                </span>
+            </div>
         </div>
         <div class="main-table__nav-right">
-            <span>Delete: </span>
             <button type="button" value="delete"
                 class="main-table__nav-trash main-table__input form=" delete-form">
-                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-filter"></i>
             </button>
         </div>
     </div>
@@ -204,22 +213,22 @@
                 @endif
             <form method="post" action="/history/time-range">
                 @csrf
-                <div class="filters__date-input">
-                    <input type="date" name="first_date" 
-                    @if (session('first_date'))
-                        value="{{ session('first_date') }}" 
-                    @endif
-                    >
-                </div>
+                <input type="date" name="first_date" class="filters__date-input"
+                @if (session('first_date'))
+                    value="{{ session('first_date') }}" 
+                @else 
+                    value="{{ date('Y-m-d') }}" 
+                @endif
+                >
                 <div class="filters__date-separator">/</div>
-                <div class="filters__date-input">
-                    <input type="date" name="second_date"
-                    @if (session('second_date'))
-                        value="{{ session('second_date') }}" 
-                    @endif
-                    >
-                </div>
-                <input type="submit" name="submit" 
+                <input type="date" name="second_date" class="filters__date-input"
+                @if (session('second_date'))
+                    value="{{ session('second_date') }}" 
+                @else 
+                    value="{{ date('Y-m-d') }}" 
+                @endif
+                >
+                <input type="submit" name="submit" value="Submit"
                 class="filters__button filters__submit purple-input">
             </form>
         </div>

@@ -203,48 +203,8 @@ html {
   color: #fff;
 }
 
-.result-win-helper {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 25px;
-  left: -9px;
-  overflow: hidden;
-}
-
-.result-win-helper::before {
-  position: absolute;
-  content: "";
-  background: linear-gradient(to left, #5eb987, #396e50);
-  width: 150%;
-  height: 8px;
-  transform: rotate(45deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.result-lost-helper {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 25px;
-  left: -9px;
-  overflow: hidden;
-}
-
-.result-lost-helper::before {
-  position: absolute;
-  content: "";
-  background: linear-gradient(to left, #b64545, #d6b8b8);
-  width: 150%;
-  height: 8px;
-  transform: rotate(45deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+.result-win-helper,
+.result-lost-helper,
 .result-pending-helper {
   position: absolute;
   width: 10px;
@@ -254,16 +214,29 @@ html {
   overflow: hidden;
 }
 
+.result-win-helper::before,
+.result-lost-helper::before,
 .result-pending-helper::before {
   position: absolute;
   content: "";
-  background: #6c6c6c;
   width: 150%;
-  height: 8px;
+  height: 6px;
   transform: rotate(45deg);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.result-win-helper::before {
+  background: linear-gradient(to left, #5eb987, #396e50);
+}
+
+.result-lost-helper::before {
+  background: linear-gradient(to left, #b64545, #d6b8b8);
+}
+
+.result-pending-helper::before {
+  background: #6c6c6c;
 }
 
 .result-lost-span {
@@ -594,9 +567,9 @@ button, select, input {
 
 .nav-box__message-text {
   position: absolute;
-  padding: 8px;
+  padding: 5px;
   width: 100px;
-  top: 35px;
+  top: 30px;
   text-align: center;
   background: #1c1caa;
   color: #fff;
@@ -606,9 +579,9 @@ button, select, input {
 .nav-box__message-text::before {
   position: absolute;
   content: "";
-  height: 15px;
-  width: 15px;
-  top: -7px;
+  height: 10px;
+  width: 10px;
+  top: -5px;
   left: 43px;
   transform: rotate(45deg);
   background: inherit;
@@ -735,7 +708,7 @@ button, select, input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 15px 5px 30px;
+  padding: 5px 20px;
   background: #1b1b1b;
   color: #fff;
   border-radius: 5px;
@@ -743,18 +716,55 @@ button, select, input {
   font-family: "Poppins", sans-serif;
   z-index: 2;
 }
-.main-table__nav span {
-  padding: 5px 0;
-  font-size: 1.6rem;
+
+.main-table__nav-info {
+  font-size: 2.4rem;
+}
+
+.main-table__nav-info:hover ~ .main-table__nav-info-list,
+.main-table__nav-info:active ~ .main-table__nav-info-list {
+  display: flex;
 }
 
 .main-table__nav-left {
+  font-size: 1.4rem;
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main-table__nav-left span {
+  padding-right: 10px;
+}
+
+.main-table__nav-info-list {
+  width: 150px;
+  position: absolute;
+  display: none;
   flex-direction: column;
+  background: #1c1caa;
+  left: 30px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.main-table__nav-info-list span {
+  padding: 2px 0;
+}
+
+.main-table__nav-info-list::before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  top: 10px;
+  left: -5px;
+  transform: rotate(45deg);
+  background: inherit;
+  z-index: -1;
 }
 
 .main-table__nav-right {
-  width: 26%;
+  width: calc(25% - 27px);
   font-size: 2rem;
   margin: 5px;
   text-align: center;
@@ -770,13 +780,14 @@ button, select, input {
 }
 
 .main-table__bets {
-  height: calc(100% - 100px);
+  height: calc(100% - 50px);
   overflow: auto;
 }
 
 .main-table__bet-wrapper {
   padding: 15px 10px;
-  margin: 20px auto;
+  margin: auto;
+  margin-bottom: 20px;
   box-shadow: 0 3px 5px #1b1b1b;
 }
 
@@ -808,7 +819,7 @@ button, select, input {
 
 .main-table__nav-trash,
 .main-table__nav-filter {
-  font-size: 3rem;
+  font-size: 2.8rem;
   color: #fff;
 }
 
@@ -930,6 +941,23 @@ button, select, input {
     display: flex;
   }
 }
+@media (min-width: 700px) {
+  .main-table__nav-info {
+    display: none;
+  }
+
+  .main-table__nav-info-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: unset;
+    background: inherit;
+    width: unset;
+  }
+  .main-table__nav-info-list span {
+    padding-right: 10px;
+  }
+}
 .main-table {
   height: 100%;
   width: 100%;
@@ -1005,6 +1033,7 @@ button, select, input {
 }
 
 .filters__date-input {
+  display: block;
   position: relative;
   width: 80%;
   background: #fff;
@@ -1013,9 +1042,10 @@ button, select, input {
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 2px 3px #1c1caa;
+  -webkit-appearance: none;
 }
 
-.filters__date-input input::-webkit-calendar-picker-indicator {
+.filters__date-input::-webkit-calendar-picker-indicator {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1025,10 +1055,6 @@ button, select, input {
   padding: 0;
   opacity: 0;
   cursor: pointer;
-}
-
-.filters__date-input input {
-  text-align: center;
 }
 
 .filters__date-separator {
@@ -1161,7 +1187,6 @@ button, select, input {
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
-  -webkit-appearance: none;
 }
 
 .filters__button--filter {
@@ -1214,7 +1239,6 @@ button, select, input {
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
-  -webkit-appearance: none;
   text-align: left;
 }
 .filters__select option {
@@ -1281,7 +1305,7 @@ button, select, input {
   .filters__options {
     height: calc(100vh - 95px);
     border-radius: 10px;
-    padding: 10px 0;
+    padding: 10px 0 40px 0;
   }
 
   .filters__options-box {
@@ -1419,18 +1443,21 @@ button, select, input {
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
-  -webkit-appearance: none;
   transition: all 0.5s ease;
 }
 
 .add-bet__date-input {
+  display: block;
   position: relative;
   width: 100%;
+  text-align: center;
+  -webkit-appearance: none;
 }
 
-.add-bet__date-input input::-webkit-calendar-picker-indicator {
+.add-bet__date-input::-webkit-calendar-picker-indicator {
   width: 100%;
   height: 100%;
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -1438,10 +1465,6 @@ button, select, input {
   padding: 0;
   opacity: 0;
   cursor: pointer;
-}
-
-.add-bet__date-input input {
-  font-size: 1.4rem;
   text-align: center;
 }
 
@@ -1464,7 +1487,6 @@ button, select, input {
   font-size: 1.4rem;
   padding: 8px;
   border-radius: 10px;
-  -webkit-appearance: none;
   padding: 15px;
   margin-top: 10px;
 }
