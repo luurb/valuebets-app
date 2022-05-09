@@ -20,7 +20,7 @@
     <form id="filter-form"></form>
     <div class="main-table__nav">
         <div class="main-table__nav-left">
-            <span class="main-table__nav-info">
+            <span ontouchstart="" class="main-table__nav-info">
                 <i class="fa-solid fa-circle-info"></i>
             </span>
             <div class="main-table__nav-info-list">
@@ -42,8 +42,8 @@
             </div>
         </div>
         <div class="main-table__nav-right">
-            <button type="button" value="delete" class="main-table__input main-table__nav-filter"
-                form="filter-form">
+            <button type="button" value="delete" 
+            class="main-table__input main-table__nav-filter" form="filter-form">
                 <i class="fa-solid fa-filter"></i>
             </button>
         </div>
@@ -76,9 +76,9 @@
                         <ul class="filters__list">
                             <li class="filters__list-option">
                                 <label>
-                                    <input type="checkbox" name="type[corners]"
+                                    <input type="checkbox" name="type[corner]"
                                         @if (Session::has('filters')) 
-                                            @if (in_array('corners', Session::get('filters')['type']))
+                                            @if (in_array('corner', Session::get('filters')['type']))
                                                 checked
                                             @endif
                                         @endif
@@ -93,9 +93,9 @@
                             </li>
                             <li class="filters__list-option">
                                 <label>
-                                    <input type="checkbox" name="type[cards]"
+                                    <input type="checkbox" name="type[card]"
                                         @if (Session::has('filters')) 
-                                            @if (in_array('cards', Session::get('filters')['type']))
+                                            @if (in_array('card', Session::get('filters')['type']))
                                                 checked
                                             @endif
                                         @endif
@@ -110,9 +110,9 @@
                             </li>
                             <li class="filters__list-option">
                                 <label>
-                                    <input type="checkbox" name="type[fouls]"
+                                    <input type="checkbox" name="type[foul]"
                                         @if (Session::has('filters')) 
-                                            @if (in_array('fouls', Session::get('filters')['type']))
+                                            @if (in_array('foul', Session::get('filters')['type']))
                                                 checked
                                             @endif
                                         @endif
@@ -127,9 +127,9 @@
                             </li>
                             <li class="filters__list-option">
                                 <label>
-                                    <input type="checkbox" name="type[offsides]"
+                                    <input type="checkbox" name="type[offside]"
                                         @if (Session::has('filters')) 
-                                            @if (in_array('offsides', Session::get('filters')['type']))
+                                            @if (in_array('offside', Session::get('filters')['type']))
                                                 checked
                                             @endif
                                         @endif
@@ -144,9 +144,9 @@
                             </li>
                             <li class="filters__list-option">
                                 <label>
-                                    <input type="checkbox" name="type[shots]"
+                                    <input type="checkbox" name="type[shot]"
                                         @if (Session::has('filters')) 
-                                            @if (in_array('shots', Session::get('filters')['type']))
+                                            @if (in_array('shot', Session::get('filters')['type']))
                                                 checked
                                             @endif
                                         @endif

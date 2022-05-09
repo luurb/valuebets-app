@@ -12,7 +12,10 @@ function makeRequest() {
         .get('valuebets/fetch')
         .then((response) => {
             initPrint(response['data']);
-            initTimer(Number(time.textContent) * 60000, makeRequest);
+            let timeout = localStorage.getItem('timeout');
+            timeout
+                ? initTimer(timeout * 60000, makeRequest)
+                : initTimer(Number(time.textContent) * 60000, makeRequest);
         })
         .catch((e) => {
             if (e.name == 'NetworkError') {

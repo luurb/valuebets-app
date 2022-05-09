@@ -188,8 +188,8 @@ html {
   font-size: 1.2rem;
   font-weight: 600;
   position: absolute;
-  min-width: 50%;
-  max-width: 100px;
+  width: 50%;
+  max-width: 80px;
   height: 22px;
   padding: 2px;
   top: 3px;
@@ -551,7 +551,7 @@ button, select, input {
   align-items: center;
 }
 .nav-box__message i {
-  margin-top: 4px;
+  margin-top: 1px;
   font-size: 2.7rem;
 }
 .nav-box__message .fa-check {

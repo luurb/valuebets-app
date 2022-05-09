@@ -39,7 +39,7 @@
     <form id="delete-form"></form>
     <div class="main-table__nav">
         <div class="main-table__nav-left">
-            <span class="main-table__nav-info">
+            <span ontouchstart="" class="main-table__nav-info">
                 <i class="fa-solid fa-circle-info"></i>
             </span>
             <div class="main-table__nav-info-list">
@@ -62,7 +62,7 @@
         </div>
         <div class="main-table__nav-right">
             <button type="button" value="delete"
-                class="main-table__nav-trash main-table__input form=" delete-form">
+                class="main-table__nav-trash main-table__input" form="delete-form">
                 <i class="fa-solid fa-filter"></i>
             </button>
         </div>

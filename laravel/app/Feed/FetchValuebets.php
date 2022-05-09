@@ -112,7 +112,6 @@ class FetchValuebets
         $dateTime = $this->getDateTime($dateTime);
         $teamsAndLeague = $bet->item(4)->childNodes;
         $teams = $teamsAndLeague->item(0)->textContent;
-        $teams = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $teams);
         $league = $teamsAndLeague->item(2)->textContent;
         if (str_contains($league, '] ')) {
             $league = explode('] ', $league)[1];
