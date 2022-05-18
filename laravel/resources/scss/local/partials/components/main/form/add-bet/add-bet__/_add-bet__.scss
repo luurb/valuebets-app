@@ -50,22 +50,20 @@
     display: block;
     position: relative;
     width: 100%;
-    text-align: center;
     -webkit-appearance: none;
 }
 
 .add-bet__date-input::-webkit-calendar-picker-indicator {
+    position: absolute;
     width: 100%;
     height: 100%;
-    display: block;
-    position: absolute;
     top: 0;
     left: 0;
     margin: 0;
     padding: 0;
     opacity: 0;
     cursor: pointer;
-    text-align: center;
+    -webkit-appearance: unset;
 }
 
 .add-bet__result-box {
@@ -127,5 +125,8 @@
 
     .add-bet__input-box {
         width: 50%;
+    }
+
+    .add-bet__date-input::-webkit-calendar-picker-indicator {
     }
 }
