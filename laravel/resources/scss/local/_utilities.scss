@@ -181,11 +181,11 @@
 }
 
 .result-win-helper::before {
-    background: colors.$green-gradient;
+    background: colors.$green;
 }
 
 .result-lost-helper::before {
-    background: colors.$red-gradient;
+    background: colors.$red;
 }
 
 .result-pending-helper::before {

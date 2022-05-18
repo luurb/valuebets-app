@@ -227,11 +227,11 @@ html {
 }
 
 .result-win-helper::before {
-  background: linear-gradient(to left, #5eb987, #396e50);
+  background: #396e50;
 }
 
 .result-lost-helper::before {
-  background: linear-gradient(to left, #b64545, #d6b8b8);
+  background: #cb1010;
 }
 
 .result-pending-helper::before {
