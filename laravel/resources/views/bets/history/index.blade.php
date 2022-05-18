@@ -74,11 +74,7 @@
                 <div class="main-table__row">
                     <div class="main-table__data relative max-width-30">
                         <span class="result-span result-{{ strtolower($bet->result) }}-span">
-                            @if ($bet->result === 'Pending')
-                                ...
-                            @else
-                                {{ strtolower($bet->result) }}
-                            @endif
+                            {{ strtolower($bet->result) }}
                         </span>
                         <span class="result-{{ strtolower($bet->result) }}-helper"></span>
                         <span class="main-table__data-span">
