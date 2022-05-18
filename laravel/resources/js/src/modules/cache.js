@@ -37,7 +37,6 @@ export function addGamesToIndexedDb(games, db, dbName) {
         transaction.oncomplete = () => {
             //displayData(db);
         };
-
         transaction.onerror = () => {};
     }
 }
@@ -58,6 +57,7 @@ export function getGamesArr(db, dbName) {
     let transaction = db.transaction(dbName + '_os');
     let objectStore = transaction.objectStore(dbName + '_os');
     let gamesArr = [];
+
     return new Promise((resolve, reject) => {
         objectStore.openCursor().onsuccess = (e) => {
             let cursor = e.target.result;
@@ -66,7 +66,6 @@ export function getGamesArr(db, dbName) {
                 gamesArr.push(game);
                 cursor.continue();
             }
-
             if (!cursor) resolve(gamesArr);
         };
     });
@@ -81,20 +80,22 @@ export function hideGamesDbFilter(db, gamesArr, dbName) {
         objectStore.openCursor().onsuccess = (e) => {
             let cursor = e.target.result;
             if (cursor) {
-                let game = cursor.value.game;
-                let date = game.date;
+                let gameToHide = cursor.value.game;
+                let date = gameToHide.date;
                 date += ':00';
                 date.replace(' ', 'T');
                 date = new Date(date);
 
-                //Delete games which already started
+                //Delete games whose already started
                 if (date < new Date(Date.now())) {
                     objectStore.delete(cursor.value.id);
                 } else {
                     for (let i = 0; i < gamesArr.length; i++) {
+                        let game = gamesArr[i];
                         if (
-                            gamesArr[i]['teams'] === game.teams &&
-                            gamesArr[i]['bookie'] === game.bookie
+                            game['teams'] === gameToHide.teams &&
+                            game['bookie'] === gameToHide.bookie &&
+                            game['bet'] === gameToHide.bet
                         ) {
                             gamesArr.splice(i, 1);
                             break;
@@ -128,24 +129,34 @@ export function getUpdatedArr(db, gamesArr, dbName) {
             if (!cursor) {
                 objectStore.clear();
 
-                let arrLength = gamesArr.length;
-                for (let i = 0; i < arrLength; i++) {
-                    let exists = oldGamesArr.findIndex(
-                        (obj) => obj['teams'] == gamesArr[i]['teams']
-                    );
-                    let bet = oldGamesArr.findIndex(
-                        (obj) => obj['bookie'] == gamesArr[i]['bookie']
-                    );
+                /*
+                | Check if new game was already printed to user.
+                | This is for set correct delay, blink for new games
+                | and update IDb.
+                */
+                for (let newGame of gamesArr) {
+                    let foundInOldArr = 0;
+                    for (let i = 0; i < oldGamesArr.length; i++) {
+                        let oldGame = oldGamesArr[i];
+                        if (
+                            newGame.bookie == oldGame.bookie &&
+                            newGame.teams == oldGame.teams &&
+                            newGame.bet == oldGame.bet
+                        ) {
+                            oldGame['class'] = '';
+                            updatedGamesArr.push(oldGame);
+                            objectStore.add({ game: oldGame });
+                            oldGamesArr.splice(i, 1);
+                            foundInOldArr = 1;
+                            break;
+                        } 
+                    }
 
-                    if (exists !== -1 && bet !== -1) {
-                        oldGamesArr[exists]['class'] = '';
-                        updatedGamesArr.push(oldGamesArr[exists]);
-                        objectStore.add({ game: oldGamesArr[exists] });
-                    } else {
-                        gamesArr[i]['class'] = 'bet-add-blink';
-                        gamesArr[i]['delay'] = new Date(Date.now());
-                        updatedGamesArr.push(gamesArr[i]);
-                        objectStore.add({ game: gamesArr[i] });
+                    if (!foundInOldArr) {
+                        newGame['class'] = 'bet-add-blink';
+                        newGame['delay'] = new Date(Date.now());
+                        updatedGamesArr.push(newGame);
+                        objectStore.add({ game: newGame });
                     }
                 }
                 resolve(updatedGamesArr);
