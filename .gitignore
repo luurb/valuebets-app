@@ -1,4 +1,2 @@
 .env
 .env.backup
-production.yml
-test.yml
