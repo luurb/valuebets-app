@@ -15,7 +15,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
-<body>
+<body @yield('touch')>
     <nav class="nav">
         <div class="nav__logo"><a href="/home"><span class="nav__first-logo">Value</span><span class="nav__seclogo">scrape</span></a></div>
         <input type="checkbox" id="nav-check" class="none">

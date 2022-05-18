@@ -20,7 +20,7 @@
     <form id="filter-form"></form>
     <div class="main-table__nav">
         <div class="main-table__nav-left">
-            <span ontouchstart="" class="main-table__nav-info">
+            <span class="main-table__nav-info">
                 <i class="fa-solid fa-circle-info"></i>
             </span>
             <div class="main-table__nav-info-list">

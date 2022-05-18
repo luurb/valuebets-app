@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('touch')
+    ontouchstart    
+@endsection
+
 @section('content')
     <div class="nav-box">
         <div class="nav-box__box-wrapper">
