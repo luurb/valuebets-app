@@ -1,0 +1,55 @@
+@use '../../../../../fonts';
+@use '../../../../../../config/colors';
+@use '../../../../../../config/breakpoints';
+@use '../../../../../mixins';
+
+.home__text-wrapper {
+    margin-bottom: 60px;
+    padding: 0 5px;
+    font-family: fonts.$poppins;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: colors.$white-f;
+    text-align: center;
+}
+
+.home__main-text {
+    padding-bottom: 20px;
+    font-size: fonts.$main-text;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.home__main-text-green {
+    color: colors.$light-green;
+    opacity: 0.8;
+}
+
+.home__desc {
+    padding-bottom: 20px;
+    font-size: fonts.$large;
+    font-weight: 500;
+}
+
+.home__button a {
+    display: block;
+    background: colors.$purple-gradient;
+    color: colors.$white-f;
+    font-size: fonts.$large;
+    font-weight: 500;
+    padding: 10px 30px;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+
+    i {
+        padding-right: 15px;
+    }
+}
+
+.home__button a:hover {
+    cursor: pointer;
+    background: colors.$purple-hover-gradient;
+}

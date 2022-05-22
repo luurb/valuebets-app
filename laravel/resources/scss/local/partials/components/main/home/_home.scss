@@ -1,0 +1,10 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-size: cover;
+    background-position: center;
+    background-image: url(../../../../../../../public/images/home.png);
+}

@@ -46,7 +46,9 @@ Route::patch('/modify', [ModifyBetController::class, 'update']);
 
 Route::get('/test', [Test::class, 'index']);
 
-Route::get('/{url}', [ValuebetsController::class, 'index'])->where('url', '(home|//|)');
+Route::get('/home', function () {
+    return view('home.index');
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');
@@ -55,3 +57,5 @@ Route::get('/dashboard', function () {
 Route::get('/tools', function () {
     return view('tools.index');
 });
+
+Route::get('/{url}', [ValuebetsController::class, 'index'])->where('url', '(home|//|)');

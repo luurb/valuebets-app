@@ -1534,7 +1534,7 @@ button, select, input {
   background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
   display: flex;
   width: 100%;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 60px);
   align-items: center;
   justify-content: center;
   padding: 20px 0;
@@ -1686,6 +1686,67 @@ button, select, input {
     min-height: 550px;
   }
 }
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-size: cover;
+  background-position: center;
+  background-image: url(/images/home.png?95b3e68adebdb4ac7d4aa465da08aee8);
+}
+
+.home__text-wrapper {
+  margin-bottom: 60px;
+  padding: 0 5px;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.home__main-text {
+  padding-bottom: 20px;
+  font-size: 5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.home__main-text-green {
+  color: #5eb987;
+  opacity: 0.8;
+}
+
+.home__desc {
+  padding-bottom: 20px;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.home__button a {
+  display: block;
+  background: linear-gradient(to right, #646485, #1c1caa);
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 500;
+  padding: 10px 30px;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+.home__button a i {
+  padding-right: 15px;
+}
+
+.home__button a:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, #757596, #2d2dbb);
+}
+
 .footer {
   padding: 30px 0;
   font-family: "Poppins", sans-serif;
