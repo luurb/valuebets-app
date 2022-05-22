@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
     vim \
     nodejs \
     npm \
-    cron 
+    cron \ 
+    certbot python3-certbot-apache
 
 #Install extension
 RUN docker-php-ext-install pdo pdo_mysql
