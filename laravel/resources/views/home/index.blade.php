@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('description')
+    Bet for free with valuebets finder and use tools for making money with betting.
+@endsection
+
 @section('title')
     Home
 @endsection
