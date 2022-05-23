@@ -30,14 +30,16 @@ class RegisterController extends Controller
             'password' => 'required|min:6|max:255|confirmed'
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password) 
         ]);
 
-        auth()->attempt($request->only('name', 'password'));
-        
-        return redirect()->intended();
+        if (auth()->attempt($request->only('name', 'password'))) {
+            event(new Registered($user));
+        }
+
+        return redirect()->route('verification.notice');
     }
 }

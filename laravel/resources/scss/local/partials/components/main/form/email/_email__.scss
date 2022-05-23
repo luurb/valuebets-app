@@ -1,0 +1,71 @@
+@use '../../../../../../config/colors';
+@use '../../../../../local/../fonts';
+@use '../../../../../mixins';
+
+.email-box {
+    font-family: fonts.$poppins;
+    background: colors.$grey1;
+    min-height: 35vh;
+    padding: 50px 10px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.email__header {
+    font-size: fonts.$v-large;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.email__text-box {
+    padding: 20px;
+    background: colors.$white-f;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 20px;
+}
+
+.email__small-header {
+    font-size: fonts.$large;
+    font-weight: 500;
+    color: colors.$purple;
+    margin-bottom: 10px;
+
+    i {
+        padding-right: 5px;
+    }
+}
+
+.email__text {
+    font-size: fonts.$medium;
+
+    form {
+        display: inline-block;
+    }
+}
+
+.email__info-link {
+    font-family: fonts.$poppins;
+    font-size: fonts.$medium;
+    background: unset;
+    display: inline-block;
+    color: colors.$purple;
+    text-decoration: underline;
+}
+
+.email__info-link:hover {
+    cursor: pointer;
+}
+
+.email__info {
+    font-size: fonts.$medium;
+    color: colors.$green;
+    font-weight: 500;
+    padding-top: 10px;
+}

@@ -1,0 +1,12 @@
+@use '../../../../../../config/colors';
+@use '../../../../../local/../fonts';
+@use '../../../../../mixins';
+
+.email {
+    background: colors.$grey-gradient;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
