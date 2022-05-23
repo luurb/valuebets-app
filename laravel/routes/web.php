@@ -39,7 +39,7 @@ Route::delete('/history/delete', [BetsHistoryController::class, 'deleteBets']);
 Route::post('/history/time-range', [BetsHistoryController::class, 'setTimeRange']);
 
 Route::get('/add', [AddBetController::class, 'index'])->name('add');
-Route::post('/add', [AddBetController::class, 'store']);
+Route::post('/add', [AddBetController::class, 'store'])->middleware('auth');
 
 Route::get('/modify', [ModifyBetController::class, 'handle'])->name('modify');
 Route::patch('/modify', [ModifyBetController::class, 'update']);
