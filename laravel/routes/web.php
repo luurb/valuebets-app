@@ -50,6 +50,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
+
 // Bets routes
 Route::get('/valuebets', [ValuebetsController::class, 'index'])->name('valuebets');
 Route::post('/valuebets', [ValuebetsController::class, 'store']);
@@ -74,6 +75,10 @@ Route::get('/home', function () {
     return view('home.index');
 })->name('home');
 
+Route::get('/', function () {
+    return view('home.index');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
@@ -81,5 +86,3 @@ Route::get('/dashboard', function () {
 Route::get('/tools', function () {
     return view('tools.index');
 });
-
-Route::get('/{url}', [ValuebetsController::class, 'index'])->where('url', '(home|//|)');
