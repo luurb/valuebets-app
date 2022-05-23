@@ -98,6 +98,7 @@ export function hideGamesDbFilter(db, gamesArr, dbName) {
                             game['bet'] === gameToHide.bet
                         ) {
                             gamesArr.splice(i, 1);
+                            i--;
                             break;
                         }
                     }
@@ -147,6 +148,7 @@ export function getUpdatedArr(db, gamesArr, dbName) {
                             updatedGamesArr.push(oldGame);
                             objectStore.add({ game: oldGame });
                             oldGamesArr.splice(i, 1);
+                            i--;
                             foundInOldArr = 1;
                             break;
                         } 
