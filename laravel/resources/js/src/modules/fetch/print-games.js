@@ -105,7 +105,7 @@ function getSecondRow(game) {
             </span>
             <span class="main-table__data-span">
                 <span class="sport none">${game['sport']}</span>
-                <img src="./images/svg/${game['sport'].toLowerCase()}.svg" class="main-table__img"/>
+                <img src="./images/svg/${game['sport'].toLowerCase()}.svg" alt="${game['sport']} image icon" class="main-table__img"/>
             </span>
         </div>
         <div class="main-table__data relative">
