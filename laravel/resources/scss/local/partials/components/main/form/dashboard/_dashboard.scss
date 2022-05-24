@@ -1,0 +1,13 @@
+@use '../../../../../mixins';
+@use '../../../../../../config/colors';
+@use '../../../../../fonts';
+
+.dashboard {
+    font-family: fonts.$poppins;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0;
+    padding: 50px 20px;
+    background: colors.$grey1;
+    box-shadow: 0 5px 10px colors.$grey-f;
+}

@@ -99,18 +99,18 @@ html {
 
 .win,
 .green-bold {
-  color: #396e50;
+  color: #396e50 !important;
   font-weight: 600;
 }
 
 .lost,
 .red-bold {
-  color: #cb1010;
+  color: #cb1010 !important;
   font-weight: 600;
 }
 
 .pending {
-  color: #6c6c6c;
+  color: #6c6c6c !important;
 }
 
 .stake,
@@ -1530,81 +1530,191 @@ button, select, input {
     width: 50%;
   }
 }
-.email {
-  background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
+.dashboard {
+  font-family: "Poppins", sans-serif;
   width: 100%;
-  min-height: calc(100vh - 60px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 1200px;
+  margin: 20px 0;
+  padding: 50px 20px;
+  background: #ededed;
+  box-shadow: 0 5px 10px #6c6c6c;
 }
 
-.email-box {
-  font-family: "Poppins", sans-serif;
-  background: #ededed;
-  min-height: 35vh;
-  padding: 50px 10px;
-  margin-bottom: 60px;
+.dashboard__account-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #1c1caa;
+}
+
+.dashboard__avatar {
+  max-width: 100px;
+  max-height: 115px;
+  border-radius: 5px;
+}
+
+.dashboard__account-info-box {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
 }
 
-.email__header {
-  font-size: 2.8rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.email__text-box {
-  padding: 20px;
-  background: #fff;
-  text-align: center;
-  border: 2px solid;
-  border-radius: 20px;
-}
-
-.email__small-header {
+.dashboard__header {
   font-size: 2.4rem;
   font-weight: 500;
-  color: #1c1caa;
-  margin-bottom: 10px;
-}
-.email__small-header i {
-  padding-right: 5px;
+  padding: 10px 0;
 }
 
-.email__text {
-  font-size: 1.8rem;
+.dashboard__account-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.email__text form {
+
+.dashboard__account-input-box {
+  width: 100%;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dashboard__input-name {
+  width: 20%;
+  font-size: 1.6rem;
+}
+
+.dashboard__input {
+  width: 60%;
   display: inline-block;
-}
-
-.email__info-link {
+  padding: 5px 0;
+  margin: 0 10px;
+  font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
-  font-size: 1.8rem;
-  background: unset;
-  display: inline-block;
-  color: #1c1caa;
-  text-decoration: underline;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
 }
 
-.email__info-link:hover {
+.dashboard__button {
+  padding: 5px;
+  background: #111;
+  color: #fff;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.email__info {
-  font-size: 1.8rem;
-  color: #396e50;
-  font-weight: 500;
-  padding-top: 10px;
+.dashboard__delete-button {
+  margin-top: 20px;
+  background: #cdcdcd;
+  padding: 8px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
+.dashboard__delete-button:hover,
+.dashboard__delete-button:active {
+  cursor: pointer;
+  background: #cb1010;
+  color: #fff;
+}
+
+.dashboard__stats {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 50px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 2px solid #1c1caa;
+}
+
+.dashboard__stats-box {
+  width: 100%;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 0 #111;
+}
+
+.dashboard__stats-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.dashboard__icon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.dashboard__stats-results-wrapper {
+  width: 100%;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dashboard__stats-results-box {
+  min-width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  padding: 5px;
+  text-align: center;
+}
+
+.dashboard__stat-name {
+  padding: 5px 0;
+}
+
+.dashboard__result {
+  width: 100%;
+  max-width: 100px;
+  background: #111;
+  color: #fff;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.dashboard__result-return {
+  max-width: 100%;
+  background: #fff;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 500px) {
+  .dashboard__avatar {
+    max-width: 200px;
+    max-height: 215px;
+  }
+
+  .dashboard__account-info {
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .dashboard__account-info-box {
+    width: unset;
+    padding-left: 20px;
+  }
+}
 .form {
   background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
   display: flex;
@@ -1820,6 +1930,81 @@ button, select, input {
 .home__button a:hover {
   cursor: pointer;
   background: linear-gradient(to right, #757596, #2d2dbb);
+}
+
+.email {
+  background: linear-gradient(to bottom, #ededed, #cdcdcd, #ededed);
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-box {
+  font-family: "Poppins", sans-serif;
+  background: #ededed;
+  min-height: 35vh;
+  padding: 50px 10px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.email__header {
+  font-size: 2.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.email__text-box {
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 20px;
+}
+
+.email__small-header {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #1c1caa;
+  margin-bottom: 10px;
+}
+.email__small-header i {
+  padding-right: 5px;
+}
+
+.email__text {
+  font-size: 1.8rem;
+}
+.email__text form {
+  display: inline-block;
+}
+
+.email__info-link {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  background: unset;
+  display: inline-block;
+  color: #1c1caa;
+  text-decoration: underline;
+}
+
+.email__info-link:hover {
+  cursor: pointer;
+}
+
+.email__info {
+  font-size: 1.8rem;
+  color: #396e50;
+  font-weight: 500;
+  padding-top: 10px;
 }
 
 .footer {

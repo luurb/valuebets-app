@@ -1,6 +1,6 @@
-@use '../../../../../../config/colors';
-@use '../../../../../local/../fonts';
-@use '../../../../../mixins';
+@use '../../../../../config/colors';
+@use '../../../../../config/layers';
+@use '../../../../../config/breakpoints';
 
 .email {
     background: colors.$grey-gradient;

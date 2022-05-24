@@ -56,18 +56,18 @@
 
 .win,
 .green-bold {
-    color: colors.$green;
+    color: colors.$green !important;
     font-weight: 600;
 }
 
 .lost,
 .red-bold {
-    color: colors.$red;
+    color: colors.$red !important;
     font-weight: 600;
 }
 
 .pending {
-    color: colors.$grey-f;
+    color: colors.$grey-f !important;
 }
 
 .stake,
