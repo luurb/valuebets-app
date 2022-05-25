@@ -11,6 +11,7 @@ use App\Http\Controllers\Bets\ValuebetsController;
 use App\Http\Controllers\Bets\BetsHistoryController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Auth\RegisterController as AuthRegisterController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,11 @@ Route::patch('/modify', [ModifyBetController::class, 'update']);
 
 
 // Other Routes
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::patch('/dashboard', [DashboardController::class, 'updateProfilePicture']);
+Route::patch('/dashboard/name', [DashboardController::class, 'updateName']);
+Route::delete('/dashboard', [DashboardController::class, 'delete']);
+
 Route::get('/test', [Test::class, 'index']);
 
 Route::get('/home', function () {
@@ -78,10 +84,6 @@ Route::get('/home', function () {
 Route::get('/', function () {
     return view('home.index');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->name('dashboard');
 
 Route::get('/tools', function () {
     return view('tools.index');

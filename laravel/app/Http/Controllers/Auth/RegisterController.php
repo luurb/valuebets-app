@@ -33,7 +33,8 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password) 
+            'password' => Hash::make($request->password),
+            'profile_picture' => 'random-picture/avatar' . rand(1,5) . '.svg',
         ]);
 
         if (auth()->attempt($request->only('name', 'password'))) {

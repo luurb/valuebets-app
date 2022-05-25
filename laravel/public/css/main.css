@@ -298,6 +298,9 @@ button, select, input {
   font-weight: 500;
   font-size: 1.8rem;
   letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 6px 8px;
   border-radius: 5px;
 }
@@ -355,6 +358,13 @@ button, select, input {
   align-items: center;
 }
 
+.nav__avatar {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
 #nav__singup-button {
   background: linear-gradient(to left, #5eb987, #396e50);
 }
@@ -403,7 +413,9 @@ button, select, input {
   }
   .nav__right-nav ul,
 .nav__right-nav li {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     padding: 5px;
   }
 
@@ -466,7 +478,8 @@ button, select, input {
     transition: all 0.3s ease;
   }
   .nav__wrapper ul {
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 20px 0;
   }
 
@@ -1551,12 +1564,13 @@ button, select, input {
 }
 
 .dashboard__avatar {
-  max-width: 100px;
-  max-height: 115px;
-  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .dashboard__account-info-box {
+  font-size: 1.6rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1602,6 +1616,20 @@ button, select, input {
   border-radius: 5px;
 }
 
+.dashboard__input-edit {
+  box-shadow: 0 2px 2px #1c1caa;
+}
+
+.dashboard__file-input {
+  align-items: center;
+}
+.dashboard__file-input input {
+  display: none;
+}
+.dashboard__file-input i {
+  margin-right: 5px;
+}
+
 .dashboard__button {
   padding: 5px;
   background: #111;
@@ -1610,17 +1638,28 @@ button, select, input {
   cursor: pointer;
 }
 
-.dashboard__delete-button {
-  margin-top: 20px;
+.dashboard__delete-form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dashboard__delete-button,
+.dashboard__delete-div {
+  cursor: pointer;
+  margin-top: 5px;
   background: #cdcdcd;
   padding: 8px 20px;
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
-.dashboard__delete-button:hover,
-.dashboard__delete-button:active {
-  cursor: pointer;
+.dashboard__delete-button {
+  background: #cb1010;
+  color: #fff;
+}
+
+.dashboard__delete-div:hover,
+.dashboard__delete-div:active {
   background: #cb1010;
   color: #fff;
 }
@@ -1653,6 +1692,7 @@ button, select, input {
   font-weight: 500;
   padding: 5px;
   border-radius: 5px;
+  text-transform: capitalize;
 }
 
 .dashboard__icon {
@@ -1695,13 +1735,14 @@ button, select, input {
 .dashboard__result-return {
   max-width: 100%;
   background: #fff;
+  color: #111;
   overflow-wrap: break-word;
 }
 
 @media (min-width: 500px) {
   .dashboard__avatar {
-    max-width: 200px;
-    max-height: 215px;
+    width: 200px;
+    height: 200px;
   }
 
   .dashboard__account-info {

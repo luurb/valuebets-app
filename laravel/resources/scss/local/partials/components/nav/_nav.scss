@@ -35,6 +35,9 @@
             font-weight: 500;
             font-size: fonts.$medium;
             letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 6px 8px;
             border-radius: 5px;
         }

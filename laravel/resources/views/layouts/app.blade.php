@@ -42,7 +42,13 @@
             <div class="nav__right-nav">
                 <ul>
                     @auth
-                        <li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-user"></i>{{ auth()->user()->name }}</a></li>
+                        <li>
+                            <a href="{{ route('dashboard') }}">
+                                <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" 
+                                class="nav__avatar" alt="account avatar"/>
+                                {{ auth()->user()->name }}
+                            </a>
+                        </li>
                         <li>
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf

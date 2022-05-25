@@ -15,12 +15,13 @@
 }
 
 .dashboard__avatar {
-    max-width: 100px;
-    max-height: 115px;
-    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 
 .dashboard__account-info-box {
+    font-size: fonts.$small;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -66,6 +67,21 @@
     border-radius: 5px;
 }
 
+.dashboard__input-edit {
+    box-shadow: 0 2px 2px colors.$purple;
+}
+
+.dashboard__file-input {
+    align-items: center;
+    input {
+        display: none;
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}
+
 .dashboard__button {
     padding: 5px;
     background: colors.$black1;
@@ -74,17 +90,28 @@
     cursor: pointer;
 }
 
-.dashboard__delete-button {
-    margin-top: 20px;
+.dashboard__delete-form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dashboard__delete-button,
+.dashboard__delete-div {
+    cursor: pointer;
+    margin-top: 5px;
     background: colors.$grey2;
     padding: 8px 20px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
-.dashboard__delete-button:hover,
-.dashboard__delete-button:active {
-    cursor: pointer;
+.dashboard__delete-button {
+    background: colors.$red;
+    color: colors.$white-f;
+}
+
+.dashboard__delete-div:hover,
+.dashboard__delete-div:active {
     background: colors.$red;
     color: colors.$white-f;
 }
@@ -118,6 +145,7 @@
     font-weight: 500;
     padding: 5px;
     border-radius: 5px;
+    text-transform: capitalize;
 }
 
 .dashboard__icon {
@@ -160,13 +188,14 @@
 .dashboard__result-return {
     max-width: 100%;
     background: colors.$white-f;
+    color: colors.$black1;
     overflow-wrap: break-word;
 }
 
 @media (min-width: breakpoints.$phones) {
     .dashboard__avatar {
-        max-width: 200px;
-        max-height: 215px;
+        width: 200px;
+        height: 200px;
     }
 
     .dashboard__account-info {

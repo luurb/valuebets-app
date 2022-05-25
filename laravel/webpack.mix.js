@@ -35,6 +35,8 @@ mix.js(
     .sourceMaps(false)
     .js('resources/js/src/add/events.js', 'public/js/add.js')
     .sourceMaps(false)
+    .js('resources/js/src/dashboard/events.js', 'public/js/dashboard.js')
+    .sourceMaps(false)
     .sass('resources/scss/main.scss', 'public/css', [
         //
     ]);

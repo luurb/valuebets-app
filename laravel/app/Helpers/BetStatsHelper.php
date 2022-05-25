@@ -4,22 +4,37 @@ declare(strict_types=1);
 
 namespace App\Helpers;
 
+use App\Models\Sport;
 use Illuminate\Support\Facades\Session;
 
 class BetStatsHelper extends BetsStatsHelper
 {
-    public static function getStats(): array
+    public static function getStats(?string $sport): array
     {
         $returnArr = [];
+
+        if ($sport) {
+            $sportId = Sport::where('sport_name', ucfirst($sport))->first()->id;
+        }
+
         foreach (self::$stats as $stat) {
             $function = $stat['function'];
             $value = $stat['value'];
             $name = $stat['name'];
 
-            if ($value) {
-                $returnArr[$name] = auth()->user()->bets()->$function($value) ?? 0;
+            if ($sport) {
+                if ($value) {
+                    $returnArr[$name] = auth()->user()->bets()->where('sport_id', $sportId)->$function($value) ?? 0;
+                } else {
+                    $returnArr[$name] = auth()->user()->bets()->where('sport_id', $sportId)->$function() ?? 0;
+                }
+
             } else {
-                $returnArr[$name] = auth()->user()->bets()->$function() ?? 0;
+                if ($value) {
+                    $returnArr[$name] = auth()->user()->bets()->$function($value) ?? 0;
+                } else {
+                    $returnArr[$name] = auth()->user()->bets()->$function() ?? 0;
+                }
             }
         }
 
