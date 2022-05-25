@@ -55,7 +55,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('/valuebets', [ValuebetsController::class, 'index'])->name('valuebets');
 Route::post('/valuebets', [ValuebetsController::class, 'store']);
 Route::get('/valuebets/fetch', [ValuebetsController::class, 'fetch']);
-Route::post('/valuebets/filter', [ValuebetsController::class, 'filter'])->middleware('auth');
+Route::post('/valuebets/filter', [ValuebetsController::class, 'filter'])->middleware(['auth', 'verified']);
 
 Route::get('/history', [BetsHistoryController::class, 'index'])->name('history');
 Route::delete('/history/delete', [BetsHistoryController::class, 'deleteBets']);
