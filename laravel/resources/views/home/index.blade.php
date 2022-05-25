@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('description')
-    Bet for free with valuebets finder and use tools for making money with betting.
+    Bet for free with valuebets finder, calculate bookie margin and value,
+    use custom filters and make money with betting.
 @endsection
 
 @section('title')
-    Home
+    Valuescrape 
 @endsection
 
 @section('content')
