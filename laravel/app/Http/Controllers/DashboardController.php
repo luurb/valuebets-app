@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\BetStatsHelper;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
@@ -67,7 +68,21 @@ class DashboardController extends Controller
 
     public function updatePassword(Request $request) 
     {
+        $password = $request->json('password');
+        $newPassword = $request->json('newPassword');
+        $user = auth()->user();
+        $status = 0;
+        if (Hash::check($password, $user->password)) {
+            $user->password = Hash::make($newPassword);
+            $user->save();
+            $status = 1;
+        } else {
+            $status = 2;
+        }
 
+        return response()->json([
+            'status' => $status
+        ]);
     }
 
     public function delete()

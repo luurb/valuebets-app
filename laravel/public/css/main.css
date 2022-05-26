@@ -65,6 +65,10 @@ html {
   padding-left: 0 !important;
 }
 
+.margin-l-10 {
+  margin-left: 10px;
+}
+
 .flex {
   display: flex;
 }
@@ -1618,6 +1622,7 @@ button, select, input {
 
 .dashboard__account-input-box {
   width: 100%;
+  padding: 5px;
   padding-bottom: 10px;
   display: flex;
   justify-content: flex-start;
@@ -1656,6 +1661,7 @@ button, select, input {
 }
 
 .dashboard__edit-button {
+  min-width: 50px;
   padding: 5px;
   margin-bottom: 5px;
   background: #111;
@@ -1667,6 +1673,12 @@ button, select, input {
 .dashboard__edit-box {
   display: flex;
   flex-direction: column;
+}
+
+.dashboard__password-edit-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .dashboard__delete-form {
