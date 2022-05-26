@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\BetStatsHelper;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -38,6 +39,7 @@ class DashboardController extends Controller
         if ($request->hasFile('profile-picture')) {
             $picturePath = $request->file('profile-picture')->store('profile-pictures', 'public');
             $user = auth()->user();
+            Storage::disk('public')->delete($user->profile_picture);
             $user->profile_picture = $picturePath;
             $user->save();
         }
