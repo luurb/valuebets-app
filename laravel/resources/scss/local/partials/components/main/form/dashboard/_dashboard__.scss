@@ -36,6 +36,7 @@
 }
 
 .dashboard__account-inputs {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,12 +83,18 @@
     }
 }
 
-.dashboard__button {
+.dashboard__edit-button {
     padding: 5px;
+    margin-bottom: 5px;
     background: colors.$black1;
     color: colors.$white-f;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.dashboard__edit-box {
+    display: flex;
+    flex-direction: column;
 }
 
 .dashboard__delete-form {
@@ -96,7 +103,7 @@
 }
 
 .dashboard__delete-button,
-.dashboard__delete-div {
+.dashboard__button {
     cursor: pointer;
     margin-top: 5px;
     background: colors.$grey2;
@@ -110,9 +117,9 @@
     color: colors.$white-f;
 }
 
-.dashboard__delete-div:hover,
-.dashboard__delete-div:active {
-    background: colors.$red;
+.dashboard__button:hover,
+.dashboard__button:active {
+    background: colors.$black1;
     color: colors.$white-f;
 }
 
@@ -205,7 +212,7 @@
     }
 
     .dashboard__account-info-box {
-        width: unset;
+        max-width: 800px;
         padding-left: 20px;
     }
 }

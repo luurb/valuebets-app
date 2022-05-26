@@ -193,7 +193,6 @@
 
 .filters__button {
     width: 70%;
-    margin-top: 20px;
     text-transform: unset;
     @include mixins.button(colors.$white-f, colors.$purple-gradient);
 }

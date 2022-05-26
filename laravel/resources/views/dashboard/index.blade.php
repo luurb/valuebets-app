@@ -38,7 +38,7 @@
                             <span class="dashboard__input">
                                 {{ auth()->user()->name }}
                             </span>
-                            <button class="dashboard__button name">
+                            <button class="dashboard__edit-button edit-name-button">
                                 Edit
                             </button>
                         </div>
@@ -46,8 +46,8 @@
                             <span class="dashboard__input-name">
                                 Password:
                             </span>
-                            <input type="text" class="dashboard__input" value="**********">
-                            <button class="dashboard__button">
+                            <span class="dashboard__input">******</span>
+                            <button class="dashboard__edit-button edit-pass-button">
                                 Edit
                             </button>
                         </div>
@@ -64,21 +64,21 @@
                                 <span>Choose image</span>
                                 <input type="file" form="img-form" name="profile-picture">
                             </label>
-                            <button type="submit" class="dashboard__button" form="img-form">
+                            <button type="submit" class="dashboard__edit-button" form="img-form">
                                 Edit
                             </button>
                         </div>
                         @error('profile-picture')
                             <span class="error-text">
-                                Max image size is 2048MB
+                                {{ $message }}. Max image size is 2048MB.
                             </span>
                         @enderror
                         <form action="/dashboard" method="post" class="dashboard__delete-form">
                             @csrf
                             @method('DELETE')
-                            <div class="dashboard__delete-div">
+                            <button type="button" class="dashboard__button delete-account-button">
                                 Delete account
-                            </div>
+                            </button>
                         </form>
                     </div>
                 </div>

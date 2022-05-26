@@ -11,9 +11,9 @@
     <link rel="icon" href="{{ asset('/favicon_32x32.png') }}" sizes="32x32">
     <link rel="icon" href="{{ asset('/favicon_48x48.png') }}" sizes="48x48">
     <link rel="icon" href="{{ asset('/favicon_96x96.png') }}" sizes="96x96">
-    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <title>@yield('title') - Free Valuebets</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <meta name="description" content="@yield('description')">
     <meta property="og:description" content="@yield('description')">
 

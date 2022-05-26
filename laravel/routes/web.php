@@ -73,6 +73,7 @@ Route::patch('/modify', [ModifyBetController::class, 'update']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::patch('/dashboard', [DashboardController::class, 'updateProfilePicture']);
 Route::patch('/dashboard/name', [DashboardController::class, 'updateName']);
+Route::patch('/dashboard/password', [DashboardController::class, 'updatePassword']);
 Route::delete('/dashboard', [DashboardController::class, 'delete']);
 
 Route::get('/test', [Test::class, 'index']);

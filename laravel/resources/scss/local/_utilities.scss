@@ -1,7 +1,7 @@
 @use '../config/colors';
 @use './fonts';
 @use './../config/layers';
-
+@use '../config/breakpoints';
 .max-width-30 {
     max-width: 30%;
 }
@@ -116,6 +116,7 @@
 }
 
 .error-text {
+    text-align: center;
     color: colors.$red;
 }
 
@@ -202,4 +203,28 @@
 
 .result-pending-span {
     background: colors.$grey-f;
+}
+
+.pop-up {
+    font-size: fonts.$medium;
+    font-family: fonts.$poppins;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    z-index: 10;
+
+    div {
+        width: fit-content;
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 5px;
+        background: colors.$purple;
+        color: colors.$white-f;
+    }
+}
+
+@media (min-width: breakpoints.$tablets) {
+    .pop-up {
+        top: 80px;
+    }
 }

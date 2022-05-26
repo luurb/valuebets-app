@@ -22,7 +22,7 @@
                 Yield
             </div>
             <div class="dashboard__result">
-                {{ $yield }}
+                {{ $yield }}%
             </div>
         </div>
         <div class="dashboard__stats-results-box">
@@ -30,7 +30,7 @@
                 Avg value
             </div>
             <div class="dashboard__result">
-                {{ $value }}
+                {{ $value }}%
             </div>
         </div>
         <div class="dashboard__stats-results-box">

@@ -162,6 +162,7 @@ html {
 }
 
 .error-text {
+  text-align: center;
   color: #cb1010;
 }
 
@@ -250,6 +251,30 @@ html {
   background: #6c6c6c;
 }
 
+.pop-up {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 10;
+}
+.pop-up div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  background: #1c1caa;
+  color: #fff;
+}
+
+@media (min-width: 1050px) {
+  .pop-up {
+    top: 80px;
+  }
+}
 a {
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1192,7 +1217,6 @@ button, select, input {
 
 .filters__button {
   width: 70%;
-  margin-top: 20px;
   text-transform: unset;
   color: #fff;
   background: linear-gradient(to right, #646485, #1c1caa);
@@ -1585,6 +1609,7 @@ button, select, input {
 }
 
 .dashboard__account-inputs {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1630,12 +1655,18 @@ button, select, input {
   margin-right: 5px;
 }
 
-.dashboard__button {
+.dashboard__edit-button {
   padding: 5px;
+  margin-bottom: 5px;
   background: #111;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.dashboard__edit-box {
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard__delete-form {
@@ -1644,7 +1675,7 @@ button, select, input {
 }
 
 .dashboard__delete-button,
-.dashboard__delete-div {
+.dashboard__button {
   cursor: pointer;
   margin-top: 5px;
   background: #cdcdcd;
@@ -1658,9 +1689,9 @@ button, select, input {
   color: #fff;
 }
 
-.dashboard__delete-div:hover,
-.dashboard__delete-div:active {
-  background: #cb1010;
+.dashboard__button:hover,
+.dashboard__button:active {
+  background: #111;
   color: #fff;
 }
 
@@ -1752,7 +1783,7 @@ button, select, input {
   }
 
   .dashboard__account-info-box {
-    width: unset;
+    max-width: 800px;
     padding-left: 20px;
   }
 }

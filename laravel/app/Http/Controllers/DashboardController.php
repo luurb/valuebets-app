@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\BetStatsHelper;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -28,6 +29,9 @@ class DashboardController extends Controller
         $request->validate(
             [
                 'profile-picture' => 'required|max:2048',
+            ],
+            [
+                'profile-picture.required' => 'Please provide picture',
             ]
         );
 
@@ -42,10 +46,25 @@ class DashboardController extends Controller
 
     public function updateName(Request $request) 
     {
-        $name = $request->json('name');
+        $status = 0;
+        if ($name = $request->json('name')) {
+            if (User::where('name', $name)->exists()) {
+                $status = 2;
+            } else {
+                $user = auth()->user();
+                $user->name = $name;
+                $user->save();
+                $status = 1;
+            }
+        } 
+
         return response()->json([
-            'name' => $name,
+            'status' => $status
         ]);
+    }
+
+    public function updatePassword(Request $request) 
+    {
 
     }
 
