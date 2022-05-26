@@ -9,6 +9,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    volumes:
+      - images:/var/www/storage/app/public/profile-pictures
   mysql-db:
     image: mysql:8.0
     container_name: mysql
@@ -25,3 +27,4 @@ services:
       - mysql:/var/lib/mysql
 volumes:
   mysql:
+  images:
