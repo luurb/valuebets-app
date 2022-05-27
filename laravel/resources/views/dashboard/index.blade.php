@@ -70,7 +70,7 @@
                         </div>
                         @error('profile-picture')
                             <span class="error-text">
-                                {{ $message }}. Max image size is 2048MB.
+                                {{ $message }}. Max image size is 2MB.
                             </span>
                         @enderror
                         <form action="/dashboard" method="post" class="dashboard__delete-form">
