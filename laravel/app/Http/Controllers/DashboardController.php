@@ -40,7 +40,9 @@ class DashboardController extends Controller
         if ($request->hasFile('profile-picture')) {
             $picturePath = $request->file('profile-picture')->store('profile-pictures', 'public');
             $user = auth()->user();
-            Storage::disk('public')->delete($user->profile_picture);
+            if (! str_contains($user->profile_picture, 'random')) {
+                Storage::disk('public')->delete($user->profile_picture);
+            }
             $user->profile_picture = $picturePath;
             $user->save();
         }

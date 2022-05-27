@@ -76,8 +76,6 @@ Route::patch('/dashboard/name', [DashboardController::class, 'updateName']);
 Route::patch('/dashboard/password', [DashboardController::class, 'updatePassword']);
 Route::delete('/dashboard', [DashboardController::class, 'delete']);
 
-Route::get('/test', [Test::class, 'index']);
-
 Route::get('/home', function () {
     return view('home.index');
 })->name('home');
