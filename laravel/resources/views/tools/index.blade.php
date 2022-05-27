@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('description')
+    Use tools to calculate bookmaker margin or value of bet using odds from bookmaker. 
+@endsection
+
 @section('js-links')
     <script src="{{ asset('js/tools.js') }}" defer></script>
 @endsection

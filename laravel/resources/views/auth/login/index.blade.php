@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('description')
+    Login to your account.
+@endsection
+
 @section('title')
     Login
 @endsection

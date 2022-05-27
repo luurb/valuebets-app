@@ -8,6 +8,11 @@
     <script src="{{ asset('js/dashboard.js') }}" defer></script>
 @endsection
 
+@section('description')
+    Add custom image to your avatar, check bets statistics for different sports 
+    and edit your profile credentials.
+@endsection
+
 @section('title')
     Dashboard
 @endsection

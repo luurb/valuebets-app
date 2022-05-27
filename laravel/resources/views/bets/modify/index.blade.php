@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('description')
+    Modify bet, add stake, result or game start time.
+@endsection
+
 @section('title')
    Modify bet 
 @endsection

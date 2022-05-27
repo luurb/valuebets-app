@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('description')
+    Create account.
+@endsection
+
 @section('title')
     Register
 @endsection

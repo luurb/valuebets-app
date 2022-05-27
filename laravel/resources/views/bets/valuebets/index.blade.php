@@ -4,6 +4,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
+@section('description')
+    Find free valuebets for football, basketball, tennis and esport with valuebets scraper. 
+    Filter bets by value, odds, date and delay. 
+    Add bets to history for statistics which contains yield, return and average value.
+@endsection
+
 @section('title')
    Valuebets
 @endsection

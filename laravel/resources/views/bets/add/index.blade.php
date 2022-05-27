@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('description')
+    Add custom bet to your bets history.
+@endsection
+
 @section('title')
     Add bet
 @endsection

@@ -1,11 +1,16 @@
 @extends('layouts.main')
 
+@section('description')
+    Check your bets history, which contains statistics for value,
+    yield, return and number of bets. 
+@endsection
+
 @section('meta')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('title')
-    History
+    Bets history
 @endsection
 
 @section('js-links')
