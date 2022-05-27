@@ -228,7 +228,6 @@ function editPassword(inputBox) {
     let confirmPassword = inputBox.querySelector(
         'input[name="confirm_password"]'
     ).value;
-    console.log(newPassword, confirmPassword);
     let checkCredentials = 0;
     let messages = {
         0: 'Something went wrong. Try again later',
