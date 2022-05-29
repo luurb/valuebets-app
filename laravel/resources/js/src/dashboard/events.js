@@ -31,9 +31,11 @@ function printAccountDeletingBox() {
     let cancelButton = form.querySelector('.cancel-button');
     cancelButton.addEventListener('click', () => {
         form.removeChild(form.querySelector('.delete-confirmation-box'));
-        form.innerHTML += `<button type="button" class="dashboard__button delete-account-button">
-                Delete account
-            </button>`;
+        let button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'dashboard__button delete-account-button';
+        button.textContent = 'Delete account';
+        form.appendChild(button);
         deleteAccountBtn = form.querySelector('.delete-account-button');
         deleteAccountBtn.addEventListener('click', printAccountDeletingBox);
     });
@@ -64,7 +66,7 @@ function printNameEditBox() {
 
     //Cancel editting name
     inputBox.querySelector('.cancel-button').addEventListener('click', () => {
-        cancelEditingName(name, inputBox, 'name');
+        cancelEditingName(name, inputBox);
     });
 
     //Confirm editting name
@@ -133,12 +135,16 @@ function editName(nameInput, oldName) {
 function cancelEditingName(name, inputBox) {
     inputBox.removeChild(inputBox.querySelector('input'));
     inputBox.removeChild(inputBox.querySelector('.dashboard__edit-box'));
-    inputBox.innerHTML += `<span class="dashboard__input">
-            ${name}
-        </span>
-        <button type="button" class="dashboard__edit-button edit-name-button">
-            Edit
-        </button>`;
+
+    let span = document.createElement('span');
+    let button = document.createElement('button');
+    span.className = 'dashboard__input';
+    span.textContent = name;
+    button.type = 'button';
+    button.className = 'dashboard__edit-button edit-name-button';
+    button.textContent = 'Edit';
+    inputBox.appendChild(span);
+    inputBox.appendChild(button);
 
     editNameBtn = inputBox.querySelector('.edit-name-button');
 
