@@ -15,5 +15,5 @@ Check app on [valuescrape](https://valuescrape.xyz)
 - MySQL
 - JavaScript
 - HTML, CSS, SCSS
-- Docker
+- Docker  
 App runs on Docker container with Apache server. 
