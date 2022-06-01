@@ -34,8 +34,8 @@ class ModifyBetController extends Controller
 
     public function update(Request $request)
     {
-        $request = BetAddHelper::filterCommas($request);
         BetAddHelper::betValidate('modify', $request);
+        $request = BetAddHelper::filterCommas($request);
 
         $bookieId = BetAddHelper::getBookieId($request->bookie);
         $sportId = BetAddHelper::getSportId($request->sport);
