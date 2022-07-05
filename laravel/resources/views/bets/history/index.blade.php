@@ -205,7 +205,7 @@
         </div>
         <div class="filters__box">
             <span class="filters__header filters__header--stat">Number of bets</span>
-            <span class="filters__value">{{ $overTimeStats['value'] }}</span>
+            <span class="filters__value">{{ $overTimeStats['counter'] }}</span>
         </div>
         <div class="filters__box">
             <span class="filters__header filters__header--stat">Time range </span>
